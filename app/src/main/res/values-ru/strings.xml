@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ColorDemon</string>
+
+    <string name="start_button">Играть</string>
+    <string name="shop_button">Магазин</string>
+    <string name="settings_button">Настройки</string>
+    <string name="exit_button">Выход</string>
+
+    <string name="level_textView">Уровень</string>
+    <string name="leaders_textView">Лидеры</string>
+</resources>
