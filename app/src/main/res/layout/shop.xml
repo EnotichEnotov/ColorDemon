@@ -5,6 +5,19 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".Shop">
-
+    tools:context=".Shop"
+   >
+    <TextView
+        android:gravity="center"
+        android:id="@+id/texttitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Brawl Talk"
+        android:textSize="30sp"
+        android:textColor="@color/purple_500"/>
+    <ListView
+        android:id="@+id/listview"
+        android:layout_below="@id/texttitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>
