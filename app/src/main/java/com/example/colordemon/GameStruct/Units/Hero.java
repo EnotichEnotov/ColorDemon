@@ -4,6 +4,7 @@ import com.example.colordemon.GameStruct.GameObjectType;
 
 public class Hero extends Unit{
     private float stopSpeed = 5f;
+    public int damageType = 0;
     public Hero(float x, float y, GameObjectType type, float velocityX,float velocityY) {
         super(x, y, type, velocityX,velocityY);
     }
