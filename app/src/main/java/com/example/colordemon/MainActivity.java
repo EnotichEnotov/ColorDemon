@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                         getColor(R.color.violet_rainbow),
                 }, null, Shader.TileMode.CLAMP);
         binding.title.getPaint().setShader(textShader);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         binding.settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
