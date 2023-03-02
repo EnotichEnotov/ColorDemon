@@ -85,6 +85,7 @@ public class Shop extends AppCompatActivity {
             if(convertView==null){
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.list,null);
             }
+            /*
             convertView.findViewById(R.id.like).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -107,12 +108,7 @@ public class Shop extends AppCompatActivity {
                     }
                 }
             });
-            convertView.findViewById(R.id.author_art).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(Shop.this, "За всех, кто хотел меня убить", Toast.LENGTH_SHORT).show();
-                }
-            });
+            */
             convertView.findViewById(R.id.send).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -133,8 +129,8 @@ public class Shop extends AppCompatActivity {
                 });
                 */
 
-            ImageView authorArt = convertView.findViewById(R.id.author_art);
-            authorArt.setImageResource(entry.getAuthorArtid());
+            //ImageView authorArt = convertView.findViewById(R.id.author_art);
+            //authorArt.setImageResource(entry.getAuthorArtid());
             ImageView memes = convertView.findViewById(R.id.memes);
             memes.setImageResource(entry.getMemeid());
             TextView author = convertView.findViewById(R.id.author);
