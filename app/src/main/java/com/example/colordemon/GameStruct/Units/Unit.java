@@ -5,10 +5,8 @@ import com.example.colordemon.GameStruct.GameObjectType;
 
 
 public class Unit extends GameObject {
-    private GameObjectType type;
-    public Unit(float x, float y,GameObjectType type, float velocity) {
-        super(x, y, type,velocity);
-        this.type=type;
+    public Unit(float x, float y,GameObjectType type, float velocityX,float velocityY) {
+        super(x, y, type,velocityX,velocityY);
     }
 
     @Override
