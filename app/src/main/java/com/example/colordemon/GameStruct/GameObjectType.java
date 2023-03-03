@@ -1,6 +1,7 @@
 package com.example.colordemon.GameStruct;
 
 import android.graphics.Bitmap;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
