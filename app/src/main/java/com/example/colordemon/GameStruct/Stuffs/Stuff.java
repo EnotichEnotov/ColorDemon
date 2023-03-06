@@ -5,8 +5,8 @@ import com.example.colordemon.GameStruct.GameObjectType;
 
 public class Stuff extends GameObject {
 
-    public Stuff(float x, float y, GameObjectType type) {
-        super(x, y,type);
+    public Stuff(float x, float y) {
+        super(x, y);
     }
     @Override
     public void update() {

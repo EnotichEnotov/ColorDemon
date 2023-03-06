@@ -6,7 +6,7 @@ import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 
 public class GameObjectType {
-    ArrayList<Bitmap> sprite;
+    public ArrayList<Bitmap> sprite;
     Integer name;
 
     public GameObjectType(ArrayList<Bitmap> sprite, Integer name) {

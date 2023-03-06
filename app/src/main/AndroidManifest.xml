@@ -27,6 +27,7 @@
         </activity>
         <activity android:name=".Settings" android:exported="false"/>
         <activity android:name=".Shop" android:exported="false"/>
+        <activity android:name=".GameStruct.Game" android:exported="false"/>
     </application>
 
 </manifest>

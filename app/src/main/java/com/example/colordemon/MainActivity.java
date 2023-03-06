@@ -12,6 +12,8 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.widget.SeekBar;
+
+import com.example.colordemon.GameStruct.Game;
 import com.example.colordemon.databinding.ActivityMainBinding;
 import java.util.Locale;
 
@@ -69,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finishAndRemoveTask();
+            }
+        });
+        binding.start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Game.class);
+                startActivity(intent);
+                finish();
             }
         });
 
