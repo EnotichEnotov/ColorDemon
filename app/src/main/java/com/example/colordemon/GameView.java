@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Button[] abilities = new Button[4];
     private DrawThread myThread;
+    private DrawController drawController;
     private ArrayList<Enemy> enemies;
     private GameObjectFactory unitsFactory;
     private SurfaceHolder surfaceHolder;
@@ -46,8 +47,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         myThread.start();
     }
     public void init(){
-        hero = new Hero(getWidth()/2,getHeight()/2,0f,0f);
+        hero = new Hero(getWidth()/4,getHeight()/4,0f,0f);
         enemies = new ArrayList<>();
+        drawController = new DrawController(new CentralObject(hero),hero,enemies,null,unitsFactory);
     }
     //private Button createButton(float x, float y,int id){
     //    Button button;
@@ -62,8 +64,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public void drawFrames(Canvas canvas){
         Rect backgroundRect = new Rect(0, 0, getWidth(), getHeight());
         canvas.drawBitmap(background, null, backgroundRect, null);
-        canvas.drawBitmap(unitsFactory.getUnitType(Hero.Name).sprite.get(0),hero.x,hero.y,null);
-        for(Enemy i : enemies){}
+        drawController.draw(canvas,getWidth(),getHeight());
     }
     @Override
     public boolean onTouchEvent(MotionEvent event) {
