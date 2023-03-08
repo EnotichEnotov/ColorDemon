@@ -6,6 +6,22 @@
     <string name="settings_button">Настройки</string>
     <string name="exit_button">Выход</string>
 
+    <string name="author_shop_character_1">Ассасин</string>
+    <string name="author_shop_character_2">Грабитель</string>
+    <string name="author_shop_character_3">Солдат</string>
+    <string name="author_shop_character_4">Волшебник</string>
+    <string name="author_shop_character_5">Смерть</string>
+    <string name="author_shop_character_6">Священник</string>
+
+    <string name="author_shop_weapon_1">Катана</string>
+    <string name="author_shop_weapon_2">Топор</string>
+    <string name="author_shop_weapon_3">Серп</string>
+    <string name="author_shop_weapon_4">Молот</string>
+    <string name="author_shop_weapon_5">Меч</string>
+    <string name="author_shop_weapon_6">Нунчаки</string>
+
+    <string name="character_story_1">Спец по скрытному передвижению  обладает хорошей подвижностью и быстрой скоростью атак. Бла бла бла</string>
+
     <string name="level_textView">Уровень</string>
     <string name="leaders_textView">Лидеры</string>
 </resources>

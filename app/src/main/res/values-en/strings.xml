@@ -6,6 +6,22 @@
     <string name="settings_button">Settings</string>
     <string name="exit_button">Exit</string>
 
+    <string name="author_shop_character_1">Assasin</string>
+    <string name="author_shop_character_2">Robber</string>
+    <string name="author_shop_character_3">Soldier</string>
+    <string name="author_shop_character_4">Wizard</string>
+    <string name="author_shop_character_5">Death</string>
+    <string name="author_shop_character_6">Priest</string>
+
+    <string name="author_shop_weapon_1">Katana</string>
+    <string name="author_shop_weapon_2">Axe</string>
+    <string name="author_shop_weapon_3">Sickle</string>
+    <string name="author_shop_weapon_4">Hammer</string>
+    <string name="author_shop_weapon_5">Sword</string>
+    <string name="author_shop_weapon_6">Nunchaku</string>
+
+    <string name="character_story_1">Спец по скрытному передвижению обладает хорошей подвижностью и быстрой скоростью атак. Бла бла бла</string>
+
     <string name="level_textView">Level</string>
     <string name="leaders_textView">Leaders</string>
 </resources>

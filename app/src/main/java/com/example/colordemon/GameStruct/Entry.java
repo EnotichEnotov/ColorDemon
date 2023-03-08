@@ -24,13 +24,16 @@ public class Entry {
     private int likes;
     private int comments;
     private int views;
-    public Entry(String author, int authorArtid, int memeid){
+
+    private String char_story;
+    public Entry(String author, int authorArtid, int memeid, String char_story){
         likes=0;
         comments=0;
         views=0;
         this.author=author;
         this.authorArtid=authorArtid;
         this.memeid=memeid;
+        this.char_story = char_story;
     }
 
     public int getMemeid() {
@@ -59,4 +62,6 @@ public class Entry {
     public int getLikes() {
         return likes;
     }
+
+    public String getChar_story(){return char_story;}
 }
