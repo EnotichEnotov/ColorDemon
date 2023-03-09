@@ -19,19 +19,17 @@ import android.widget.Toast;
 public class Entry {
     private boolean liked=false;
     private String author;
-    private int authorArtid;
     private int memeid;
     private int likes;
     private int comments;
     private int views;
 
     private String char_story;
-    public Entry(String author, int authorArtid, int memeid, String char_story){
+    public Entry(String author,  int memeid, String char_story){
         likes=0;
         comments=0;
         views=0;
         this.author=author;
-        this.authorArtid=authorArtid;
         this.memeid=memeid;
         this.char_story = char_story;
     }
@@ -40,9 +38,6 @@ public class Entry {
         return memeid;
     }
 
-    public int getAuthorArtid() {
-        return authorArtid;
-    }
 
     public String getAuthor() {
         return author;
