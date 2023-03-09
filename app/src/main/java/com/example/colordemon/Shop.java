@@ -57,11 +57,11 @@ public class Shop extends AppCompatActivity{
 
         setContentView(binding.getRoot());
         entries[0] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-        entries[1] = new Entry(getResources().getString(R.string.author_shop_character_2),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-        entries[2] = new Entry(getResources().getString(R.string.author_shop_character_3),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-        entries[3] = new Entry(getResources().getString(R.string.author_shop_character_4),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-        entries[4] = new Entry(getResources().getString(R.string.author_shop_character_5),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-        entries[5] = new Entry(getResources().getString(R.string.author_shop_character_6),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
+        entries[1] = new Entry(getResources().getString(R.string.author_shop_character_2),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_2));
+        entries[2] = new Entry(getResources().getString(R.string.author_shop_character_3),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_3));
+        entries[3] = new Entry(getResources().getString(R.string.author_shop_character_4),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_4));
+        entries[4] = new Entry(getResources().getString(R.string.author_shop_character_5),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_5));
+        entries[5] = new Entry(getResources().getString(R.string.author_shop_character_6),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_6));
         listView = binding.listview;
         adapter = new MyEntryAdapter(this,entries);
         Context context = this;
@@ -74,11 +74,11 @@ public class Shop extends AppCompatActivity{
 
 
                 entries[0] = new Entry(getResources().getString(R.string.author_shop_weapon_1),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-                entries[1] = new Entry(getResources().getString(R.string.author_shop_weapon_2),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-                entries[2] = new Entry(getResources().getString(R.string.author_shop_weapon_3),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-                entries[3] = new Entry(getResources().getString(R.string.author_shop_weapon_4),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-                entries[4] = new Entry(getResources().getString(R.string.author_shop_weapon_5),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-                entries[5] = new Entry(getResources().getString(R.string.author_shop_weapon_6),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
+                entries[1] = new Entry(getResources().getString(R.string.author_shop_weapon_2),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_2));
+                entries[2] = new Entry(getResources().getString(R.string.author_shop_weapon_3),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_3));
+                entries[3] = new Entry(getResources().getString(R.string.author_shop_weapon_4),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_4));
+                entries[4] = new Entry(getResources().getString(R.string.author_shop_weapon_5),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_5));
+                entries[5] = new Entry(getResources().getString(R.string.author_shop_weapon_6),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_6));
                 listView = binding.listview;
 
                 adapter = new MyEntryAdapter(context,entries);
@@ -89,11 +89,11 @@ public class Shop extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 entries[0] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-                entries[1] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-                entries[2] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-                entries[3] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-                entries[4] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
-                entries[5] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_1));
+                entries[1] = new Entry(getResources().getString(R.string.author_shop_character_2),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_2));
+                entries[2] = new Entry(getResources().getString(R.string.author_shop_character_3),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_3));
+                entries[3] = new Entry(getResources().getString(R.string.author_shop_character_4),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_4));
+                entries[4] = new Entry(getResources().getString(R.string.author_shop_character_5),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_5));
+                entries[5] = new Entry(getResources().getString(R.string.author_shop_character_6),R.drawable.shop_skin_person1,R.drawable.shop_skin_person1, getResources().getString(R.string.character_story_6));
 
                 adapter = new MyEntryAdapter(context,entries);
                 listView.setAdapter(adapter);
@@ -176,6 +176,8 @@ public class Shop extends AppCompatActivity{
             memes.setImageResource(entry.getMemeid());
             TextView author = convertView.findViewById(R.id.author);
             author.setText(entry.getAuthor());
+            TextView char_story = convertView.findViewById(R.id.char_story);
+            char_story.setText(entry.getChar_story());
             return convertView;
         }
     }
