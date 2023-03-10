@@ -16,8 +16,9 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Steve"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="60dp"
             android:textSize="30sp"/>
+
     </LinearLayout>
     <View
         android:id="@+id/line"
@@ -42,7 +43,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/shop_skin_person1"/>
+
     </LinearLayout>
+    <TextView
+        android:id="@+id/char_story"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/line"
+        android:layout_marginLeft="200dp"
+        android:text="@string/character_story_1"
+        />
     <View
         android:id="@+id/line2"
         android:layout_width="200dp"
@@ -64,8 +74,8 @@
             android:id="@+id/send"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             android:text="Purchase"
