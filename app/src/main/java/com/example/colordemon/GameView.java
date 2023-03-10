@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
+import com.example.colordemon.GameStruct.BoxCollider;
 import com.example.colordemon.GameStruct.GameObjectFactory;
 import com.example.colordemon.GameStruct.Units.Enemy;
 import com.example.colordemon.GameStruct.Units.Hero;
@@ -26,6 +27,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private ArrayList<Enemy> enemies;
     private GameObjectFactory unitsFactory;
     private SurfaceHolder surfaceHolder;
+    private CentralObject centralObject;
     private final Bitmap background;
     private float xPress;
     private float yPress;
@@ -47,9 +49,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         myThread.start();
     }
     public void init(){
-        hero = new Hero(getWidth()/4,getHeight()/4,0f,0f);
+        hero = new Hero(getWidth()/4,getHeight()/4,0f,0f,new BoxCollider(hero,100,100),100,100);
+        centralObject = new CentralObject(hero);
         enemies = new ArrayList<>();
-        drawController = new DrawController(new CentralObject(hero),hero,enemies,null,unitsFactory);
+        drawController = new DrawController(centralObject,hero,enemies,null,unitsFactory);
     }
     //private Button createButton(float x, float y,int id){
     //    Button button;
@@ -70,26 +73,48 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public boolean onTouchEvent(MotionEvent event) {
         float x = event.getX();
         float y = event.getY();
-        switch (hero.damageType){
-            case 0:
-                switch (event.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        xPress=x;
-                        yPress=y;
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        xUnPress=x;
-                        yUnPress=y;
-                        break;
-                }
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                xPress=x;
+                yPress=y;
+                return true;
+                case MotionEvent.ACTION_UP:
+                    xUnPress=x;
+                    yUnPress=y;
+                    break;
         }
         return super.onTouchEvent(event);
     }
     public void tickLogic(){
         hero.run();
-        if(xPress!=0 && yPress!=0 && yUnPress!=0 && xUnPress!=0){
-            hero.dash(xUnPress-xPress,yUnPress-yPress);
-            xPress=0; yPress=0; xUnPress=0; yUnPress=0;
+        switch (hero.damageType){
+            case 0:
+                if(xPress!=0 && yPress!=0 && yUnPress!=0 && xUnPress!=0){
+                    hero.dash(xUnPress-xPress,yUnPress-yPress);
+                    xPress=0; yPress=0; xUnPress=0; yUnPress=0;
+                }
+            case 1:
+                float minX=100000;
+                float minY=100000;
+                float addX=-centralObject.getCentralX()+getWidth()/2;
+                float addY=-centralObject.getCentralY()+getHeight()/2;
+                if(xUnPress==0 && yUnPress==0) break;
+                for(Enemy i : enemies){
+                    if(Math.pow(i.x+addX-xUnPress,2)+Math.pow(i.y+addY-yUnPress,2)<minX*minX+minY*minY){
+                        minX=i.x;
+                        minY=i.y;
+                        if(minX*minX+minY*minY<50f){
+                            hero.enemyPort(minX,minY);
+                            break;}
+                    }
+                }
+                break;
+            case 2:
+                if(xUnPress!=0 && yUnPress!=0){
+                    hero.circleDash(xUnPress,yUnPress,getWidth(),getHeight());
+                    xUnPress=0; yUnPress=0;
+                }
+                break;
         }
     }
     private class DrawThread extends Thread {

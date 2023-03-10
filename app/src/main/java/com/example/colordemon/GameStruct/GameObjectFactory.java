@@ -14,7 +14,7 @@ public class GameObjectFactory {
     public GameObjectFactory(Context context) {
         unitTypes = new ArrayList<>();
         ArrayList<Bitmap> pullPersons = new ArrayList<>();
-        pullPersons.add(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.shop_skin_person1),100,200,false));
+        pullPersons.add(BitmapFactory.decodeResource(context.getResources(), R.drawable.shop_skin_person1));
         unitTypes.add(new GameObjectType(pullPersons,0));
     }
 

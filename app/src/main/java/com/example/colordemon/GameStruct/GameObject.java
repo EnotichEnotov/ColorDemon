@@ -1,12 +1,19 @@
 package com.example.colordemon.GameStruct;
 
 public abstract class GameObject {
-    public float x,y,velocityX,velocityY;
+    public float x,y,velocityX,velocityY,scaleX,scaleY;
     public GameObjectType type;
-    public GameObject(float x,float y,float velocityX,float velocityY) {
+    public Collider collider;
+    public GameObject(float x,float y,float velocityX,float velocityY,Collider collider) {
         this(x,y);
         this.velocityX=velocityX;
         this.velocityY=velocityY;
+        this.collider=collider;
+    }
+    public GameObject(float x,float y,float velocityX,float velocityY,Collider collider,float scaleX,float scaleY){
+        this(x,y,velocityX,velocityY,collider);
+        this.scaleX=scaleX;
+        this.scaleY=scaleY;
     }
     public GameObject(float x, float y) {
         this.x = x;
