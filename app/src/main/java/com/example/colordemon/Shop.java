@@ -174,7 +174,8 @@ public class Shop extends AppCompatActivity{
             //authorArt.setImageResource(entry.getAuthorArtid());
             ImageView memes = convertView.findViewById(R.id.memes);
             memes.setImageResource(entry.getMemeid());
-
+            TextView author = convertView.findViewById(R.id.author);
+            author.setText(entry.getAuthor());
             TextView char_story = convertView.findViewById(R.id.char_story);
             char_story.setText(entry.getChar_story());
             return convertView;
