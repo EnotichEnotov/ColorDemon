@@ -16,6 +16,6 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = SettingsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
     }
 }
