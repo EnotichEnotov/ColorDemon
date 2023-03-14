@@ -70,7 +70,7 @@ public class Shop extends AppCompatActivity{
         binding.buttonWeapon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Shop.this, "sfdsd", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Shop.this, "sfdsd", Toast.LENGTH_SHORT).show();
 
 
                 entries[0] = new Entry(getResources().getString(R.string.author_shop_weapon_1),R.drawable.shop_skin_weapon1, getResources().getString(R.string.character_story_1));
@@ -109,7 +109,7 @@ public class Shop extends AppCompatActivity{
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             Log.v("A","pochemy");
-            Toast.makeText(Shop.this, "sfdsd", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(Shop.this, "sfdsd", Toast.LENGTH_SHORT).show();
             adapter.notifyDataSetChanged();
         }
     }
@@ -153,7 +153,7 @@ public class Shop extends AppCompatActivity{
             convertView.findViewById(R.id.send).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(Shop.this, "За всех, кто хотел меня убить", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Shop.this, "Оно работает", Toast.LENGTH_SHORT).show();
                 }
             });
                 /*

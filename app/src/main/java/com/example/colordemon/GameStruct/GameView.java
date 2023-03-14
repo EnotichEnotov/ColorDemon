@@ -98,6 +98,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             i.updateCooldown();
             if(i.collider.isCollision(xUnPress,yUnPress)) {
                 hero.damageType=i.number; xUnPress=0; yUnPress=0;
+                return;
             }
         }
         switch (hero.damageType){
@@ -116,11 +117,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     if(Math.pow(i.x+addX-xUnPress,2)+Math.pow(i.y+addY-yUnPress,2)<minX*minX+minY*minY){
                         minX=i.x;
                         minY=i.y;
-                        if(minX*minX+minY*minY<50f){
-                            hero.enemyPort(minX,minY);
-                            break;}
                     }
                 }
+                hero.enemyPort(minX,minY);
                 break;
             case 2:
                 if(xUnPress!=0 && yUnPress!=0){

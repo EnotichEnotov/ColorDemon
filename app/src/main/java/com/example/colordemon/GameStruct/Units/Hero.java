@@ -65,6 +65,7 @@ public class Hero extends Unit{
         Log.i("III",x+" "+y);
     }
     private void enemyPortUpdate(){
+        if(addX==0 || addY==0) return;
         x=addX;
         y=addY;
         addY=0;
