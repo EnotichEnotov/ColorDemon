@@ -1,4 +1,4 @@
-package com.example.colordemon;
+package com.example.colordemon.GameStruct;
 
 import com.example.colordemon.GameStruct.GameObject;
 

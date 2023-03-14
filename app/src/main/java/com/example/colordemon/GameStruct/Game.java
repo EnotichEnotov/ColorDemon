@@ -7,8 +7,6 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 
-import com.example.colordemon.GameView;
-
 public class Game extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

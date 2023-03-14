@@ -1,9 +1,10 @@
-package com.example.colordemon;
+package com.example.colordemon.GameStruct;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.util.Log;
 
+import com.example.colordemon.GameStruct.Ability;
+import com.example.colordemon.GameStruct.CentralObject;
 import com.example.colordemon.GameStruct.GameObject;
 import com.example.colordemon.GameStruct.GameObjectFactory;
 import com.example.colordemon.GameStruct.Units.Enemy;
@@ -28,12 +29,15 @@ public class DrawController {
         float addX=-centralObject.getCentralX()+width/2;
         float addY=-centralObject.getCentralY()+height/2;
         //Log.i("III",addX+" "+addY+" "+centralObject.getCentralX());
-        canvas.drawBitmap(Bitmap.createScaledBitmap(unitsFactory.getUnitType(hero.Name).sprite.get(hero.nowSprite()),(int)hero.scaleX,(int)hero.scaleY,false),hero.x+addX,hero.y+addY,null);
-        canvas.drawBitmap(Bitmap.createScaledBitmap(unitsFactory.getUnitType(hero.Name).sprite.get(hero.nowSprite()),(int)hero.scaleX,(int)hero.scaleY,false),50+addX,70+addY,null);
-        canvas.drawBitmap(Bitmap.createScaledBitmap(unitsFactory.getUnitType(hero.Name).sprite.get(hero.nowSprite()),(int)hero.scaleX,(int)hero.scaleY,false),250+addX,400+addY,null);
+        canvas.drawBitmap(createBitmap(hero.Name,hero.nowSprite(),hero.scaleX,hero.scaleY),hero.x+addX,hero.y+addY,null);
         for(Enemy i : enemies){
-            canvas.drawBitmap(Bitmap.createScaledBitmap(unitsFactory.getUnitType(0).sprite.get(hero.nowSprite()),(int)i.scaleX,(int)i.scaleY,false),i.x+addX,i.y+addY,null);
+            canvas.drawBitmap(Bitmap.createScaledBitmap(unitsFactory.getUnitType(2).sprite.get(hero.nowSprite()),(int)i.scaleX,(int)i.scaleY,false),i.x+addX,i.y+addY,null);
+        }
+        for(Ability i : hero.abilities){
+            canvas.drawBitmap(createBitmap(i.name,0,100,100),i.x,i.y,null);
         }
     }
-
+    private Bitmap createBitmap(int name,int number,float scaleX,float scaleY){
+        return Bitmap.createScaledBitmap(unitsFactory.getUnitType(name).sprite.get(number),(int)scaleX,(int)scaleY,false);
+    }
 }

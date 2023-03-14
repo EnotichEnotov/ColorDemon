@@ -1,4 +1,4 @@
-package com.example.colordemon;
+package com.example.colordemon.GameStruct;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,10 +13,15 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
+import com.example.colordemon.GameStruct.Ability;
 import com.example.colordemon.GameStruct.BoxCollider;
+import com.example.colordemon.GameStruct.CentralObject;
+import com.example.colordemon.GameStruct.CircleCollider;
+import com.example.colordemon.GameStruct.DrawController;
 import com.example.colordemon.GameStruct.GameObjectFactory;
 import com.example.colordemon.GameStruct.Units.Enemy;
 import com.example.colordemon.GameStruct.Units.Hero;
+import com.example.colordemon.R;
 
 import java.util.ArrayList;
 
@@ -26,6 +31,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private DrawController drawController;
     private ArrayList<Enemy> enemies;
     private GameObjectFactory unitsFactory;
+    private Enemy enemy;
     private SurfaceHolder surfaceHolder;
     private CentralObject centralObject;
     private final Bitmap background;
@@ -36,7 +42,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Hero hero;
     public GameView(Context context) {
         super(context);
-        background = BitmapFactory.decodeResource(context.getResources(),R.drawable.app); // добавить бэкграунд
+        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.white); // добавить бэкграунд
         unitsFactory = new GameObjectFactory(context);
         myThread = new DrawThread();
         getHolder().addCallback(this);
@@ -50,20 +56,20 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
     public void init(){
         hero = new Hero(getWidth()/4,getHeight()/4,0f,0f,new BoxCollider(hero,100,100),100,100);
+        hero.abilities[0] = new Ability(2,getWidth()*3/4,getHeight()*5/6,new CircleCollider(getWidth()*3/4,getHeight()*5/6,200),1);
+        hero.abilities[1] = new Ability(5,getWidth()*3/4+100,getHeight()*5/6+100,new CircleCollider(getWidth()*3/4+50,getHeight()*5/6+50,200),1);
+        hero.abilities[2] = new Ability(8,getWidth()*3/4-100,getHeight()*5/6+100,new CircleCollider(getWidth()*3/4-50,getHeight()*5/6-50,200),1);
+        hero.abilities[3] = new Ability(10,getWidth()*3/4-100,getHeight()*5/6-100,new CircleCollider(getWidth()*3/4-100,getHeight()*5/6-100,200),1);
         centralObject = new CentralObject(hero);
         enemies = new ArrayList<>();
+        enemy = new Enemy(0,0,5,5,new BoxCollider(enemy,100,100),100,100,hero);
+        enemies.add(enemy);
+        enemy = new Enemy(120,450,5,5,new BoxCollider(enemy,100,100),100,100,hero);
+        enemies.add(enemy);
+        enemy = new Enemy(50,50,5,5,new BoxCollider(enemy,100,100),100,100,hero);
+        enemies.add(enemy);
         drawController = new DrawController(centralObject,hero,enemies,null,unitsFactory);
     }
-    //private Button createButton(float x, float y,int id){
-    //    Button button;
-    //    button = findViewById(id);
-    //    button.setY(y);
-    //    button.setX(x);
-    //    button.setHeight(50);
-    //    button.setWidth(50);
-    //// создание кнопки по параметрам, потом пнем в массив кнопок - кнопки для способностей БРЕД
-    //    return button;
-    //}
     public void drawFrames(Canvas canvas){
         Rect backgroundRect = new Rect(0, 0, getWidth(), getHeight());
         canvas.drawBitmap(background, null, backgroundRect, null);
@@ -87,6 +93,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
     public void tickLogic(){
         hero.run();
+        for(Enemy i : enemies) i.run();
         switch (hero.damageType){
             case 0:
                 if(xPress!=0 && yPress!=0 && yUnPress!=0 && xUnPress!=0){

@@ -1,0 +1,171 @@
+@startuml
+class com.example.colordemon.GameStruct.Units.Unit {
++ void update()
+}
+class com.example.colordemon.GameStruct.Stuffs.Door {
++ void open()
+}
+class com.example.colordemon.GameStruct.Entry {
+- boolean liked
+- String author
+- int memeid
+- int likes
+- int comments
+- int views
+- String char_story
++ int getMemeid()
++ String getAuthor()
++ void setLiked()
++ boolean getLiked()
++ void setLikes(int)
++ int getLikes()
++ String getChar_story()
+}
+class com.example.colordemon.GameView {
+- Button[] abilities
+- DrawThread myThread
+- DrawController drawController
+- ArrayList<Enemy> enemies
+- GameObjectFactory unitsFactory
+- Enemy enemy
+- SurfaceHolder surfaceHolder
+- CentralObject centralObject
+- Bitmap background
+- float xPress
+- float yPress
+- float xUnPress
+- float yUnPress
+- Hero hero
++ void surfaceCreated(SurfaceHolder)
++ void init()
++ void drawFrames(Canvas)
++ boolean onTouchEvent(MotionEvent)
++ void tickLogic()
++ void surfaceChanged(SurfaceHolder,int,int,int)
++ void surfaceDestroyed(SurfaceHolder)
+}
+class com.example.colordemon.GameView.DrawThread {
+- boolean running
++ void run()
+}
+class com.example.colordemon.GameStruct.Game {
+# void onCreate(Bundle)
+}
+class com.example.colordemon.GameStruct.Units.Enemy {
+- GameObject targetObject
+- float radius
++ void run()
+}
+class com.example.colordemon.GameStruct.CircleCollider {
+~ float centerX
+~ float centerY
+~ float radius
++ boolean isCollision(float,float)
+}
+abstract class com.example.colordemon.GameStruct.GameObject {
++ float x
++ GameObjectType type
++ Collider collider
++ {abstract}void update()
+}
+class com.example.colordemon.GameStruct.GameObjectType {
++ ArrayList<Bitmap> sprite
+~ Integer name
+}
+class com.example.colordemon.CentralObject {
+~ GameObject gameObject
++ float getCentralX()
++ float getCentralY()
+}
+class com.example.colordemon.GameStruct.Stuffs.Potion {
++ void use()
+}
+class com.example.colordemon.GameStruct.Stuffs.Chest {
++ void open()
+}
+interface com.example.colordemon.GameStruct.Stuffs.Consumable {
+~ void use()
+}
+class com.example.colordemon.GameStruct.GameObjectFactory {
+~ ArrayList<GameObjectType> unitTypes
++ GameObjectType getUnitType(Integer)
+}
+class com.example.colordemon.GameStruct.BoxCollider {
+- GameObject gameObject
+- float paddingX
+- float paddingY
++ boolean isCollision(float,float)
+}
+class com.example.colordemon.DrawController {
+~ Hero hero
+~ GameObjectFactory unitsFactory
+~ ArrayList<GameObject> gameObjects
+~ ArrayList<Enemy> enemies
+~ CentralObject centralObject
++ void draw(Canvas,float,float)
+- Bitmap createBitmap(int,int,float,float)
+}
+class com.example.colordemon.GameStruct.Stuffs.Stuff {
++ void update()
+}
+class com.example.colordemon.GameStruct.Units.Npc {
+}
+interface com.example.colordemon.GameStruct.Collider {
+~ boolean isCollision(float,float)
+}
+class com.example.colordemon.Ability {
++ int name
++ float cooldown
++ float x
++ float y
+~ CircleCollider collider
+}
+interface com.example.colordemon.GameStruct.Stuffs.Openable {
+~ void open()
+}
+class com.example.colordemon.GameStruct.Units.Hero {
++ {static} int Name
+- float stopTime
+- float radius
+- float angle
+- float startAngle
+- float radiusX
+- float radiusY
+- float angleSpeed
+- float addX
+- float addY
+- float tickTime
++ Ability[] abilities
++ int damageType
++ void run()
+- void dashUpdate()
+- void ultUpdate()
+- void circleUpdate()
+- void enemyPortUpdate()
++ int nowSprite()
++ void dash(float,float)
++ void enemyPort(float,float)
++ void circleDash(float,float,float,float)
++ void ult(Float[][])
+}
+
+
+com.example.colordemon.GameStruct.GameObject <|-- com.example.colordemon.GameStruct.Units.Unit
+com.example.colordemon.GameStruct.Stuffs.Openable <|.. com.example.colordemon.GameStruct.Stuffs.Door
+com.example.colordemon.GameStruct.Stuffs.Stuff <|-- com.example.colordemon.GameStruct.Stuffs.Door
+com.example.colordemon.Callback <|.. com.example.colordemon.GameView
+android.view.SurfaceView <|-- com.example.colordemon.GameView
+com.example.colordemon.GameView +.. com.example.colordemon.GameView.DrawThread
+com.example.colordemon.Thread <|-- com.example.colordemon.GameView.DrawThread
+android.app.Activity <|-- com.example.colordemon.GameStruct.Game
+com.example.colordemon.GameStruct.Units.Unit <|-- com.example.colordemon.GameStruct.Units.Enemy
+com.example.colordemon.GameStruct.Collider <|.. com.example.colordemon.GameStruct.CircleCollider
+com.example.colordemon.GameStruct.Stuffs.Consumable <|.. com.example.colordemon.GameStruct.Stuffs.Potion
+com.example.colordemon.GameStruct.Stuffs.Stuff <|-- com.example.colordemon.GameStruct.Stuffs.Potion
+com.example.colordemon.GameStruct.Stuffs.Openable <|.. com.example.colordemon.GameStruct.Stuffs.Chest
+com.example.colordemon.GameStruct.Stuffs.Stuff <|-- com.example.colordemon.GameStruct.Stuffs.Chest
+com.example.colordemon.GameStruct.Collider <|.. com.example.colordemon.GameStruct.BoxCollider
+com.example.colordemon.GameStruct.GameObject <|-- com.example.colordemon.GameStruct.Stuffs.Stuff
+com.example.colordemon.GameStruct.Units.Unit <|-- com.example.colordemon.GameStruct.Units.Npc
+com.example.colordemon.GameStruct.Units.Unit <|-- com.example.colordemon.GameStruct.Units.Hero
+@enduml
