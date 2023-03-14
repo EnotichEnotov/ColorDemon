@@ -74,17 +74,22 @@ public class Hero extends Unit{
         return 0;
     }
     public void dash(float addVelocityX,float addVelocityY){
+        if(abilities[0].cooldownNow!=0) return;
         float koef = Math.min(Math.abs(400f/addVelocityX),Math.abs(400f/addVelocityY));
         if(Math.abs(addVelocityX)>400f) addVelocityX=addVelocityX*koef;
         if(Math.abs(addVelocityY)>400f) addVelocityY=addVelocityY*koef;
         velocityX=addVelocityX/stopTime;
         velocityY=addVelocityY/stopTime;
+        abilities[0].setCooldownNow();
     }
     public void enemyPort(float newX,float newY){
+        if(abilities[1].cooldownNow!=0) return;
         addX=newX;
         addY=newY;
+        abilities[1].setCooldownNow();
     }
     public void circleDash(float radiusX,float radiusY,float width,float height){
+        if(abilities[2].cooldownNow!=0) return;
         float addX=x-width/2;
         float addY=y-height/2;
         this.radiusX=radiusX+addX;
@@ -96,8 +101,10 @@ public class Hero extends Unit{
                 : (float)-Math.acos(Math.max(-1,Math.min(1,(x-radiusX)/radius)));
         //startAngle=0;
         angle=startAngle;
+        abilities[2].setCooldownNow();
     }
     public void ult(Float[][] Coord){
-
+        if(abilities[3].cooldownNow!=0) return;
+        abilities[3].setCooldownNow();
     }
 }

@@ -56,10 +56,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
     public void init(){
         hero = new Hero(getWidth()/4,getHeight()/4,0f,0f,new BoxCollider(hero,100,100),100,100);
-        hero.abilities[0] = new Ability(2,getWidth()*3/4,getHeight()*5/6,new CircleCollider(getWidth()*3/4,getHeight()*5/6,200),1);
-        hero.abilities[1] = new Ability(5,getWidth()*3/4+100,getHeight()*5/6+100,new CircleCollider(getWidth()*3/4+50,getHeight()*5/6+50,200),1);
-        hero.abilities[2] = new Ability(8,getWidth()*3/4-100,getHeight()*5/6+100,new CircleCollider(getWidth()*3/4-50,getHeight()*5/6-50,200),1);
-        hero.abilities[3] = new Ability(10,getWidth()*3/4-100,getHeight()*5/6-100,new CircleCollider(getWidth()*3/4-100,getHeight()*5/6-100,200),1);
+        hero.abilities[0] = new Ability(2,getWidth()*3/4,getHeight()*5/6,new CircleCollider(getWidth()*3/4+50,getHeight()*5/6+50,75),1,0);
+        hero.abilities[1] = new Ability(5,getWidth()*3/4+100,getHeight()*5/6+100,new CircleCollider(getWidth()*3/4+150,getHeight()*5/6+150,75),1,1);
+        hero.abilities[2] = new Ability(8,getWidth()*3/4-100,getHeight()*5/6+100,new CircleCollider(getWidth()*3/4-50,getHeight()*5/6+150,75),1,2);
+        hero.abilities[3] = new Ability(10,getWidth()*3/4-100,getHeight()*5/6-100,new CircleCollider(getWidth()*3/4-50,getHeight()*5/6-50,75),1,3);
         centralObject = new CentralObject(hero);
         enemies = new ArrayList<>();
         enemy = new Enemy(0,0,5,5,new BoxCollider(enemy,100,100),100,100,hero);
@@ -94,6 +94,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public void tickLogic(){
         hero.run();
         for(Enemy i : enemies) i.run();
+        for(Ability i : hero.abilities){
+            i.updateCooldown();
+            if(i.collider.isCollision(xUnPress,yUnPress)) {
+                hero.damageType=i.number; xUnPress=0; yUnPress=0;
+            }
+        }
         switch (hero.damageType){
             case 0:
                 if(xPress!=0 && yPress!=0 && yUnPress!=0 && xUnPress!=0){
