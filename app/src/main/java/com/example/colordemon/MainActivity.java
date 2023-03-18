@@ -7,19 +7,25 @@ import android.content.pm.ActivityInfo;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.view.animation.AnimationUtils;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
 import com.example.colordemon.GameStruct.Game;
 import com.example.colordemon.databinding.ActivityMainBinding;
 import java.util.Locale;
+import java.util.zip.Inflater;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
     // music
     ActivityMainBinding binding;
+    private float fromPosition;
     MediaPlayer mPlayer;
     SeekBar volumeControl;
     AudioManager audioManager;
@@ -97,6 +103,38 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+     LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    binding.flipper.setOnTouchListener(this);
+    int layouts[] = new int[]{ R.layout.shop, R.layout.settings};
+        for (int layout : layouts)
+            binding.flipper.addView(inflater.inflate(layout, null));
+    }
+    @Override
+    public boolean onTouch(View view, MotionEvent event) {
+        switch (event.getAction())
+        {
+            case MotionEvent.ACTION_DOWN:
+                fromPosition = event.getX();
+                break;
+            case MotionEvent.ACTION_UP:
+                float toPosition = event.getX();
+                if (fromPosition > toPosition)
+                {
+                    binding.flipper.setInAnimation(AnimationUtils.loadAnimation(this,R.anim.go_next_in));
+                    binding.flipper.setOutAnimation(AnimationUtils.loadAnimation(this,R.anim.go_next_out));
+                    binding.flipper.showNext();
+                }
+                else if (fromPosition < toPosition)
+                {
+                    binding.flipper.setInAnimation(AnimationUtils.loadAnimation(this,R.anim.go_prev_in));
+                    binding.flipper.setOutAnimation(AnimationUtils.loadAnimation(this,R.anim.go_prev_out));
+                    binding.flipper.showPrevious();
+                }
+            default:
+                break;
+        }
+        return true;
     }
 
     @SuppressWarnings("deprecation")
@@ -106,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
         configuration.setLocale(locale);
         getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
     }
+
+
 };
 
 
