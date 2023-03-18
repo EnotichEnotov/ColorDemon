@@ -26,9 +26,9 @@ import com.example.colordemon.R;
 import java.util.ArrayList;
 
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
-    private Button[] abilities = new Button[4];
     private DrawThread myThread;
     private DrawController drawController;
+    private EnemySpauner enemySpauner;
     private ArrayList<Enemy> enemies;
     private GameObjectFactory unitsFactory;
     private Enemy enemy;
@@ -39,6 +39,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private float yPress;
     private float xUnPress;
     private float yUnPress;
+    private int timer;
     private Hero hero;
     public GameView(Context context) {
         super(context);
@@ -61,6 +62,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         hero.abilities[2] = new Ability(8,getWidth()*3/4-100,getHeight()*5/6+100,new CircleCollider(getWidth()*3/4-50,getHeight()*5/6+150,75),1,2);
         hero.abilities[3] = new Ability(10,getWidth()*3/4-100,getHeight()*5/6-100,new CircleCollider(getWidth()*3/4-50,getHeight()*5/6-50,75),1,3);
         centralObject = new CentralObject(hero);
+        enemySpauner = new EnemySpauner(hero,getWidth(),getHeight());
         enemies = new ArrayList<>();
         enemy = new Enemy(0,0,5,5,new BoxCollider(enemy,100,100),100,100,hero);
         enemies.add(enemy);
@@ -87,7 +89,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 case MotionEvent.ACTION_UP:
                     xUnPress=x;
                     yUnPress=y;
-                    break;
+                    return true;
         }
         return super.onTouchEvent(event);
     }
@@ -119,7 +121,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         minY=i.y;
                     }
                 }
+                //if(Math.pow(minX+addX-xUnPress,2)+Math.pow(minY+addY-yUnPress,2)<3200)
                 hero.enemyPort(minX,minY);
+                Log.i("III"," "+(minX+addX-xUnPress)+" "+(minY+addY-yUnPress));
+                xUnPress=0; yUnPress=0;
                 break;
             case 2:
                 if(xUnPress!=0 && yUnPress!=0){
@@ -128,6 +133,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 }
                 break;
         }
+        if(timer>10){
+            enemies.add(enemySpauner.defaultSpaun());
+            timer = 0;
+        }
+        else timer++;
     }
     private class DrawThread extends Thread {
         private volatile boolean running = true;

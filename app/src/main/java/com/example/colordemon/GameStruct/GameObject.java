@@ -8,6 +8,7 @@ public abstract class GameObject {
         this(x,y);
         this.velocityX=velocityX;
         this.velocityY=velocityY;
+        collider.gameObject=this;
         this.collider=collider;
     }
     public GameObject(float x,float y,float velocityX,float velocityY,Collider collider,float scaleX,float scaleY){

@@ -76,7 +76,7 @@ public class Hero extends Unit{
     }
     public void dash(float addVelocityX,float addVelocityY){
         if(abilities[0].cooldownNow!=0) return;
-        float koef = Math.min(Math.abs(400f/addVelocityX),Math.abs(400f/addVelocityY));
+        float koef = Math.max(Math.abs(400f/addVelocityX),Math.abs(400f/addVelocityY));
         if(Math.abs(addVelocityX)>400f) addVelocityX=addVelocityX*koef;
         if(Math.abs(addVelocityY)>400f) addVelocityY=addVelocityY*koef;
         velocityX=addVelocityX/stopTime;
@@ -85,6 +85,7 @@ public class Hero extends Unit{
     }
     public void enemyPort(float newX,float newY){
         if(abilities[1].cooldownNow!=0) return;
+
         addX=newX;
         addY=newY;
         abilities[1].setCooldownNow();
