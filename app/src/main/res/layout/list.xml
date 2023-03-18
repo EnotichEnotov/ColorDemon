@@ -42,7 +42,8 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/shop_skin_person1"/>
+            android:src="@drawable/shop_skin_person1"
+           />
 
     </LinearLayout>
     <TextView
