@@ -81,8 +81,24 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        binding.mainMenuIconButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,Shop.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        binding.mainMenuIconButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,Settings.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
+
     @SuppressWarnings("deprecation")
     private void changeLocale(Locale locale){
         Locale.setDefault(locale);
