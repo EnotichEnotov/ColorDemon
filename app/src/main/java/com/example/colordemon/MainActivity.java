@@ -1,6 +1,11 @@
 package com.example.colordemon;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+
 import android.content.res.Configuration;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -18,11 +23,13 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
 import com.example.colordemon.GameStruct.Game;
+import com.example.colordemon.MainMenuAdditionals.SettingsFragment;
+import com.example.colordemon.MainMenuAdditionals.ShopFragment;
 import com.example.colordemon.databinding.ActivityMainBinding;
 import java.util.Locale;
 import java.util.zip.Inflater;
 
-public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
+public class MainActivity extends AppCompatActivity {
     // music
     ActivityMainBinding binding;
     private float fromPosition;
@@ -103,39 +110,40 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 finish();
             }
         });
-
-     LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    binding.flipper.setOnTouchListener(this);
-    int layouts[] = new int[]{ R.layout.shop, R.layout.settings};
-        for (int layout : layouts)
-            binding.flipper.addView(inflater.inflate(layout, null));
+        binding.pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        binding.pager.setCurrentItem(1);
+    // LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    //binding.flipper.setOnTouchListener(this);
+    //int layouts[] = new int[]{ R.layout.shop, R.layout.settings};
+    //    for (int layout : layouts)
+    //        binding.flipper.addView(inflater.inflate(layout, null));
     }
-    @Override
-    public boolean onTouch(View view, MotionEvent event) {
-        switch (event.getAction())
-        {
-            case MotionEvent.ACTION_DOWN:
-                fromPosition = event.getX();
-                break;
-            case MotionEvent.ACTION_UP:
-                float toPosition = event.getX();
-                if (fromPosition > toPosition)
-                {
-                    binding.flipper.setInAnimation(AnimationUtils.loadAnimation(this,R.anim.go_next_in));
-                    binding.flipper.setOutAnimation(AnimationUtils.loadAnimation(this,R.anim.go_next_out));
-                    binding.flipper.showNext();
-                }
-                else if (fromPosition < toPosition)
-                {
-                    binding.flipper.setInAnimation(AnimationUtils.loadAnimation(this,R.anim.go_prev_in));
-                    binding.flipper.setOutAnimation(AnimationUtils.loadAnimation(this,R.anim.go_prev_out));
-                    binding.flipper.showPrevious();
-                }
-            default:
-                break;
-        }
-        return true;
-    }
+    //@Override
+    //public boolean onTouch(View view, MotionEvent event) {
+    //    switch (event.getAction())
+    //    {
+    //        case MotionEvent.ACTION_DOWN:
+    //            fromPosition = event.getX();
+    //            break;
+    //        case MotionEvent.ACTION_UP:
+    //            float toPosition = event.getX();
+    //            if (fromPosition > toPosition)
+    //            {
+    //                binding.flipper.setInAnimation(AnimationUtils.loadAnimation(this,R.anim.go_next_in));
+    //                binding.flipper.setOutAnimation(AnimationUtils.loadAnimation(this,R.anim.go_next_out));
+    //                binding.flipper.showNext();
+    //            }
+    //            else if (fromPosition < toPosition)
+    //            {
+    //                binding.flipper.setInAnimation(AnimationUtils.loadAnimation(this,R.anim.go_prev_in));
+    //                binding.flipper.setOutAnimation(AnimationUtils.loadAnimation(this,R.anim.go_prev_out));
+    //                binding.flipper.showPrevious();
+    //            }
+    //        default:
+    //            break;
+    //    }
+    //    return true;
+    //}
 
     @SuppressWarnings("deprecation")
     private void changeLocale(Locale locale){
@@ -144,8 +152,33 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         configuration.setLocale(locale);
         getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
     }
+    class MyPagerAdapter extends FragmentPagerAdapter {
 
+        MyPagerAdapter(@NonNull FragmentManager fm) {
+            super(fm);
+        }
 
-};
+        @Override
+        public int getCount() {
+            return 3;
+        }
+
+        @NonNull
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return new ShopFragment();
+                case 1:
+                    return new SettingsFragment();
+                case 2:
+                    return new ShopFragment();
+
+                default:
+                    return new SettingsFragment();
+            }
+        }
+    }
+}
 
 
