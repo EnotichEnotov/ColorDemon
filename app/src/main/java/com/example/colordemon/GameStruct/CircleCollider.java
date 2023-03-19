@@ -5,8 +5,7 @@ public class CircleCollider extends Collider{
     float centerY;
     float radius;
     public CircleCollider(float centerX,float centerY,float radius){
-        this.centerX=centerX;
-        this.centerY=centerY;
+        super(centerX,centerY);
         this.radius=radius;
     }
     @Override

@@ -22,8 +22,10 @@ public class Hero extends Unit{
     public Hero(float x, float y, float velocityX, float velocityY, Collider collider,float scaleX,float scaleY) {
         super(x, y, velocityX,velocityY,collider,scaleX,scaleY);
     }
-    public void run(){
-        switch (damageType){
+
+    @Override
+    public void update() {
+        switch (damageType) {
             case 0:
                 dashUpdate();
                 break;
@@ -37,9 +39,8 @@ public class Hero extends Unit{
                 ultUpdate();
                 break;
             default:
-                Log.wtf("WTF",damageType +"");
+                Log.wtf("WTF", damageType + "");
         }
-
     }
     private void dashUpdate(){
         if(tickTime<=stopTime){

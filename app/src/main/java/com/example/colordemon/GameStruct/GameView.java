@@ -94,8 +94,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         return super.onTouchEvent(event);
     }
     public void tickLogic(){
-        hero.run();
-        for(Enemy i : enemies) i.run();
+        hero.update();
+        for(Enemy i : enemies) {
+            i.update();
+            if(i.collider.isCollision(hero.x,hero.y)) i = null;
+        }
         for(Ability i : hero.abilities){
             i.updateCooldown();
             if(i.collider.isCollision(xUnPress,yUnPress)) {

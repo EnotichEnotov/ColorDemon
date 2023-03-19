@@ -9,10 +9,10 @@ public class CentralObject {
     }
 
     public float getCentralX() {
-        return gameObject.x+50;
+        return gameObject.x+ gameObject.scaleY/2;
     }
 
     public float getCentralY() {
-        return gameObject.y+100;
+        return gameObject.y+ gameObject.scaleY/2;
     }
 }

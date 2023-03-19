@@ -4,6 +4,7 @@ public class BoxCollider extends Collider{
     private float paddingX=100f;
     private float paddingY=100f;
     public BoxCollider(GameObject gameObject, float paddingX, float paddingY){
+        super(0,0);
         this.paddingX=paddingX;
         this.paddingY=paddingY;
         this.gameObject=gameObject;
@@ -11,7 +12,6 @@ public class BoxCollider extends Collider{
 
     @Override
     public boolean isCollision(float x,float y) {
-        if(Math.abs(x-gameObject.x+gameObject.scaleX/2)<=paddingX && Math.abs(y-gameObject.y+ gameObject.scaleY)<=paddingY) return true;
-        return false;
+        return Math.abs(x-gameObject.x+gameObject.scaleX/2)<=paddingX && Math.abs(y-gameObject.y+ gameObject.scaleY)<=paddingY;
     }
 }
