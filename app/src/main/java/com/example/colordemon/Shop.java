@@ -67,26 +67,6 @@ public class Shop extends AppCompatActivity{
         Context context = this;
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new ItemClickListener());
-
-        binding.mainMenuIconButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Shop.this,MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        binding.mainMenuIconButton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Shop.this,Settings.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-
-
         binding.buttonWeapon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

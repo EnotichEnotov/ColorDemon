@@ -31,7 +31,6 @@ public class ShopFragment extends Fragment {
     ShopBinding binding;
     private Entry[] entries= new Entry[6];
     private Entry[] entries_weapons= new Entry[6];
-    ListView listView1;
     public ShopFragment() {
     }
 
@@ -47,27 +46,8 @@ public class ShopFragment extends Fragment {
         entries[5] = new Entry(getResources().getString(R.string.author_shop_character_6),R.drawable.shop_skin_person6, getResources().getString(R.string.character_story_6));
         adapter = new MyEntryAdapter1(getActivity(),entries);
         Context context = getActivity();
-        View view = inflater.inflate(R.layout.shop, container, false);
-        listView1 = view.findViewById(R.id.listview);
-        listView1.setAdapter(adapter);
-        listView1.setOnItemClickListener(new ItemClickListener());
-
-        binding.mainMenuIconButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        binding.mainMenuIconButton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, Settings.class);
-                startActivity(intent);
-            }
-        });
-
-
+        binding.listview.setAdapter(adapter);
+        binding.listview.setOnItemClickListener(new ItemClickListener());
 
         binding.buttonWeapon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +63,7 @@ public class ShopFragment extends Fragment {
                 entries[5] = new Entry(getResources().getString(R.string.author_shop_weapon_6),R.drawable.shop_skin_weapon6, getResources().getString(R.string.character_story_6));
 
                 adapter = new MyEntryAdapter1(context,entries);
-                listView1.setAdapter(adapter);
+                binding.listview.setAdapter(adapter);
             }
         });
         binding.buttonCharacter.setOnClickListener(new View.OnClickListener() {
@@ -97,11 +77,11 @@ public class ShopFragment extends Fragment {
                 entries[5] = new Entry(getResources().getString(R.string.author_shop_character_6),R.drawable.shop_skin_person6, getResources().getString(R.string.character_story_6));
 
                 adapter = new MyEntryAdapter1(context,entries);
-                listView1.setAdapter(adapter);
+                binding.listview.setAdapter(adapter);
             }
         });
 
-        return view;
+        return binding.getRoot();
     }
     class ItemClickListener implements AdapterView.OnItemClickListener{
         @Override

@@ -1,8 +1,6 @@
 package com.example.colordemon.GameStruct;
 
 public class CircleCollider extends Collider{
-    float centerX;
-    float centerY;
     float radius;
     public CircleCollider(float centerX,float centerY,float radius){
         super(centerX,centerY);

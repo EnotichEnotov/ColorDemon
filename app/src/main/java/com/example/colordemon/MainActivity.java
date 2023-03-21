@@ -23,6 +23,8 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
 import com.example.colordemon.GameStruct.Game;
+import com.example.colordemon.GameStruct.GameView;
+import com.example.colordemon.MainMenuAdditionals.MenuFragment;
 import com.example.colordemon.MainMenuAdditionals.SettingsFragment;
 import com.example.colordemon.MainMenuAdditionals.ShopFragment;
 import com.example.colordemon.databinding.ActivityMainBinding;
@@ -32,7 +34,7 @@ import java.util.zip.Inflater;
 public class MainActivity extends AppCompatActivity {
     // music
     ActivityMainBinding binding;
-    private float fromPosition;
+
     MediaPlayer mPlayer;
     SeekBar volumeControl;
     AudioManager audioManager;
@@ -49,55 +51,21 @@ public class MainActivity extends AppCompatActivity {
         Locale locale = new Locale("en");
         changeLocale(locale);
 
-        //TEST
-        Shader textShader = new LinearGradient(0, 0, binding.title.getPaint().measureText(String.valueOf(binding.title.getText())), binding.title.getTextSize(),
-                new int[]{
-                        getColor(R.color.red_rainbow),
-                        getColor(R.color.orange_rainbow),
-                        getColor(R.color.yellow_rainbow),
-                        getColor(R.color.green_rainbow),
-                        getColor(R.color.blue_rainbow),
-                        getColor(R.color.violet_rainbow),
-                }, null, Shader.TileMode.CLAMP);
-        binding.title.getPaint().setShader(textShader);
-        binding.settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Settings.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        binding.shop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Shop.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        binding.exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Intent.ACTION_MAIN);
-                i.addCategory(Intent.CATEGORY_HOME);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
-                finishAndRemoveTask();
-            }
-        });
-        binding.start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Game.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        binding.pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        binding.pager.setCurrentItem(510);
         binding.mainMenuIconButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Shop.class);
+                //Intent intent = new Intent(MainActivity.this,Shop.class);
+                //startActivity(intent);
+                //finish();
+                binding.pager.setCurrentItem(512);
+            }
+        });
+        binding.mainMenuIconButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,Game.class);
                 startActivity(intent);
                 finish();
             }
@@ -105,45 +73,13 @@ public class MainActivity extends AppCompatActivity {
         binding.mainMenuIconButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Settings.class);
-                startActivity(intent);
-                finish();
+                //Intent intent = new Intent(MainActivity.this,Settings.class);
+                //startActivity(intent);
+                //finish();
+                binding.pager.setCurrentItem(511);
             }
         });
-        binding.pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-        binding.pager.setCurrentItem(1);
-    // LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    //binding.flipper.setOnTouchListener(this);
-    //int layouts[] = new int[]{ R.layout.shop, R.layout.settings};
-    //    for (int layout : layouts)
-    //        binding.flipper.addView(inflater.inflate(layout, null));
     }
-    //@Override
-    //public boolean onTouch(View view, MotionEvent event) {
-    //    switch (event.getAction())
-    //    {
-    //        case MotionEvent.ACTION_DOWN:
-    //            fromPosition = event.getX();
-    //            break;
-    //        case MotionEvent.ACTION_UP:
-    //            float toPosition = event.getX();
-    //            if (fromPosition > toPosition)
-    //            {
-    //                binding.flipper.setInAnimation(AnimationUtils.loadAnimation(this,R.anim.go_next_in));
-    //                binding.flipper.setOutAnimation(AnimationUtils.loadAnimation(this,R.anim.go_next_out));
-    //                binding.flipper.showNext();
-    //            }
-    //            else if (fromPosition < toPosition)
-    //            {
-    //                binding.flipper.setInAnimation(AnimationUtils.loadAnimation(this,R.anim.go_prev_in));
-    //                binding.flipper.setOutAnimation(AnimationUtils.loadAnimation(this,R.anim.go_prev_out));
-    //                binding.flipper.showPrevious();
-    //            }
-    //        default:
-    //            break;
-    //    }
-    //    return true;
-    //}
 
     @SuppressWarnings("deprecation")
     private void changeLocale(Locale locale){
@@ -160,20 +96,19 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 3;
+            return 1000;
         }
 
         @NonNull
         @Override
         public Fragment getItem(int position) {
-            switch (position) {
+            switch (position%3) {
                 case 0:
-                    return new ShopFragment();
+                    return new MenuFragment();
                 case 1:
                     return new SettingsFragment();
                 case 2:
                     return new ShopFragment();
-
                 default:
                     return new SettingsFragment();
             }
