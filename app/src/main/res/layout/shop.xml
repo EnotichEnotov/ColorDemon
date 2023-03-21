@@ -7,7 +7,7 @@
     android:theme="@android:style/Theme.Black.NoTitleBar"
     android:orientation="vertical"
     tools:context=".Shop"
-    android:background="#808080"
+    android:background="#FFFFFF"
    >
     <Button
         android:gravity="center"

@@ -52,22 +52,23 @@ public class MainActivity extends AppCompatActivity {
         changeLocale(locale);
 
         binding.pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-        binding.pager.setCurrentItem(510);
+        binding.pager.setCurrentItem(1);
         binding.mainMenuIconButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Intent intent = new Intent(MainActivity.this,Shop.class);
                 //startActivity(intent);
                 //finish();
-                binding.pager.setCurrentItem(512);
+                binding.pager.setCurrentItem(2);
             }
         });
         binding.mainMenuIconButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Game.class);
-                startActivity(intent);
-                finish();
+                //Intent intent = new Intent(MainActivity.this,Game.class);
+                //startActivity(intent);
+                //finish();
+                binding.pager.setCurrentItem(0);
             }
         });
         binding.mainMenuIconButton3.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 //Intent intent = new Intent(MainActivity.this,Settings.class);
                 //startActivity(intent);
                 //finish();
-                binding.pager.setCurrentItem(511);
+                binding.pager.setCurrentItem(1);
             }
         });
     }
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 1000;
+            return 3;
         }
 
         @NonNull
@@ -104,13 +105,15 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position%3) {
                 case 0:
-                    return new MenuFragment();
-                case 1:
-                    return new SettingsFragment();
-                case 2:
                     return new ShopFragment();
-                default:
+
+                case 1:
+                    return new MenuFragment();
+
+                case 2:
                     return new SettingsFragment();
+                default:
+                    return new MenuFragment();
             }
         }
     }
