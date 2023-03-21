@@ -101,6 +101,7 @@
         android:textSize="25sp"
         android:textColor="@color/orange_rainbow"
         android:text="@string/leaders_textView"/>
+
     <LinearLayout
         android:layout_alignParentBottom="true"
         android:gravity="bottom"
