@@ -18,21 +18,5 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = SettingsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.mainMenuIconButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Settings.this,Shop.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        binding.mainMenuIconButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Settings.this,MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 }
