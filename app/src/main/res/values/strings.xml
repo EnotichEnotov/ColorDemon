@@ -5,6 +5,8 @@
     <string name="shop_button">Shop</string>
     <string name="settings_button">Settings</string>
     <string name="exit_button">Exit</string>
+    <string name="level_textView">Level</string>
+    <string name="leaders_textView">Leaders</string>
 
     <string name="author_shop_character_1">Killer</string>
     <string name="author_shop_character_2">Robber</string>
@@ -12,14 +14,12 @@
     <string name="author_shop_character_4">Wizard</string>
     <string name="author_shop_character_5">Death</string>
     <string name="author_shop_character_6">Priest</string>
-
     <string name="author_shop_weapon_1">Katana</string>
     <string name="author_shop_weapon_2">Axe</string>
     <string name="author_shop_weapon_3">Sickle</string>
     <string name="author_shop_weapon_4">Hammer</string>
     <string name="author_shop_weapon_5">Sword</string>
     <string name="author_shop_weapon_6">Nunchaku</string>
-
     <string name="character_story_1">A lightning killer with extreme mobility and agility.</string>
     <string name="character_story_2">Stealthy mercenary, fast and stealthy.</string>
     <string name="character_story_3">Cherpak, has extremely good physical fitness.</string>
@@ -28,6 +28,7 @@
     <string name="character_story_6">The messenger of the gods, a blessing hangs on him.</string>
 
 
-    <string name="level_textView">Level</string>
-    <string name="leaders_textView">Leaders</string>
+    <string name="settings_title">Settings</string>
+    <string name="language_title_change">Language</string>
+    <string name="music_title_change">Music</string>
 </resources>
