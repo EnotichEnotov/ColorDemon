@@ -27,7 +27,8 @@
     <string name="character_story_4">Master of the cult, possesses boundless knowledge.</string>
     <string name="character_story_5">Corruption is doom, the most important being in this world.</string>
     <string name="character_story_6">The messenger of the gods, a blessing hangs on him.</string>
-
+    <string name="shop_button_characters">Character</string>
+    <string name="shop_button_weapons">Weapons</string>
 
     <string name="settings_title">Settings</string>
     <string name="language_title_change">Language</string>
