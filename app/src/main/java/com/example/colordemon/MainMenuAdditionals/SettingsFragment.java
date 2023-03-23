@@ -31,7 +31,7 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = SettingsBinding.inflate(inflater);
-        binding.languageEn.setOnClickListener(new View.OnClickListener() {
+        binding.flagEn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 info.language="en";
@@ -39,7 +39,7 @@ public class SettingsFragment extends Fragment {
                 pushingManager.DataPush(info);
             }
         });
-        binding.languageRus.setOnClickListener(new View.OnClickListener() {
+        binding.flagRus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 info.language="ru";
