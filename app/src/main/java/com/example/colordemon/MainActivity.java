@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.widget.SeekBar;
 
+import com.example.colordemon.MainMenuAdditionals.DownloadActivity;
 import com.example.colordemon.MainMenuAdditionals.MenuFragment;
 import com.example.colordemon.MainMenuAdditionals.SettingsFragment;
 import com.example.colordemon.MainMenuAdditionals.SettingsInfo;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
         mPlayer=MediaPlayer.create(this, R.raw.main_menu_music);
         mPlayer.start();
         //TEST
-        Locale locale = new Locale("en");
+        Locale locale = new Locale(TestLocaleClass.language);
         changeLocale(locale);
 
         binding.pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
@@ -46,27 +48,18 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
         binding.mainMenuIconButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(MainActivity.this,Shop.class);
-                //startActivity(intent);
-                //finish();
                 binding.pager.setCurrentItem(0);
             }
         });
         binding.mainMenuIconButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(MainActivity.this,Game.class);
-                //startActivity(intent);
-                //finish();
                 binding.pager.setCurrentItem(1);
             }
         });
         binding.mainMenuIconButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(MainActivity.this,Settings.class);
-                //startActivity(intent);
-                //finish();
                 binding.pager.setCurrentItem(2);
             }
         });
@@ -82,11 +75,12 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
 
     @Override
     public void DataPush(SettingsInfo settingsInfo) {
-        changeLocale(new Locale(settingsInfo.getLanguage()));
-        Log.i("III",""+settingsInfo.getLanguage());
+        //changeLocale(new Locale(settingsInfo.getLanguage()));
+        TestLocaleClass.language=settingsInfo.getLanguage();
         // + настройка звука, можно будет тягать доп штуки с настроек
+        Intent intent = new Intent(MainActivity.this, DownloadActivity.class);
+        startActivity(intent);
     }
-
     class MyPagerAdapter extends FragmentPagerAdapter {
 
         MyPagerAdapter(@NonNull FragmentManager fm) {
