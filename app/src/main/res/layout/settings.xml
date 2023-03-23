@@ -17,13 +17,14 @@
         android:layout_marginTop="10dp"
         android:text="@string/settings_title"
         android:textSize="50sp"
+        android:textColor="@color/black"
         />
     <LinearLayout
         android:id="@+id/language_block"
         android:layout_below="@id/title"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="1dp"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
         <TextView
@@ -36,7 +37,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/language_title_change"
             android:textSize="25sp"
-
+            android:textColor="@color/black"
             />
 
         <View

@@ -15,7 +15,7 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginLeft="50dp"
-        android:text="Character"
+        android:text="@string/shop_button_characters"
         android:textSize="28sp"
         android:textColor="@color/purple_500"/>
     <Button
@@ -24,7 +24,7 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginLeft="200dp"
-        android:text="Weapon"
+        android:text="@string/shop_button_weapons"
         android:textSize="28sp"
         android:textColor="@color/purple_500"/>
 
