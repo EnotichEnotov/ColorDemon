@@ -47,7 +47,7 @@
             android:background="#BCBBBB"
             android:layout_below="@id/language_choose"
             android:layout_marginTop="0dp"
-            android:layout_marginBottom="2dp"
+
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp" />
 
@@ -59,51 +59,51 @@
             >
             <ImageView
                 android:id="@+id/flag_rus"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="50dp"
                 android:src="@drawable/flag_russian"
-                android:layout_marginLeft="10dp"
-
+                android:layout_margin="2dp"
                 />
             <ImageView
                 android:id="@+id/flag_en"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="50dp"
                 android:src="@drawable/flag_england"
-                android:layout_marginLeft="15dp"
-
+                android:layout_margin="2dp"
                 />
             <ImageView
                 android:id="@+id/flag_ger"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_weight="1"
                 android:src="@drawable/flag_german"
-                android:layout_marginLeft="15dp"
-
+                android:layout_margin="2dp"
                 />
             <ImageView
                 android:id="@+id/flag_italy"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_weight="1"
                 android:src="@drawable/flag_italy"
-                android:layout_marginLeft="15dp"
-
+                android:layout_margin="2dp"
                 />
             <ImageView
                 android:id="@+id/flag_spain"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_weight="1"
                 android:src="@drawable/flag_spain"
-                android:layout_marginLeft="15dp"
-
+                android:layout_margin="2dp"
                 />
             <ImageView
-                android:layout_alignParentEnd="true"
                 android:id="@+id/flag_china"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="50dp"
+                android:layout_margin="2dp"
                 android:src="@drawable/flag_china"
-                android:layout_marginLeft="15dp"
                 />
 
         </LinearLayout>
