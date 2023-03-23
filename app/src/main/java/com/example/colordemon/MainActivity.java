@@ -7,31 +7,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import android.content.res.Configuration;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
-import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.view.animation.AnimationUtils;
-import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
-import com.example.colordemon.GameStruct.Game;
-import com.example.colordemon.GameStruct.GameView;
 import com.example.colordemon.MainMenuAdditionals.MenuFragment;
 import com.example.colordemon.MainMenuAdditionals.SettingsFragment;
+import com.example.colordemon.MainMenuAdditionals.SettingsInfo;
 import com.example.colordemon.MainMenuAdditionals.ShopFragment;
 import com.example.colordemon.databinding.ActivityMainBinding;
 import java.util.Locale;
-import java.util.zip.Inflater;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DataPushing{
     // music
     ActivityMainBinding binding;
 
@@ -89,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
         configuration.setLocale(locale);
         getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
     }
+
+    @Override
+    public void DataPush(SettingsInfo settingsInfo) {
+        changeLocale(new Locale(settingsInfo.getLanguage()));
+        Log.i("III",""+settingsInfo.getLanguage());
+        // + настройка звука, можно будет тягать доп штуки с настроек
+    }
+
     class MyPagerAdapter extends FragmentPagerAdapter {
 
         MyPagerAdapter(@NonNull FragmentManager fm) {
@@ -111,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     return new MenuFragment();
 
                 case 2:
-                    return new SettingsFragment();
+                    return new SettingsFragment("en",100);
                 default:
                     return new MenuFragment();
             }
