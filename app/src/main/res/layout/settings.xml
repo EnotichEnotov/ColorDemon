@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".Settings">
     <TextView
         android:id="@+id/title"
@@ -14,10 +15,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Settings"
+        android:text="@string/settings_title"
         android:textSize="50sp"
         />
     <LinearLayout
+        android:id="@+id/language_block"
         android:layout_below="@id/title"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -28,6 +30,7 @@
             android:id="@+id/language_choose"
             android:orientation="vertical"
             android:gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -52,10 +55,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:id="@+id/language_block"
+            android:id="@+id/flags_block"
             >
             <ImageView
-                android:id="@+id/language_rus"
+                android:id="@+id/flag_rus"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/flag_russian"
@@ -63,7 +66,7 @@
 
                 />
             <ImageView
-                android:id="@+id/language_en"
+                android:id="@+id/flag_en"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/flag_england"
@@ -71,7 +74,7 @@
 
                 />
             <ImageView
-                android:id="@+id/language_ger"
+                android:id="@+id/flag_ger"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/flag_german"
@@ -79,7 +82,7 @@
 
                 />
             <ImageView
-                android:id="@+id/language_italy"
+                android:id="@+id/flag_italy"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/flag_italy"
@@ -87,7 +90,7 @@
 
                 />
             <ImageView
-                android:id="@+id/language_spain"
+                android:id="@+id/flag_spain"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/flag_spain"
@@ -96,7 +99,7 @@
                 />
             <ImageView
                 android:layout_alignParentEnd="true"
-                android:id="@+id/language_china"
+                android:id="@+id/flag_china"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/flag_china"
@@ -108,7 +111,7 @@
             android:layout_alignParentBottom="true"
             android:gravity="bottom"
             android:id="@+id/line2"
-            android:layout_below="@id/language_rus"
+            android:layout_below="@id/flag_rus"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#BCBBBB"
@@ -116,8 +119,34 @@
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp" />
 
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_below="@id/language_block"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/music_volume_change"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/music_title_change"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+
+            />
+        <SeekBar
+            android:id="@+id/music_seekbar_volume"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:progress="50"
+            />
 
     </LinearLayout>
 </RelativeLayout>

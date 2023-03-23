@@ -53,6 +53,7 @@
         android:layout_below="@id/line"
         android:layout_marginLeft="200dp"
         android:textSize="25dp"
+        android:textColor="@color/black"
         android:text="@string/character_story_1"
         />
     <View

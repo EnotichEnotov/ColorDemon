@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
                 //Intent intent = new Intent(MainActivity.this,Shop.class);
                 //startActivity(intent);
                 //finish();
-                binding.pager.setCurrentItem(2);
+                binding.pager.setCurrentItem(0);
             }
         });
         binding.mainMenuIconButton2.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
                 //Intent intent = new Intent(MainActivity.this,Game.class);
                 //startActivity(intent);
                 //finish();
-                binding.pager.setCurrentItem(0);
+                binding.pager.setCurrentItem(1);
             }
         });
         binding.mainMenuIconButton3.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
                 //Intent intent = new Intent(MainActivity.this,Settings.class);
                 //startActivity(intent);
                 //finish();
-                binding.pager.setCurrentItem(1);
+                binding.pager.setCurrentItem(2);
             }
         });
     }
@@ -104,10 +104,8 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
             switch (position%3) {
                 case 0:
                     return new ShopFragment();
-
                 case 1:
                     return new MenuFragment();
-
                 case 2:
                     return new SettingsFragment("en",100);
                 default:
