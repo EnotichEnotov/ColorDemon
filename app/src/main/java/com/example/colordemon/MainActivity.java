@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
                 case 1:
                     return new MenuFragment();
                 case 2:
-                    return new SettingsFragment("en",100);
+                    return new SettingsFragment(TestLocaleClass.language,100);
                 default:
                     return new MenuFragment();
             }

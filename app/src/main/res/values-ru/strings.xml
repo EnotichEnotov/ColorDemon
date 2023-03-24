@@ -28,7 +28,7 @@
     <string name="character_story_6">Посланник богов, на нём висит благославение.</string>
     <string name="shop_button_characters">Персонаж</string>
     <string name="shop_button_weapons">Оружие</string>
-
+    <string name="applybutton">Применить</string>
     <string name="settings_title">Настройки</string>
     <string name="language_title_change">Язык</string>
     <string name="music_title_change">Музыка</string>

@@ -31,12 +31,15 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = SettingsBinding.inflate(inflater);
+        hideAll();
+        setNowLanguage();
         binding.flagEn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 info.language="en";
                 binding.languageChoose.setText("English");
-                pushingManager.DataPush(info);
+                hideAll();
+                setNowLanguage();
             }
         });
         binding.flagRus.setOnClickListener(new View.OnClickListener() {
@@ -44,9 +47,36 @@ public class SettingsFragment extends Fragment {
             public void onClick(View view) {
                 info.language="ru";
                 binding.languageChoose.setText("Russian");
+                hideAll();
+                setNowLanguage();
+            }
+        });
+        binding.apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 pushingManager.DataPush(info);
             }
         });
         return binding.getRoot();
+    }
+    private void hideAll(){
+        binding.flagRus.setAlpha(128);
+        binding.flagEn.setAlpha(128);
+        binding.flagChina.setAlpha(128);
+        binding.flagGer.setAlpha(128);
+        binding.flagSpain.setAlpha(128);
+        binding.flagItaly.setAlpha(128);
+    }
+    private void setNowLanguage(){
+        switch (info.language){
+            case "en":
+                binding.flagEn.setAlpha(255);
+                binding.languageChoose.setText("English");
+                break;
+            case "ru":
+                binding.flagRus.setAlpha(255);
+                binding.languageChoose.setText("Russian");
+                break;
+        }
     }
 }

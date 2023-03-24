@@ -151,4 +151,13 @@
             />
 
     </LinearLayout>
+    <Button
+        android:id="@+id/apply"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="75dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/applybutton"/>
 </RelativeLayout>
