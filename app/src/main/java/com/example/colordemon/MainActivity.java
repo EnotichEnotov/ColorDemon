@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
         mPlayer=MediaPlayer.create(this, R.raw.main_menu_music);
         mPlayer.start();
         //TEST
-        Locale locale = new Locale(TestLocaleClass.language);
+        Locale locale = new Locale(App.getDatabase().getLanguage());
         changeLocale(locale);
 
         binding.pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
     @Override
     public void DataPush(SettingsInfo settingsInfo) {
         //changeLocale(new Locale(settingsInfo.getLanguage()));
-        TestLocaleClass.language=settingsInfo.getLanguage();
+        App.getDatabase().save(settingsInfo.getLanguage(),settingsInfo.getVolume());
         // + настройка звука, можно будет тягать доп штуки с настроек
         Intent intent = new Intent(MainActivity.this, DownloadActivity.class);
         startActivity(intent);
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
                 case 1:
                     return new MenuFragment();
                 case 2:
-                    return new SettingsFragment(TestLocaleClass.language,100);
+                    return new SettingsFragment(App.getDatabase().getLanguage(),App.getDatabase().getVolume());
                 default:
                     return new MenuFragment();
             }
