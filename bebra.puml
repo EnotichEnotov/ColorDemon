@@ -1,0 +1,302 @@
+@startuml
+class com.example.colordemon.GameStruct.Units.Unit {
++ void update()
+}
+class com.example.colordemon.GameStruct.Entry {
+- boolean liked
+- String author
+- int memeid
+- int likes
+- int comments
+- int views
+- String char_story
++ int getMemeid()
++ String getAuthor()
++ void setLiked()
++ boolean getLiked()
++ void setLikes(int)
++ int getLikes()
++ String getChar_story()
+}
+interface com.example.colordemon.DataPushing {
++ void DataPush(SettingsInfo)
+}
+class com.example.colordemon.GameStruct.GameView {
+- DrawThread myThread
+- DrawController drawController
+- EnemySpauner enemySpauner
+- ArrayList<Enemy> enemies
+- GameObjectFactory unitsFactory
+- Enemy enemy
+- SurfaceHolder surfaceHolder
+- CentralObject centralObject
+- Bitmap background
+- float xPress
+- float yPress
+- float xUnPress
+- float yUnPress
+- int timer
+- Hero hero
++ void surfaceCreated(SurfaceHolder)
++ void init()
++ void drawFrames(Canvas)
++ boolean onTouchEvent(MotionEvent)
++ void tickLogic()
++ void surfaceChanged(SurfaceHolder,int,int,int)
++ void surfaceDestroyed(SurfaceHolder)
+}
+class com.example.colordemon.GameStruct.GameView.DrawThread {
+- boolean running
++ void run()
+}
+class com.example.colordemon.Shop {
+- ListView listView
+- MyEntryAdapter adapter
+~ ShopBinding binding
+- Entry[] entries
+- Entry[] entries_weapons
+# void onCreate(Bundle)
+}
+class com.example.colordemon.Shop.ItemClickListener {
++ void onItemClick(AdapterView<?>,View,int,long)
+}
+class com.example.colordemon.Shop.MyEntryAdapter {
+~ Entry[] entries
++ View getView(int,View,ViewGroup)
+}
+class com.example.colordemon.GameStruct.CentralObject {
+~ GameObject gameObject
++ float getCentralX()
++ float getCentralY()
+}
+class com.example.colordemon.GameStruct.Stuffs.Potion {
++ void use()
+}
+interface com.example.colordemon.GameStruct.Stuffs.Consumable {
+~ void use()
+}
+class com.example.colordemon.GameStruct.GameObjectFactory {
+~ ArrayList<GameObjectType> unitTypes
++ GameObjectType getUnitType(Integer)
+}
+class com.example.colordemon.GameStruct.DrawController {
+~ Hero hero
+~ GameObjectFactory unitsFactory
+~ ArrayList<GameObject> gameObjects
+~ ArrayList<Enemy> enemies
+~ CentralObject centralObject
++ void draw(Canvas,float,float)
+- Bitmap createBitmap(int,int,float,float)
+}
+class com.example.colordemon.GameStruct.Stuffs.Stuff {
++ void update()
+}
+class com.example.colordemon.GameStruct.Units.Npc {
+}
+class com.example.colordemon.SettingsDatabase {
++ {static} String LANGUAGE
++ {static} String VOLUME
+- SharedPreferences storage
++ void save(String)
++ void save(float)
++ void save(String,float)
++ String getLanguage()
++ Integer getVolume()
+}
+class com.example.colordemon.GameStruct.Ability {
++ int name
+- float frame
++ float cooldown
++ int number
++ float cooldownNow
++ float x
++ float y
+~ CircleCollider collider
++ void updateCooldown()
++ void setCooldownNow()
+}
+class com.example.colordemon.GameStruct.Units.Hero {
++ {static} int Name
+- float stopTime
+- float radius
+- float angle
+- float startAngle
+- float radiusX
+- float radiusY
+- float angleSpeed
+- float addX
+- float addY
+- float tickTime
++ Ability[] abilities
++ int damageType
++ void update()
+- void dashUpdate()
+- void ultUpdate()
+- void circleUpdate()
+- void enemyPortUpdate()
++ int nowSprite()
++ void dash(float,float)
++ void enemyPort(float,float)
++ void circleDash(float,float,float,float)
++ void ult(Float[][])
+}
+interface com.example.colordemon.GameStruct.Stuffs.Openable {
+~ void open()
+}
+class com.example.colordemon.App {
+- {static} App instance
+- {static} SettingsDatabase database
++ {static} App getInstance()
++ {static} SettingsDatabase getDatabase()
++ void onCreate()
+}
+class com.example.colordemon.GameStruct.Stuffs.Door {
++ void open()
+}
+interface com.example.colordemon.MainMenuAdditionals.MusicInterface {
+}
+class com.example.colordemon.MainMenuAdditionals.MenuFragment {
+~ MenuFragmentBinding binding
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.colordemon.GameStruct.Game {
+# void onCreate(Bundle)
+}
+class com.example.colordemon.GameStruct.CircleCollider {
+~ float radius
++ boolean isCollision(float,float)
+}
+class com.example.colordemon.GameStruct.Units.Enemy {
+- GameObject targetObject
+- float radius
++ void update()
+}
+abstract class com.example.colordemon.GameStruct.GameObject {
++ float x
++ GameObjectType type
++ Collider collider
++ {abstract}void update()
+}
+class com.example.colordemon.MainMenuAdditionals.DownloadActivity {
+# void onCreate(Bundle)
+}
+class com.example.colordemon.GameStruct.GameObjectType {
++ ArrayList<Bitmap> sprite
+~ Integer name
+}
+class com.example.colordemon.MainMenuAdditionals.MainThemeMusic {
+~ ActivityMainBinding binding
++ boolean InProcess
+~ MediaPlayer mPlayer
+~ SeekBar volumeControl
+~ AudioManager audioManager
+}
+class com.example.colordemon.Settings {
+~ SettingsBinding binding
+# void onCreate(Bundle)
+}
+class com.example.colordemon.GameStruct.Stuffs.Chest {
++ void open()
+}
+class com.example.colordemon.MainActivity {
+~ ActivityMainBinding binding
+~ MediaPlayer mPlayer
+~ SeekBar volumeControl
+~ AudioManager audioManager
+# void onCreate(Bundle)
+- void changeLocale(Locale)
++ void DataPush(SettingsInfo)
+}
+class com.example.colordemon.MainActivity.MyPagerAdapter {
++ int getCount()
++ Fragment getItem(int)
+}
+class com.example.colordemon.MainMenuAdditionals.SettingsInfo {
+# float volume
+# String language
++ float getVolume()
++ String getLanguage()
+}
+class com.example.colordemon.MainMenuAdditionals.SettingsFragment {
+- SettingsInfo info
+~ SettingsBinding binding
+- DataPushing pushingManager
++ void onAttach(Context)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void hideAll()
+- void setNowLanguage()
+}
+class com.example.colordemon.GameStruct.BoxCollider {
+- float paddingX
+- float paddingY
++ boolean isCollision(float,float)
+}
+class com.example.colordemon.MainMenuAdditionals.ShopFragment {
+- ListView listView
+- MyEntryAdapter1 adapter
+~ ShopBinding binding
+- Entry[] entries
+- Entry[] entries_weapons
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.colordemon.MainMenuAdditionals.ShopFragment.ItemClickListener {
++ void onItemClick(AdapterView<?>,View,int,long)
+}
+class com.example.colordemon.MainMenuAdditionals.ShopFragment.MyEntryAdapter1 {
+~ Entry[] entries
++ View getView(int,View,ViewGroup)
+}
+abstract class com.example.colordemon.GameStruct.Collider {
++ GameObject gameObject
++ float centerX
+~ {abstract}boolean isCollision(float,float)
+}
+class com.example.colordemon.GameStruct.EnemySpauner {
+~ GameObject defaultTarget
+~ float width
+~ Enemy enemy
+~ float height
++ Enemy defaultSpaun()
+}
+
+
+com.example.colordemon.GameStruct.GameObject <|-- com.example.colordemon.GameStruct.Units.Unit
+com.example.colordemon.GameStruct.Callback <|.. com.example.colordemon.GameStruct.GameView
+android.view.SurfaceView <|-- com.example.colordemon.GameStruct.GameView
+com.example.colordemon.GameStruct.GameView +.. com.example.colordemon.GameStruct.GameView.DrawThread
+com.example.colordemon.GameStruct.Thread <|-- com.example.colordemon.GameStruct.GameView.DrawThread
+androidx.appcompat.app.AppCompatActivity <|-- com.example.colordemon.Shop
+com.example.colordemon.Shop +.. com.example.colordemon.Shop.ItemClickListener
+com.example.colordemon.OnItemClickListener <|.. com.example.colordemon.Shop.ItemClickListener
+com.example.colordemon.Shop +.. com.example.colordemon.Shop.MyEntryAdapter
+com.example.colordemon.ArrayAdapter <|-- com.example.colordemon.Shop.MyEntryAdapter
+com.example.colordemon.GameStruct.Stuffs.Consumable <|.. com.example.colordemon.GameStruct.Stuffs.Potion
+com.example.colordemon.GameStruct.Stuffs.Stuff <|-- com.example.colordemon.GameStruct.Stuffs.Potion
+com.example.colordemon.GameStruct.GameObject <|-- com.example.colordemon.GameStruct.Stuffs.Stuff
+com.example.colordemon.GameStruct.Units.Unit <|-- com.example.colordemon.GameStruct.Units.Npc
+com.example.colordemon.GameStruct.Units.Unit <|-- com.example.colordemon.GameStruct.Units.Hero
+android.app.Application <|-- com.example.colordemon.App
+com.example.colordemon.GameStruct.Stuffs.Openable <|.. com.example.colordemon.GameStruct.Stuffs.Door
+com.example.colordemon.GameStruct.Stuffs.Stuff <|-- com.example.colordemon.GameStruct.Stuffs.Door
+androidx.fragment.app.Fragment <|-- com.example.colordemon.MainMenuAdditionals.MenuFragment
+android.app.Activity <|-- com.example.colordemon.GameStruct.Game
+com.example.colordemon.GameStruct.Collider <|-- com.example.colordemon.GameStruct.CircleCollider
+com.example.colordemon.GameStruct.Units.Unit <|-- com.example.colordemon.GameStruct.Units.Enemy
+androidx.appcompat.app.AppCompatActivity <|-- com.example.colordemon.MainMenuAdditionals.DownloadActivity
+com.example.colordemon.MainMenuAdditionals.MusicInterface <|.. com.example.colordemon.MainMenuAdditionals.MainThemeMusic
+androidx.appcompat.app.AppCompatActivity <|-- com.example.colordemon.MainMenuAdditionals.MainThemeMusic
+androidx.appcompat.app.AppCompatActivity <|-- com.example.colordemon.Settings
+com.example.colordemon.GameStruct.Stuffs.Openable <|.. com.example.colordemon.GameStruct.Stuffs.Chest
+com.example.colordemon.GameStruct.Stuffs.Stuff <|-- com.example.colordemon.GameStruct.Stuffs.Chest
+com.example.colordemon.DataPushing <|.. com.example.colordemon.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.colordemon.MainActivity
+com.example.colordemon.MainActivity +.. com.example.colordemon.MainActivity.MyPagerAdapter
+com.example.colordemon.FragmentPagerAdapter <|-- com.example.colordemon.MainActivity.MyPagerAdapter
+androidx.fragment.app.Fragment <|-- com.example.colordemon.MainMenuAdditionals.SettingsFragment
+com.example.colordemon.GameStruct.Collider <|-- com.example.colordemon.GameStruct.BoxCollider
+androidx.fragment.app.Fragment <|-- com.example.colordemon.MainMenuAdditionals.ShopFragment
+com.example.colordemon.MainMenuAdditionals.ShopFragment +.. com.example.colordemon.MainMenuAdditionals.ShopFragment.ItemClickListener
+com.example.colordemon.MainMenuAdditionals.OnItemClickListener <|.. com.example.colordemon.MainMenuAdditionals.ShopFragment.ItemClickListener
+com.example.colordemon.MainMenuAdditionals.ShopFragment +.. com.example.colordemon.MainMenuAdditionals.ShopFragment.MyEntryAdapter1
+com.example.colordemon.MainMenuAdditionals.ArrayAdapter <|-- com.example.colordemon.MainMenuAdditionals.ShopFragment.MyEntryAdapter1
+@enduml

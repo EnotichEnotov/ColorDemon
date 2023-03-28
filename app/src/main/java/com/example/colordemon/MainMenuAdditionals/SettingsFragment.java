@@ -38,7 +38,6 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 info.language="en";
-                binding.languageChoose.setText("English");
                 hideAll();
                 setNowLanguage();
             }
@@ -47,7 +46,6 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 info.language="ru";
-                binding.languageChoose.setText("Russian");
                 hideAll();
                 setNowLanguage();
             }

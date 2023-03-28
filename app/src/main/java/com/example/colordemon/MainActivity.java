@@ -17,6 +17,7 @@ import android.widget.SeekBar;
 
 import com.example.colordemon.MainMenuAdditionals.DownloadActivity;
 import com.example.colordemon.MainMenuAdditionals.MenuFragment;
+import com.example.colordemon.MainMenuAdditionals.MenuFragment1;
 import com.example.colordemon.MainMenuAdditionals.SettingsFragment;
 import com.example.colordemon.MainMenuAdditionals.SettingsInfo;
 import com.example.colordemon.MainMenuAdditionals.ShopFragment;
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
                 case 0:
                     return new ShopFragment();
                 case 1:
-                    return new MenuFragment();
+                    return new MenuFragment1();
                 case 2:
                     return new SettingsFragment(App.getDatabase().getLanguage(),App.getDatabase().getVolume());
                 default:
