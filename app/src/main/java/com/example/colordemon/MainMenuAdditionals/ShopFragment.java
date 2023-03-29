@@ -1,7 +1,6 @@
 package com.example.colordemon.MainMenuAdditionals;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,17 +11,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.colordemon.GameStruct.Entry;
-import com.example.colordemon.MainActivity;
+import com.example.colordemon.Entry;
 import com.example.colordemon.R;
-import com.example.colordemon.Settings;
-import com.example.colordemon.Shop;
 import com.example.colordemon.databinding.ShopBinding;
 
 public class ShopFragment extends Fragment {

@@ -1,46 +1,25 @@
 package com.example.colordemon;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.res.Configuration;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
+
 import android.os.Bundle;
 import android.view.View;
 import android.content.Context;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SeekBar;
-
-import com.example.colordemon.GameStruct.Entry;
-import com.example.colordemon.databinding.ActivityMainBinding;
-
-import java.util.List;
-import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.widget.AdapterView;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Arrays;
-import java.util.Collections;
 import com.example.colordemon.databinding.ShopBinding;
 public class Shop extends AppCompatActivity{
     private ListView listView;

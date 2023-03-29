@@ -1,4 +1,4 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon;
 
 import android.content.Context;
 import android.content.Intent;
