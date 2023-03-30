@@ -9,16 +9,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
-import com.example.colordemon.GameStruct.Ability;
-import com.example.colordemon.GameStruct.BoxCollider;
-import com.example.colordemon.GameStruct.CentralObject;
-import com.example.colordemon.GameStruct.CircleCollider;
-import com.example.colordemon.GameStruct.DrawController;
-import com.example.colordemon.GameStruct.GameObjectFactory;
 import com.example.colordemon.GameStruct.Units.Enemy;
 import com.example.colordemon.GameStruct.Units.Hero;
 import com.example.colordemon.R;
@@ -57,10 +50,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
     public void init(){
         hero = new Hero(getWidth()/4,getHeight()/4,0f,0f,new BoxCollider(hero,100,100),100,100);
-        hero.abilities[0] = new Ability(2,getWidth()*3/4,getHeight()*5/6,new CircleCollider(getWidth()*3/4+50,getHeight()*5/6+50,75),1,0);
-        hero.abilities[1] = new Ability(5,getWidth()*3/4+100,getHeight()*5/6+100,new CircleCollider(getWidth()*3/4+150,getHeight()*5/6+150,75),1,1);
-        hero.abilities[2] = new Ability(8,getWidth()*3/4-100,getHeight()*5/6+100,new CircleCollider(getWidth()*3/4-50,getHeight()*5/6+150,75),1,2);
-        hero.abilities[3] = new Ability(10,getWidth()*3/4-100,getHeight()*5/6-100,new CircleCollider(getWidth()*3/4-50,getHeight()*5/6-50,75),1,3);
+        hero.abilities[0] = new Ability(2,getWidth()*3/4,getHeight()*5/6,new CircleCollider(new Point(getWidth()*3/4+50,getHeight()*5/6+50),75),1,0);
+        hero.abilities[1] = new Ability(5,getWidth()*3/4+100,getHeight()*5/6+100,new CircleCollider(new Point(getWidth()*3/4+150,getHeight()*5/6+150),75),1,1);
+        hero.abilities[2] = new Ability(8,getWidth()*3/4-100,getHeight()*5/6+100,new CircleCollider(new Point(getWidth()*3/4-50,getHeight()*5/6+150),75),1,2);
+        hero.abilities[3] = new Ability(10,getWidth()*3/4-100,getHeight()*5/6-100,new CircleCollider(new Point(getWidth()*3/4-50,getHeight()*5/6-50),75),1,3);
         centralObject = new CentralObject(hero);
         enemySpauner = new EnemySpauner(hero,getWidth(),getHeight());
         enemies = new ArrayList<>();
@@ -86,7 +79,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 xPress=x;
                 yPress=y;
                 return true;
-                case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_UP:
                     xUnPress=x;
                     yUnPress=y;
                     return true;
@@ -120,12 +113,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 if(xUnPress==0 && yUnPress==0) break;
                 for(Enemy i : enemies){
                     if(Math.pow(i.x+addX-xUnPress,2)+Math.pow(i.y+addY-yUnPress,2)<minX*minX+minY*minY){
-                        minX=i.x;
-                        minY=i.y;
+                        minX=i.x+addX-xUnPress;
+                        minY=i.y+addY-yUnPress;
                     }
                 }
-                //if(Math.pow(minX+addX-xUnPress,2)+Math.pow(minY+addY-yUnPress,2)<3200)
-                hero.enemyPort(minX,minY);
+                //if(Math.pow(minX,2)+Math.pow(minY,2)>2500) break;
+                hero.enemyPort(minX-addX+xUnPress,minY-addY+yUnPress);
                 Log.i("III"," "+(minX+addX-xUnPress)+" "+(minY+addY-yUnPress));
                 xUnPress=0; yUnPress=0;
                 break;

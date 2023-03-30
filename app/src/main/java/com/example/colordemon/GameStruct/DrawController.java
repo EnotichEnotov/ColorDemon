@@ -43,7 +43,7 @@ public class DrawController {
         for(Ability i : hero.abilities){
             canvas.drawBitmap(createBitmap(i.name,0,100,100),i.x,i.y,null);
             if (i.cooldownNow!=0) canvas.drawText(Math.ceil(i.cooldownNow)+"",i.x+15,i.y+70,paint);
-            if(hero.damageType==i.number) canvas.drawCircle(i.collider.centerX,i.collider.centerY,10,paint);
+            if(hero.damageType==i.number) canvas.drawCircle(i.collider.gameObject.x,i.collider.gameObject.y,10,paint);
             //canvas.drawCircle(i.collider.centerX,i.collider.centerY,i.collider.radius,paint);
         }
     }

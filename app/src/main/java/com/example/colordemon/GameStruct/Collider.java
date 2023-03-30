@@ -2,12 +2,9 @@ package com.example.colordemon.GameStruct;
 
 public abstract class Collider {
     public GameObject gameObject;
-    public float centerX, centerY;
 
-    public Collider(float centerX, float centerY) {
-        this.centerX=centerX;
-        this.centerY=centerY;
+    public Collider(GameObject gameObject) {
+        this.gameObject=gameObject;
     }
-
     abstract boolean isCollision(float x,float y);
 }
