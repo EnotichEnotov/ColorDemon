@@ -5,8 +5,8 @@ import android.util.Log;
 import com.example.colordemon.GameStruct.Ability;
 import com.example.colordemon.GameStruct.Collider;
 
-public class Hero extends Unit{
-    public static final int Name = 0;
+public class Hero extends MainCharacter{
+    public static final int Name = 1;
     private final float stopTime = 5f;
     private float radius;
     private float angle;
@@ -17,8 +17,8 @@ public class Hero extends Unit{
     private float addX;
     private float addY;
     private float tickTime = 1f;
-    public Ability[] abilities = new Ability[4]; // max 0 - 2, max 1 - 5, max 2 - 8, max 3 - 15
-    public int damageType = 0; // 0 - dash, 1 - enemyPort, 2 - circleDash, 3 - ult
+    // abilities: max 0 - 2, max 1 - 5, max 2 - 8, max 3 - 15
+    // damage type: 0 - dash, 1 - enemyPort, 2 - circleDash, 3 - ult
     public Hero(float x, float y, float velocityX, float velocityY, Collider collider,float scaleX,float scaleY) {
         super(x, y, velocityX,velocityY,collider,scaleX,scaleY);
     }
@@ -42,6 +42,7 @@ public class Hero extends Unit{
                 Log.wtf("WTF", damageType + "");
         }
     }
+
     private void dashUpdate(){
         if(tickTime<=stopTime){
             x+=velocityX;
