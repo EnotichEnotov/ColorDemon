@@ -52,7 +52,7 @@ public class Shop extends AppCompatActivity{
                 //Toast.makeText(Shop.this, "sfdsd", Toast.LENGTH_SHORT).show();
 
 
-                entries[0] = new Entry(getResources().getString(R.string.author_shop_weapon_1),R.drawable.shop_skin_weapon1, getResources().getString(R.string.character_story_1));
+                entries[0] = new Entry(getResources().getString(R.string.author_shop_weapon_1),R.drawable.shop_skin_weapon2, getResources().getString(R.string.character_story_1));
                 entries[1] = new Entry(getResources().getString(R.string.author_shop_weapon_2),R.drawable.shop_skin_weapon2, getResources().getString(R.string.character_story_2));
                 entries[2] = new Entry(getResources().getString(R.string.author_shop_weapon_3),R.drawable.shop_skin_weapon3, getResources().getString(R.string.character_story_3));
                 entries[3] = new Entry(getResources().getString(R.string.author_shop_weapon_4),R.drawable.shop_skin_weapon4, getResources().getString(R.string.character_story_4));

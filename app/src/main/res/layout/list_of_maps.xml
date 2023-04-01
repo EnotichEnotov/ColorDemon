@@ -3,40 +3,35 @@
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Shop"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_margin="10dp"
     android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/map_descrip"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:text="@string/author_shop_character_1" />
     <ImageView
         android:id="@+id/map"
-        android:layout_weight="1"
-        android:layout_width="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/shop_skin_person5"
         />
-    <RelativeLayout
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="200dp">
-        <TextView
-            android:id="@+id/map_descrip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:text="@string/character_story_1" />
+    <Button
+        android:id="@+id/choose"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Я не нужна"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/choose"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="Choose"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-    </RelativeLayout>
 </LinearLayout>
