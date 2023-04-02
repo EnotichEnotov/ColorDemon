@@ -13,6 +13,12 @@ public class Enemy extends Unit{
         radius=(float) Math.sqrt(velocityX*velocityX+velocityY*velocityY);
     }
 
+    public Enemy(float x, float y, float velocityX, float velocityY, Collider collider, float scaleX, float scaleY, int maxHp, int maxMana, int armor, int damage, int damageCooldown,GameObject targetObject) {
+        super(x, y, velocityX, velocityY, collider, scaleX, scaleY, maxHp, maxMana, armor, damage, damageCooldown);
+        this.targetObject=targetObject;
+        radius=(float) Math.sqrt(velocityX*velocityX+velocityY*velocityY);
+    }
+
     @Override
     public void update() {
         super.update();

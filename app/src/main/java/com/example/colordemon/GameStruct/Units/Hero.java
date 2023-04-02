@@ -19,12 +19,13 @@ public class Hero extends MainCharacter{
     private float tickTime = 1f;
     // abilities: max 0 - 2, max 1 - 5, max 2 - 8, max 3 - 15
     // damage type: 0 - dash, 1 - enemyPort, 2 - circleDash, 3 - ult
-    public Hero(float x, float y, float velocityX, float velocityY, Collider collider,float scaleX,float scaleY) {
-        super(x, y, velocityX,velocityY,collider,scaleX,scaleY);
+    public Hero(float x, float y, float velocityX, float velocityY, Collider collider,float scaleX,float scaleY,int maxHp,int maxMana,int armor,int damage,int damageCooldown) {
+        super(x, y, velocityX,velocityY,collider,scaleX,scaleY,maxHp,maxMana,armor,damage,damageCooldown);
     }
 
     @Override
     public void update() {
+        if(nowDamageCooldown>0) nowDamageCooldown--;
         switch (damageType) {
             case 0:
                 dashUpdate();
@@ -41,6 +42,10 @@ public class Hero extends MainCharacter{
             default:
                 Log.wtf("WTF", damageType + "");
         }
+        if(hp<=0){ Log.i("III","GAME OVER");}
+    }
+    public void damageDeal(Enemy enemy){
+        if(nowDamageCooldown<=0 && velocityX==0 && velocityY==0){ hp-=enemy.damage; nowDamageCooldown=damageCooldown;}
     }
 
     private void dashUpdate(){
@@ -53,10 +58,11 @@ public class Hero extends MainCharacter{
             tickTime=1f;
             velocityX=0f;
             velocityY=0f;
+            nowDamageCooldown=damageCooldown;
         }
     }
     private void ultUpdate(){
-
+        nowDamageCooldown=damageCooldown;
     }
     private void circleUpdate(){
         if(angle<=startAngle+2*Math.PI){
@@ -64,6 +70,7 @@ public class Hero extends MainCharacter{
             x=radiusX+radius*(float)Math.cos(angle);
             y=radiusY+radius*(float)Math.sin(angle);
         }
+        else{nowDamageCooldown=damageCooldown;}
         Log.i("III",x+" "+y);
     }
     private void enemyPortUpdate(){
@@ -72,6 +79,7 @@ public class Hero extends MainCharacter{
         y=addY;
         addY=0;
         addX=0;
+        nowDamageCooldown=damageCooldown;
     }
     public int nowSprite(){
         return 0;

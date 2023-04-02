@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 
 import com.example.colordemon.GameStruct.Ability;
 import com.example.colordemon.GameStruct.CentralObject;
@@ -37,9 +38,15 @@ public class DrawController {
         for(Enemy i : enemies){
             canvas.drawBitmap(Bitmap.createScaledBitmap(unitsFactory.getUnitType(2).sprite.get(hero.nowSprite()),(int)i.scaleX,(int)i.scaleY,false),i.x+addX,i.y+addY,null);
         }
+        Paint paint1 = new Paint();
+        paint1.setColor(Color.MAGENTA);
         Paint paint = new Paint();
         paint.setColor(Color.RED);
         paint.setTextSize(50);
+        Rect rect1 = new Rect((int) (hero.x+addX+hero.scaleX/2-100),(int)(hero.y+addY+hero.scaleY/2-200),(int)(hero.x+addX+hero.scaleX/2+100),(int)(hero.y+addY+hero.scaleY/2-150));
+        Rect rect = new Rect((int) (hero.x+addX+hero.scaleX/2-100),(int)(hero.y+addY+hero.scaleY/2-200),(int)(hero.x+addX+hero.scaleX/2+100*hero.hp/hero.maxHp),(int)(hero.y+addY+hero.scaleY/2-150));
+        canvas.drawRect(rect1,paint1);
+        if(hero.hp>0)canvas.drawRect(rect,paint);
         for(Ability i : hero.abilities){
             canvas.drawBitmap(createBitmap(i.name,0,100,100),i.x,i.y,null);
             if (i.cooldownNow!=0) canvas.drawText(Math.ceil(i.cooldownNow)+"",i.x+15,i.y+70,paint);
