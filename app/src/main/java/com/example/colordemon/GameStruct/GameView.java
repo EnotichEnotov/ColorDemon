@@ -49,7 +49,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         myThread.start();
     }
     public void init(){
-        hero = new Hero(getWidth()/4,getHeight()/4,0f,0f,new BoxCollider(hero,100,100),100,100);
+        hero = new Hero(getWidth()/4,getHeight()/4,0f,0f,new BoxCollider(hero,100,100),100,100,100,100,5,50,1);
         hero.abilities[0] = new Ability(2,getWidth()*3/4,getHeight()*5/6,new CircleCollider(new Point(getWidth()*3/4+50,getHeight()*5/6+50),75),1,0);
         hero.abilities[1] = new Ability(5,getWidth()*3/4+100,getHeight()*5/6+100,new CircleCollider(new Point(getWidth()*3/4+150,getHeight()*5/6+150),75),1,1);
         hero.abilities[2] = new Ability(8,getWidth()*3/4-100,getHeight()*5/6+100,new CircleCollider(new Point(getWidth()*3/4-50,getHeight()*5/6+150),75),1,2);
@@ -57,12 +57,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         centralObject = new CentralObject(hero);
         enemySpauner = new EnemySpauner(hero,getWidth(),getHeight());
         enemies = new ArrayList<>();
-        enemy = new Enemy(0,0,5,5,new BoxCollider(enemy,100,100),100,100,hero);
-        enemies.add(enemy);
-        enemy = new Enemy(120,450,5,5,new BoxCollider(enemy,100,100),100,100,hero);
-        enemies.add(enemy);
-        enemy = new Enemy(50,50,5,5,new BoxCollider(enemy,100,100),100,100,hero);
-        enemies.add(enemy);
+        //enemy = new Enemy(0,0,5,5,new BoxCollider(enemy,100,100),100,100,hero);
+        //enemies.add(enemy);
+        //enemy = new Enemy(120,450,5,5,new BoxCollider(enemy,100,100),100,100,hero);
+        //enemies.add(enemy);
+        //enemy = new Enemy(50,50,5,5,new BoxCollider(enemy,100,100),100,100,hero);
+        //enemies.add(enemy);
         drawController = new DrawController(centralObject,hero,enemies,null,unitsFactory);
     }
     public void drawFrames(Canvas canvas){
@@ -90,7 +90,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         hero.update();
         for(Enemy i : enemies) {
             i.update();
-            if(i.collider.isCollision(hero.x,hero.y)) i = null;
+            if(i.collider.isCollision(hero.x,hero.y)) hero.damageDeal(i);
         }
         for(Ability i : hero.abilities){
             i.updateCooldown();

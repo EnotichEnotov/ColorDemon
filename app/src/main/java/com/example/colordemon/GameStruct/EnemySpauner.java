@@ -17,7 +17,10 @@ public class EnemySpauner {
     public Enemy defaultSpaun(){
         int znakX=Math.random() > 0.5 ? -1 : 1;
         int znakY=Math.random() > 0.5 ? -1 : 1;
-        enemy = new Enemy(defaultTarget.x+(float)(width+Math.random()*300)*znakX,defaultTarget.y+(float)(width+Math.random()*300)*znakY,5,5,new BoxCollider(enemy,100,100),100,100,defaultTarget);
+        enemy = new Enemy(defaultTarget.x+(float)(width+Math.random()*300)*znakX,defaultTarget.y+(float)(width+Math.random()*300)*znakY,5,5,
+                new BoxCollider(enemy,100,100),
+                100,100,100,100,1,50,
+                50,defaultTarget);
         return enemy;
     }
 }
