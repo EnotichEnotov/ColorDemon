@@ -26,6 +26,18 @@
     <string name="character_story_4">Master of the cult, possesses boundless knowledge.</string>
     <string name="character_story_5">Corruption is doom, the most important being in this world.</string>
     <string name="character_story_6">The messenger of the gods, a blessing hangs on him.</string>
+
+    <string name="author_shop_equipment_1">Potion</string>
+    <string name="author_shop_equipment_2">Tree</string>
+    <string name="author_shop_equipment_3">Dumbbells</string>
+    <string name="author_shop_equipment_4">Katana</string>
+    <string name="author_shop_equipment_5">Меч</string>
+    <string name="author_shop_equipment_6">Нунчаки</string>
+    <string name="equipment_story_1">A healing potion. Restores 15% of health.</string>
+    <string name="equipment_story_2">The Tree of life. Increases maximum health by 5%.</string>
+    <string name="equipment_story_3">Dumbbells. Increases strength by 5%.</string>
+    <string name="equipment_story_4">Katana. Increases the damage of the next hit by 100%.</string>
+
     <string name="shop_button_characters">Character</string>
     <string name="shop_button_weapons">Weapons</string>
     <string name="applybutton">Apply</string>
