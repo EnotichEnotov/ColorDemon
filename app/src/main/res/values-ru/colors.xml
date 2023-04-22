@@ -13,4 +13,5 @@
     <color name="green_rainbow">#33fd00</color>
     <color name="blue_rainbow">#0099fe</color>
     <color name="violet_rainbow">#6633FD</color>
+    <color name="grey">#CDCDCD</color>
 </resources>

@@ -1,53 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:theme="@android:style/Theme.Black.NoTitleBar"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
+        android:layout_above="@id/lister"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"/>
     <LinearLayout
+        android:id="@+id/lister"
+        android:layout_weight="1"
         android:layout_alignParentBottom="true"
-        android:gravity="bottom"
+        android:gravity="top"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-
+        android:layout_height="70dp"
         android:background="#FFFFFF"
+
         android:orientation="horizontal">
-        <ImageView
+        <LinearLayout
+
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
             android:id="@+id/main_menu_icon_button_1"
-            android:src="@drawable/main_menu_icon1"
-            android:gravity="bottom"
-            android:layout_width="0dp"
+            >
+            <ImageView
+                android:id="@+id/main_menu_picture_button_1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:alpha="0.4"
+                android:src="@drawable/navigation_main_shop"
+                android:layout_gravity="center"
+                android:textColor="@color/purple_500"
+                android:textSize="28sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/main_text_icon_button_1"
+                android:layout_height="20dp"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:textColor="@color/grey"
+                android:text="Лента"
+                ></TextView>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:textSize="28sp"
-            android:textColor="@color/purple_500"/>
-        <ImageView
             android:id="@+id/main_menu_icon_button_2"
-            android:src="@drawable/main_menu_icon2"
-            android:gravity="bottom"
+            >
+            <ImageView
+                android:id="@+id/main_menu_picture_button_2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:alpha="0.4"
+                android:layout_gravity="center"
+                android:src="@drawable/navigation_main_fight"
+                android:textColor="@color/purple_500"
+                android:textSize="28sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:textColor="@color/grey"
+                android:id="@+id/main_text_icon_button_2"
+                android:text="Клубы"
+                ></TextView>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:textSize="28sp"
-            android:textColor="@color/purple_500"/>
-        <ImageView
             android:id="@+id/main_menu_icon_button_3"
-            android:src="@drawable/main_menu_icon3"
-            android:gravity="bottom"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:textSize="28sp"
-            android:textColor="@color/purple_500"/>
+            >
+            <ImageView
+                android:id="@+id/main_menu_picture_button_3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:alpha="0.4"
+                android:src="@drawable/navigation_main_settings"
+                android:textColor="@color/purple_500"
+                android:textSize="28sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:textColor="@color/grey"
+                android:id="@+id/main_text_icon_button_3"
+                android:text="Добавить"
+                ></TextView>
+        </LinearLayout>
+
+
+
+
+
     </LinearLayout>
-
-
 </RelativeLayout>
