@@ -50,10 +50,10 @@ public class ShopFragment extends Fragment {
                 //Toast.makeText(Shop.this, "sfdsd", Toast.LENGTH_SHORT).show();
 
 
-                entries[0] = new Entry(getResources().getString(R.string.author_shop_equipment_1),R.drawable.shop_equipment1, getResources().getString(R.string.equipment_story_1));
-                entries[1] = new Entry(getResources().getString(R.string.author_shop_equipment_2),R.drawable.shop_equipment2, getResources().getString(R.string.equipment_story_2));
-                entries[2] = new Entry(getResources().getString(R.string.author_shop_equipment_3),R.drawable.shop_equipment3, getResources().getString(R.string.equipment_story_3));
-                entries[3] = new Entry(getResources().getString(R.string.author_shop_equipment_4),R.drawable.shop_equipment4, getResources().getString(R.string.equipment_story_4));
+                entries[0] = new Entry(getResources().getString(R.string.author_shop_equipment_1),R.drawable.shop_skin_person3, getResources().getString(R.string.equipment_story_1));
+                entries[1] = new Entry(getResources().getString(R.string.author_shop_equipment_2),R.drawable.shop_skin_person1, getResources().getString(R.string.equipment_story_2));
+                entries[2] = new Entry(getResources().getString(R.string.author_shop_equipment_3),R.drawable.shop_skin_person2, getResources().getString(R.string.equipment_story_3));
+                entries[3] = new Entry(getResources().getString(R.string.author_shop_equipment_4),R.drawable.shop_skin_person5, getResources().getString(R.string.equipment_story_4));
                 entries[4] = new Entry(getResources().getString(R.string.author_shop_weapon_5),R.drawable.shop_skin_weapon5, getResources().getString(R.string.character_story_5));
                 entries[5] = new Entry(getResources().getString(R.string.author_shop_weapon_6),R.drawable.shop_skin_weapon6, getResources().getString(R.string.character_story_6));
 

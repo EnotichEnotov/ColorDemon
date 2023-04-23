@@ -62,22 +62,23 @@
 
     <LinearLayout
         android:id="@+id/recycler_block"
-        android:layout_below="@id/abl_main"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_marginTop="50dp">
+        android:layout_below="@id/abl_main"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_maps"
-            android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_heroes"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp" />
     </LinearLayout>
 
     <LinearLayout

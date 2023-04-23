@@ -15,6 +15,7 @@ import com.example.colordemon.GameStruct.Units.Hero;
 import com.example.colordemon.R;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.jar.Pack200;
 
 public class DrawController {
@@ -36,7 +37,21 @@ public class DrawController {
         //Log.i("III",addX+" "+addY+" "+centralObject.getCentralX());
         canvas.drawBitmap(createBitmap(hero.Name,hero.nowSprite(),hero.scaleX,hero.scaleY),hero.x+addX,hero.y+addY,null);
         for(Enemy i : enemies){
-            canvas.drawBitmap(Bitmap.createScaledBitmap(unitsFactory.getUnitType(2).sprite.get(hero.nowSprite()),(int)i.scaleX,(int)i.scaleY,false),i.x+addX,i.y+addY,null);
+            if (Math.random() > 0.5) {
+                canvas.drawBitmap(Bitmap.createScaledBitmap
+                        (unitsFactory.getUnitType(2).sprite.get(hero.nowSprite())
+                                , (int) i.scaleX, (int) i.scaleY, false), i.x + addX, i.y + addY, null);
+            } else {
+                canvas.drawBitmap(Bitmap.createScaledBitmap
+                        (unitsFactory.getUnitType(1).sprite.get(hero.nowSprite())
+                                , (int) i.scaleX, (int) i.scaleY, false), i.x + addX, i.y + addY, null);
+            }
+        }
+        if(hero.hp<=0){
+            Paint paint = new Paint();
+            paint.setTextSize(100);
+            paint.setColor(Color.RED);
+            canvas.drawText("ПОРАЖЕНИЕ",width/6,height/2,paint);
         }
         Paint paint1 = new Paint();
         paint1.setColor(Color.MAGENTA);
