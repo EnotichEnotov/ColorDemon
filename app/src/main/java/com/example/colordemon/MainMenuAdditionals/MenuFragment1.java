@@ -49,22 +49,7 @@ public class MenuFragment1 extends Fragment {
                 getActivity().finish();
             }
         });
-        binding.random.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Game.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
-        });
-        binding.tutorial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Game.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
-        });
+
         MyMapOrCharAdapter adapter= new MyMapOrCharAdapter(App.getMaps().mcDao().getAll());
         binding.recyclerMaps.setAdapter(adapter);
         binding.recyclerMaps.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
