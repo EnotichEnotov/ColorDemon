@@ -1,8 +1,8 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.controllers;
 
+import com.example.colordemon.GameStruct.base.GameObject;
 import com.example.colordemon.GameStruct.Units.Enemy;
-
-import java.util.Random;
+import com.example.colordemon.GameStruct.colliders.BoxCollider;
 
 public class EnemySpauner {
     GameObject defaultTarget;

@@ -1,8 +1,6 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.Units.mainHero;
 
-import android.graphics.Bitmap;
-
-import com.example.colordemon.GameStruct.CircleCollider;
+import com.example.colordemon.GameStruct.colliders.CircleCollider;
 
 public class Ability{
     public int name;
@@ -12,8 +10,8 @@ public class Ability{
     public float cooldownNow = 0;
     public float x;
     public float y;
-    CircleCollider collider;
-    Ability(float cooldown,float x,float y,CircleCollider collider,int name,int number){
+    public CircleCollider collider;
+    public Ability(float cooldown, float x, float y, CircleCollider collider, int name, int number){
         this.collider=collider;
         this.x=x;
         this.cooldown=cooldown;

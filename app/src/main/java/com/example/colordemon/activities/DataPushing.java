@@ -1,4 +1,4 @@
-package com.example.colordemon;
+package com.example.colordemon.activities;
 
 import com.example.colordemon.MainMenuAdditionals.SettingsInfo;
 

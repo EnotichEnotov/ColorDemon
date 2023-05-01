@@ -1,7 +1,6 @@
 package com.example.colordemon.GameStruct.Stuffs;
 
-import com.example.colordemon.GameStruct.GameObject;
-import com.example.colordemon.GameStruct.GameObjectType;
+import com.example.colordemon.GameStruct.base.GameObject;
 
 public class Stuff extends GameObject {
 

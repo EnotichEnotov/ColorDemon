@@ -1,4 +1,4 @@
-package com.example.colordemon;
+package com.example.colordemon.database.entity.DAO;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -7,7 +7,8 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import java.util.ArrayList;
+import com.example.colordemon.database.entity.MapOrCharacterEntity;
+
 import java.util.List;
 
 @Dao

@@ -1,4 +1,4 @@
-package com.example.colordemon;
+package com.example.colordemon.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -21,6 +20,8 @@ import com.example.colordemon.MainMenuAdditionals.MenuFragment1;
 import com.example.colordemon.MainMenuAdditionals.SettingsFragment;
 import com.example.colordemon.MainMenuAdditionals.SettingsInfo;
 import com.example.colordemon.MainMenuAdditionals.ShopFragment;
+import com.example.colordemon.R;
+import com.example.colordemon.database.entity.bd.App;
 import com.example.colordemon.databinding.ActivityMainBinding;
 import java.util.Locale;
 

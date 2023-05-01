@@ -1,4 +1,4 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.controllers;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -6,17 +6,13 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import com.example.colordemon.GameStruct.Ability;
-import com.example.colordemon.GameStruct.CentralObject;
-import com.example.colordemon.GameStruct.GameObject;
-import com.example.colordemon.GameStruct.GameObjectFactory;
+import com.example.colordemon.GameStruct.Units.mainHero.Ability;
+import com.example.colordemon.GameStruct.base.GameObject;
+import com.example.colordemon.GameStruct.base.GameObjectFactory;
 import com.example.colordemon.GameStruct.Units.Enemy;
-import com.example.colordemon.GameStruct.Units.Hero;
-import com.example.colordemon.R;
+import com.example.colordemon.GameStruct.Units.mainHero.Hero;
 
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.jar.Pack200;
 
 public class DrawController {
     Hero hero;
@@ -24,7 +20,7 @@ public class DrawController {
     ArrayList<GameObject> gameObjects;
     ArrayList<Enemy> enemies;
     CentralObject centralObject;
-    DrawController(CentralObject centralObject, Hero hero, ArrayList<Enemy> enemies,ArrayList<GameObject> gameObjects,GameObjectFactory unitsFactory){
+    public DrawController(CentralObject centralObject, Hero hero, ArrayList<Enemy> enemies, ArrayList<GameObject> gameObjects, GameObjectFactory unitsFactory){
         this.hero = hero;
         this.gameObjects = gameObjects;
         this.enemies =enemies;
@@ -34,9 +30,17 @@ public class DrawController {
     public void draw(Canvas canvas,float width,float height){
         float addX=-centralObject.getCentralX()+width/2;
         float addY=-centralObject.getCentralY()+height/2;
+        Paint paint1 = new Paint();
+        paint1.setColor(Color.MAGENTA);
+        Paint paint = new Paint();
+        paint.setColor(Color.RED);
         //Log.i("III",addX+" "+addY+" "+centralObject.getCentralX());
         canvas.drawBitmap(createBitmap(hero.Name,hero.nowSprite(),hero.scaleX,hero.scaleY),hero.x+addX,hero.y+addY,null);
         for(Enemy i : enemies){
+            Rect rect1 = new Rect((int) (i.x+addX+i.scaleX/2-100),(int)(i.y+addY+i.scaleY/2-200),(int)(i.x+addX+i.scaleX/2+100),(int)(i.y+addY+i.scaleY/2-150));
+            Rect rect = new Rect((int) (i.x+addX+i.scaleX/2-100),(int)(i.y+addY+i.scaleY/2-200),(int)(i.x+addX+i.scaleX/2+100*i.hp/i.maxHp),(int)(i.y+addY+i.scaleY/2-150));
+            canvas.drawRect(rect1,paint1);
+            if(i.hp>0)canvas.drawRect(rect,paint);
             if (Math.random() > 0.5) {
                 canvas.drawBitmap(Bitmap.createScaledBitmap
                         (unitsFactory.getUnitType(2).sprite.get(hero.nowSprite())
@@ -48,15 +52,11 @@ public class DrawController {
             }
         }
         if(hero.hp<=0){
-            Paint paint = new Paint();
-            paint.setTextSize(100);
-            paint.setColor(Color.RED);
-            canvas.drawText("ПОРАЖЕНИЕ",width/6,height/2,paint);
+            Paint paint2 = new Paint();
+            paint2.setTextSize(100);
+            paint2.setColor(Color.RED);
+            canvas.drawText("ПОРАЖЕНИЕ",width/6,height/2,paint2);
         }
-        Paint paint1 = new Paint();
-        paint1.setColor(Color.MAGENTA);
-        Paint paint = new Paint();
-        paint.setColor(Color.RED);
         paint.setTextSize(50);
         Rect rect1 = new Rect((int) (hero.x+addX+hero.scaleX/2-100),(int)(hero.y+addY+hero.scaleY/2-200),(int)(hero.x+addX+hero.scaleX/2+100),(int)(hero.y+addY+hero.scaleY/2-150));
         Rect rect = new Rect((int) (hero.x+addX+hero.scaleX/2-100),(int)(hero.y+addY+hero.scaleY/2-200),(int)(hero.x+addX+hero.scaleX/2+100*hero.hp/hero.maxHp),(int)(hero.y+addY+hero.scaleY/2-150));

@@ -1,13 +1,7 @@
 package com.example.colordemon.GameStruct.Units;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-
-import com.example.colordemon.GameStruct.Collider;
-import com.example.colordemon.GameStruct.GameObject;
-import com.example.colordemon.GameStruct.GameObjectType;
-
-import java.util.ArrayList;
+import com.example.colordemon.GameStruct.colliders.Collider;
+import com.example.colordemon.GameStruct.base.GameObject;
 
 
 public class Unit extends GameObject {

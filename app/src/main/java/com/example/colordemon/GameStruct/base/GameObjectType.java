@@ -1,4 +1,4 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.base;
 
 import android.graphics.Bitmap;
 import android.widget.ArrayAdapter;

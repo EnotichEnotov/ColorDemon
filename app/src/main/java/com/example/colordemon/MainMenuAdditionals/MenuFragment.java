@@ -13,10 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.colordemon.GameStruct.Game;
-import com.example.colordemon.MainActivity;
 import com.example.colordemon.R;
-import com.example.colordemon.Settings;
-import com.example.colordemon.Shop;
+import com.example.colordemon.database.entity.Settings;
+import com.example.colordemon.activities.Shop;
 import com.example.colordemon.databinding.MenuFragmentBinding;
 
 public class MenuFragment extends Fragment {

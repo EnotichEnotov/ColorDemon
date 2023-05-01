@@ -1,8 +1,10 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.colliders;
 
-public class CircleCollider extends Collider{
+import com.example.colordemon.GameStruct.base.GameObject;
+
+public class CircleCollider extends Collider {
     float radius;
-    public CircleCollider(GameObject gameObject,float radius){
+    public CircleCollider(GameObject gameObject, float radius){
         super(gameObject);
         this.radius=radius;
     }

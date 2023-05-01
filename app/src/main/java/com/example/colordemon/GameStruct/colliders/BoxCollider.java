@@ -1,6 +1,8 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.colliders;
 
-public class BoxCollider extends Collider{
+import com.example.colordemon.GameStruct.base.GameObject;
+
+public class BoxCollider extends Collider {
     private float paddingX=100f;
     private float paddingY=100f;
     public BoxCollider(GameObject gameObject, float paddingX, float paddingY){

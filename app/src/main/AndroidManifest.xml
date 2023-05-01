@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:name=".App"
+        android:name=".database.entity.bd.App"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -14,7 +14,7 @@
         android:theme="@style/Theme.ColorDemon"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,8 +26,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".Settings" android:exported="false"/>
-        <activity android:name=".Shop" android:exported="false"/>
+        <activity android:name=".database.entity.Settings" android:exported="false"/>
+        <activity android:name=".activities.Shop" android:exported="false"/>
         <activity android:name=".GameStruct.Game" android:exported="false"/>
         <activity android:name=".MainMenuAdditionals.DownloadActivity" android:exported="false"/>
     </application>

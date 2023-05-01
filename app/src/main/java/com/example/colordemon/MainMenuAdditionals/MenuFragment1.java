@@ -1,21 +1,12 @@
 package com.example.colordemon.MainMenuAdditionals;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,14 +16,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.colordemon.App;
-import com.example.colordemon.Entry;
+import com.example.colordemon.database.entity.bd.App;
 import com.example.colordemon.GameStruct.Game;
-import com.example.colordemon.MapOrCharacterEntity;
+import com.example.colordemon.database.entity.MapOrCharacterEntity;
 import com.example.colordemon.R;
 import com.example.colordemon.databinding.MenuFragment2Binding;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MenuFragment1 extends Fragment {

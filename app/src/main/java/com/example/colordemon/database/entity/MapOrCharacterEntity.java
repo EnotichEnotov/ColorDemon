@@ -1,4 +1,4 @@
-package com.example.colordemon;
+package com.example.colordemon.database.entity;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

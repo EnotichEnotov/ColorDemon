@@ -1,9 +1,9 @@
-package com.example.colordemon.GameStruct.Units;
+package com.example.colordemon.GameStruct.Units.mainHero;
 
 import android.util.Log;
 
-import com.example.colordemon.GameStruct.Ability;
-import com.example.colordemon.GameStruct.Collider;
+import com.example.colordemon.GameStruct.Units.Enemy;
+import com.example.colordemon.GameStruct.colliders.Collider;
 
 public class Hero extends MainCharacter{
     public static final int Name = 1;
@@ -56,9 +56,9 @@ public class Hero extends MainCharacter{
         }
         else{
             tickTime=1f;
+            if(velocityX>0 || velocityY>0) nowDamageCooldown=damageCooldown;
             velocityX=0f;
             velocityY=0f;
-            nowDamageCooldown=damageCooldown;
         }
     }
     private void ultUpdate(){

@@ -10,8 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.colordemon.App;
-import com.example.colordemon.DataPushing;
+import com.example.colordemon.activities.DataPushing;
 import com.example.colordemon.databinding.SettingsBinding;
 
 public class SettingsFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.colordemon;
+package com.example.colordemon.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +20,10 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.colordemon.R;
+import com.example.colordemon.database.entity.Entry;
 import com.example.colordemon.databinding.ShopBinding;
+
 public class Shop extends AppCompatActivity{
     private ListView listView;
     private  MyEntryAdapter adapter;

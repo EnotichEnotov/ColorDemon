@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.colordemon.MainActivity;
+import com.example.colordemon.activities.MainActivity;
 
 public class DownloadActivity extends AppCompatActivity {
     @Override

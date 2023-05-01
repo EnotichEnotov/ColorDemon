@@ -1,8 +1,7 @@
 package com.example.colordemon.GameStruct.Units;
 
-import com.example.colordemon.GameStruct.Collider;
-import com.example.colordemon.GameStruct.GameObject;
-import com.example.colordemon.GameStruct.GameObjectType;
+import com.example.colordemon.GameStruct.colliders.Collider;
+import com.example.colordemon.GameStruct.base.GameObject;
 
 public class Enemy extends Unit{
     private GameObject targetObject;
@@ -22,9 +21,13 @@ public class Enemy extends Unit{
     @Override
     public void update() {
         super.update();
+        if(nowDamageCooldown>0) nowDamageCooldown--;
         if(Math.sqrt((x-targetObject.x-targetObject.scaleX/2)*(x-targetObject.x-targetObject.scaleX/2)+(y-targetObject.y-targetObject.scaleY/2)*(y-targetObject.y-targetObject.scaleY/2))<10) return;
         x-=radius*(x-targetObject.x-targetObject.scaleX/2)/(float)Math.sqrt((x-targetObject.x-targetObject.scaleX/2)*(x-targetObject.x-targetObject.scaleX/2)+(y-targetObject.y-targetObject.scaleY/2)*(y-targetObject.y-targetObject.scaleY/2));
         y-=radius*(y-targetObject.y-targetObject.scaleY/2)/(float)Math.sqrt((x-targetObject.x-targetObject.scaleX/2)*(x-targetObject.x-targetObject.scaleX/2)+(y-targetObject.y-targetObject.scaleY/2)*(y-targetObject.y-targetObject.scaleY/2));
-
+    }
+    public void takeDamage(float damage){
+        if(hp>=damage && nowDamageCooldown==0){ hp-=damage; nowDamageCooldown=damageCooldown;}
+        else hp = 0;
     }
 }

@@ -13,7 +13,15 @@ import android.view.SurfaceView;
 import androidx.annotation.NonNull;
 
 import com.example.colordemon.GameStruct.Units.Enemy;
-import com.example.colordemon.GameStruct.Units.Hero;
+import com.example.colordemon.GameStruct.Units.mainHero.Ability;
+import com.example.colordemon.GameStruct.Units.mainHero.Hero;
+import com.example.colordemon.GameStruct.Units.mainHero.Point;
+import com.example.colordemon.GameStruct.base.GameObjectFactory;
+import com.example.colordemon.GameStruct.colliders.BoxCollider;
+import com.example.colordemon.GameStruct.colliders.CircleCollider;
+import com.example.colordemon.GameStruct.controllers.CentralObject;
+import com.example.colordemon.GameStruct.controllers.DrawController;
+import com.example.colordemon.GameStruct.controllers.EnemySpauner;
 import com.example.colordemon.R;
 
 import java.util.ArrayList;
@@ -36,7 +44,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Hero hero;
     public GameView(Context context) {
         super(context);
-        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.white); // добавить бэкграунд
+        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.flag_england); // добавить бэкграунд
         unitsFactory = new GameObjectFactory(context);
         myThread = new DrawThread();
         getHolder().addCallback(this);
@@ -91,7 +99,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         hero.update();
         for(Enemy i : enemies) {
             i.update();
-            if(i.collider.isCollision(hero.x,hero.y)) hero.damageDeal(i);
+            if(i.collider.isCollision(hero.x,hero.y)) {Log.i("III",i.damage+" "+hero.velocityY+" "+hero.velocityX+" "+hero.nowDamageCooldown); hero.damageDeal(i);}
+            if(i.collider.isCollision(hero.x,hero.y)) i.takeDamage(hero.damage);
+            if(i.hp<=0) enemies.remove(i);
         }
         for(Ability i : hero.abilities){
             i.updateCooldown();

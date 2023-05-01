@@ -1,10 +1,10 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.controllers;
 
-import com.example.colordemon.GameStruct.GameObject;
+import com.example.colordemon.GameStruct.base.GameObject;
 
 public class CentralObject {
     GameObject gameObject;
-    CentralObject(GameObject gameObject){
+    public CentralObject(GameObject gameObject){
         this.gameObject=gameObject;
     }
 

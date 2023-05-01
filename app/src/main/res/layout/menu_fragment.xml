@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:theme="@android:style/Theme.Black.NoTitleBar"
     android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="fill_parent"

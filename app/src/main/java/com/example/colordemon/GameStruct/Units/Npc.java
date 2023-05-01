@@ -1,7 +1,7 @@
 package com.example.colordemon.GameStruct.Units;
 
-import com.example.colordemon.GameStruct.Collider;
-import com.example.colordemon.GameStruct.GameObjectType;
+import com.example.colordemon.GameStruct.colliders.Collider;
+import com.example.colordemon.GameStruct.base.GameObjectType;
 
 public class Npc extends Unit{
     public Npc(float x, float y, GameObjectType type, Collider collider) {

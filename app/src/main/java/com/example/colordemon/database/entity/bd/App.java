@@ -1,8 +1,11 @@
-package com.example.colordemon;
+package com.example.colordemon.database.entity.bd;
 
 import android.app.Application;
 
 import androidx.room.Room;
+
+import com.example.colordemon.R;
+import com.example.colordemon.database.entity.MapOrCharacterEntity;
 
 import java.util.ArrayList;
 import java.util.List;

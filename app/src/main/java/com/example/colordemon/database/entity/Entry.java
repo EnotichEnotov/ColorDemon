@@ -1,4 +1,4 @@
-package com.example.colordemon;
+package com.example.colordemon.database.entity;
 
 import android.content.Context;
 import android.content.Intent;

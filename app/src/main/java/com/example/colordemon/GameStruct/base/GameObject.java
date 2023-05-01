@@ -1,4 +1,6 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.base;
+
+import com.example.colordemon.GameStruct.colliders.Collider;
 
 public abstract class GameObject {
     public float x,y,velocityX,velocityY,scaleX,scaleY;

@@ -1,6 +1,7 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.Units.mainHero;
 
 
+import com.example.colordemon.GameStruct.base.GameObject;
 
 public class Point extends GameObject {
 
