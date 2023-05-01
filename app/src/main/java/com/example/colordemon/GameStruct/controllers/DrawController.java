@@ -30,6 +30,8 @@ public class DrawController {
     public void draw(Canvas canvas,float width,float height){
         float addX=-centralObject.getCentralX()+width/2;
         float addY=-centralObject.getCentralY()+height/2;
+        //Rect backgroundRect = new Rect(-1000, -1000, 1000, 1000);
+        //canvas.drawBitmap(background, null, backgroundRect, null);
         Paint paint1 = new Paint();
         paint1.setColor(Color.MAGENTA);
         Paint paint = new Paint();
@@ -37,8 +39,8 @@ public class DrawController {
         //Log.i("III",addX+" "+addY+" "+centralObject.getCentralX());
         canvas.drawBitmap(createBitmap(hero.Name,hero.nowSprite(),hero.scaleX,hero.scaleY),hero.x+addX,hero.y+addY,null);
         for(Enemy i : enemies){
-            Rect rect1 = new Rect((int) (i.x+addX+i.scaleX/2-100),(int)(i.y+addY+i.scaleY/2-200),(int)(i.x+addX+i.scaleX/2+100),(int)(i.y+addY+i.scaleY/2-150));
-            Rect rect = new Rect((int) (i.x+addX+i.scaleX/2-100),(int)(i.y+addY+i.scaleY/2-200),(int)(i.x+addX+i.scaleX/2+100*i.hp/i.maxHp),(int)(i.y+addY+i.scaleY/2-150));
+            Rect rect1 = new Rect((int) (i.x+addX+i.scaleX/2-100),(int)(i.y+addY+i.scaleY/2-150),(int)(i.x+addX+i.scaleX/2+100),(int)(i.y+addY+i.scaleY/2-125));
+            Rect rect = new Rect((int) (i.x+addX+i.scaleX/2-100),(int)(i.y+addY+i.scaleY/2-150),(int)(i.x+addX+i.scaleX/2+100*i.hp/i.maxHp),(int)(i.y+addY+i.scaleY/2-125));
             canvas.drawRect(rect1,paint1);
             if(i.hp>0)canvas.drawRect(rect,paint);
             if (Math.random() > 0.5) {

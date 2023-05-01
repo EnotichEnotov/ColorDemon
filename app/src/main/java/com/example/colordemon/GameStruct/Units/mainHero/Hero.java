@@ -7,7 +7,7 @@ import com.example.colordemon.GameStruct.colliders.Collider;
 
 public class Hero extends MainCharacter{
     public static final int Name = 1;
-    private final float stopTime = 5f;
+    private final float stopTime = 3f;
     private float radius;
     private float angle;
     private float startAngle;

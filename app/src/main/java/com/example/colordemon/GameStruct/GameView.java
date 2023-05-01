@@ -44,7 +44,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Hero hero;
     public GameView(Context context) {
         super(context);
-        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.flag_england); // добавить бэкграунд
+        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.flag_german); // добавить бэкграунд
         unitsFactory = new GameObjectFactory(context);
         myThread = new DrawThread();
         getHolder().addCallback(this);
