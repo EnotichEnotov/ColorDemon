@@ -33,28 +33,32 @@
         android:layout_marginRight="4dp" />
     <LinearLayout
         android:id="@+id/meme"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="200dp"
+        android:layout_marginLeft="10dp"
         android:layout_below="@id/line"
-
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/memes"
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/shop_skin_person1"
            />
 
     </LinearLayout>
     <TextView
         android:id="@+id/char_story"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/line"
-        android:layout_marginLeft="220dp"
+        android:layout_marginLeft="190dp"
         android:layout_marginRight="10dp"
-        android:textSize="25dp"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
         android:textColor="@color/black"
         android:text="@string/character_story_1"
         />
@@ -78,13 +82,17 @@
         <Button
             android:id="@+id/send"
             android:layout_width="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_height="50dp"
-            android:layout_marginStart="45dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             android:text="Purchase"
-            android:textColor="@color/black"
+            android:background="@drawable/startbut"
+            android:backgroundTint="@color/main_but_red"
+            android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
 </RelativeLayout>

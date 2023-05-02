@@ -42,7 +42,7 @@
                 android:textSize="15sp"
                 android:textAlignment="center"
                 android:textColor="@color/grey"
-                android:text="Лента"
+                android:text="@string/shop_button"
                 ></TextView>
         </LinearLayout>
 
@@ -71,7 +71,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/grey"
                 android:id="@+id/main_text_icon_button_2"
-                android:text="Клубы"
+                android:text="@string/start_button"
                 ></TextView>
         </LinearLayout>
 
@@ -100,7 +100,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/grey"
                 android:id="@+id/main_text_icon_button_3"
-                android:text="Добавить"
+                android:text="@string/settings_button"
                 ></TextView>
         </LinearLayout>
 

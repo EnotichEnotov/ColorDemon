@@ -20,12 +20,12 @@
     <string name="author_shop_weapon_4">Hammer</string>
     <string name="author_shop_weapon_5">Sword</string>
     <string name="author_shop_weapon_6">Nunchaku</string>
-    <string name="character_story_1">A lightning killer with extreme mobility and agility.</string>
-    <string name="character_story_2">Stealthy mercenary, fast and stealthy.</string>
-    <string name="character_story_3">Cherpak, has extremely good physical fitness.</string>
-    <string name="character_story_4">Master of the cult, possesses boundless knowledge.</string>
-    <string name="character_story_5">Corruption is doom, the most important being in this world.</string>
-    <string name="character_story_6">The messenger of the gods, a blessing hangs on him.</string>
+    <string name="character_story_1">A lightning killer. Possesses extreme dexterity.</string>
+    <string name="character_story_2">Stealthy mercenary. Fast and discreet.</string>
+    <string name="character_story_3">Cherpak. Has good physical fitness.</string>
+    <string name="character_story_4">Master of cult. Possesses boundless knowledge.</string>
+    <string name="character_story_5">Corruption doom. Surrounded by death.</string>
+    <string name="character_story_6">Priest. Has a blessing.</string>
 
     <string name="author_shop_equipment_1">Potion</string>
     <string name="author_shop_equipment_2">Tree</string>

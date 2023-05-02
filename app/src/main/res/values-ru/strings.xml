@@ -21,12 +21,12 @@
     <string name="author_shop_weapon_5">Меч</string>
     <string name="author_shop_weapon_6">Нунчаки</string>
 
-    <string name="character_story_1">Молниеностный убийца, обладает чрезвычайной подвижностью и ловкостью.</string>
-    <string name="character_story_2">Скрытный наёмник, быстрый и незаметный.</string>
-    <string name="character_story_3">Черпак, обладает чрезвыйчайно хорошей физической подготовкой.</string>
-    <string name="character_story_4">Магистр культа, влдаеет безграничными знаниями.</string>
-    <string name="character_story_5">Порча погибель, самое важное существо в этом мире.</string>
-    <string name="character_story_6">Посланник богов, на нём висит благославение.</string>
+    <string name="character_story_1">Молниеностный убийца. Обладает чрезвычайной ловкостью.</string>
+    <string name="character_story_2">Скрытный наёмник. Быстрый и незаметный.</string>
+    <string name="character_story_3">Черпак. Обладает хорошей физической подготовкой.</string>
+    <string name="character_story_4">Магистр культа. Влдаеет безграничными знаниями.</string>
+    <string name="character_story_5">Порча погибель. Окружён смертью.</string>
+    <string name="character_story_6">Посланник богов. Обладает благославением.</string>
 
     <string name="author_shop_equipment_1">Зелье</string>
     <string name="author_shop_equipment_2">Древо</string>
