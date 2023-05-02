@@ -22,6 +22,12 @@ public class GameObjectFactory {
         pullPersons = new ArrayList<>();
         pullPersons.add(BitmapFactory.decodeResource(context.getResources(), R.drawable.shop_skin_person3));
         unitTypes.add(new GameObjectType(pullPersons,2));
+        pullPersons = new ArrayList<>();
+        pullPersons.add(BitmapFactory.decodeResource(context.getResources(), R.drawable.dash)); // для каждого типа персонажей свой пулл спрайтов
+        pullPersons.add(BitmapFactory.decodeResource(context.getResources(), R.drawable.portal));
+        pullPersons.add(BitmapFactory.decodeResource(context.getResources(), R.drawable.circledash));
+        pullPersons.add(BitmapFactory.decodeResource(context.getResources(), R.drawable.ultimate));
+        unitTypes.add(new GameObjectType(pullPersons,4));
     }
 
     public GameObjectType getUnitType(Integer name){
