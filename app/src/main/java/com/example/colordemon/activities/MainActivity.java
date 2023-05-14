@@ -2,6 +2,7 @@ package com.example.colordemon.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.motion.widget.OnSwipe;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -33,6 +34,29 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
     SeekBar volumeControl;
     AudioManager audioManager;
     // пока не используется
+    protected void change_navigation_icons(int a1, int a2, int a3, boolean c1, boolean c2, boolean c3){
+        binding.mainMenuPictureButton1.setImageAlpha(a1);
+        binding.mainMenuPictureButton2.setImageAlpha(a2);
+        binding.mainMenuPictureButton3.setImageAlpha(a3);
+        if (c1) {
+            binding.mainTextIconButton1.setTextColor(getColor(R.color.black));
+        }
+        else {
+            binding.mainTextIconButton1.setTextColor(getColor(R.color.grey));
+        }
+        if (c2) {
+            binding.mainTextIconButton2.setTextColor(getColor(R.color.black));
+        }
+        else {
+            binding.mainTextIconButton2.setTextColor(getColor(R.color.grey));
+        }
+        if (c3) {
+            binding.mainTextIconButton3.setTextColor(getColor(R.color.black));
+        }
+        else {
+            binding.mainTextIconButton3.setTextColor(getColor(R.color.grey));
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,18 +74,22 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
         binding.mainMenuIconButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                change_navigation_icons(255, 50, 50, true, false, false);
                 binding.pager.setCurrentItem(0);
+
             }
         });
         binding.mainMenuIconButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                change_navigation_icons(50, 255, 50, false, true, false);
                 binding.pager.setCurrentItem(1);
             }
         });
         binding.mainMenuIconButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                change_navigation_icons(50, 50, 255, false, false, true);
                 binding.pager.setCurrentItem(2);
             }
         });
@@ -93,18 +121,29 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
         public int getCount() {
             return 3;
         }
-
         @NonNull
         @Override
         public Fragment getItem(int position) {
             switch (position%3) {
                 case 0:
+                    //binding.mainMenuPictureButton1.setImageAlpha(255);
+                    //binding.mainMenuPictureButton2.setImageAlpha(50);
+                    //binding.mainMenuPictureButton3.setImageAlpha(50);
                     return new ShopFragment();
                 case 1:
+                    //binding.mainMenuPictureButton1.setImageAlpha(50);
+                    //binding.mainMenuPictureButton2.setImageAlpha(255);
+                    //binding.mainMenuPictureButton3.setImageAlpha(50);
                     return new MenuFragment1();
                 case 2:
+                    //binding.mainMenuPictureButton1.setImageAlpha(50);
+                    //binding.mainMenuPictureButton2.setImageAlpha(50);
+                    //binding.mainMenuPictureButton3.setImageAlpha(255);
                     return new SettingsFragment(App.getDatabase().getLanguage(),App.getDatabase().getVolume());
                 default:
+                    //binding.mainMenuPictureButton1.setImageAlpha(50);
+                    //binding.mainMenuPictureButton2.setImageAlpha(255);
+                    //binding.mainMenuPictureButton3.setImageAlpha(50);
                     return new MenuFragment();
             }
         }
