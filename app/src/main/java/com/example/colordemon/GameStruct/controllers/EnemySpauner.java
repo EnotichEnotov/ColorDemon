@@ -19,8 +19,26 @@ public class EnemySpauner {
         int znakY=Math.random() > 0.5 ? -1 : 1;
         enemy = new Enemy(defaultTarget.x+(float)(width+Math.random()*300)*znakX,defaultTarget.y+(float)(width+Math.random()*300)*znakY,5,5,
                 new BoxCollider(enemy,100,100),
-                100,100,100,100,1,50,
-                50,defaultTarget);
+                100,100,100,100,2,50,
+                10,defaultTarget);
+        return enemy;
+    }
+    public Enemy customSpaun(GameObject target,int scaleX,int scaleY,int maxHp,int maxMana,int armor, int damage,int velocityX,int velocityY){
+        int znakX=Math.random() > 0.5 ? -1 : 1;
+        int znakY=Math.random() > 0.5 ? -1 : 1;
+        enemy = new Enemy(defaultTarget.x+(float)(width+Math.random()*300)*znakX,defaultTarget.y+(float)(width+Math.random()*300)*znakY,velocityX,velocityY,
+                new BoxCollider(enemy,scaleX,scaleY),
+                scaleX,scaleY,maxHp,maxMana,armor,damage,
+                10,target);
+        return enemy;
+    }
+    public Enemy bossSpaun(){
+        int znakX=Math.random() > 0.5 ? -1 : 1;
+        int znakY=Math.random() > 0.5 ? -1 : 1;
+        enemy = new Enemy(defaultTarget.x+(float)(width+Math.random()*300)*znakX,defaultTarget.y+(float)(width+Math.random()*300)*znakY,3,3,
+                new BoxCollider(enemy,150,150),
+                150,150,200,100,4,100,
+                15,defaultTarget);
         return enemy;
     }
 }

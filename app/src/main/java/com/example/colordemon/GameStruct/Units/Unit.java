@@ -27,6 +27,7 @@ public class Unit extends GameObject {
         hp=maxHp;
         this.armor=armor;
         this.damage=damage;
+        this.nowDamageCooldown=damageCooldown;
         this.damageCooldown=damageCooldown;
     }
     @Override

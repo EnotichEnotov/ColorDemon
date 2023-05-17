@@ -7,7 +7,7 @@ import com.example.colordemon.GameStruct.colliders.Collider;
 
 public class Hero extends MainCharacter{
     public static final int Name = 1;
-    private final float stopTime = 3f;
+    private final float stopTime = 10f;
     private float radius;
     private float angle;
     private float startAngle;
@@ -45,7 +45,7 @@ public class Hero extends MainCharacter{
         if(hp<=0){ Log.i("III","GAME OVER");}
     }
     public void damageDeal(Enemy enemy){
-        if(nowDamageCooldown<=0 && velocityX==0 && velocityY==0){ hp-=enemy.damage; nowDamageCooldown=damageCooldown;}
+        if(nowDamageCooldown<=0 && velocityX==0 && velocityY==0){ hp-=enemy.damage*(enemy.damage-1)/(enemy.damage+armor); nowDamageCooldown=damageCooldown;}
     }
 
     private void dashUpdate(){
@@ -86,11 +86,13 @@ public class Hero extends MainCharacter{
     }
     public void dash(float addVelocityX,float addVelocityY){
         if(abilities[0].cooldownNow!=0) return;
-        float koef = Math.max(Math.abs(400f/addVelocityX),Math.abs(400f/addVelocityY));
-        if(Math.abs(addVelocityX)>400f) addVelocityX=addVelocityX*koef;
-        if(Math.abs(addVelocityY)>400f) addVelocityY=addVelocityY*koef;
-        velocityX=addVelocityX/stopTime;
-        velocityY=addVelocityY/stopTime;
+        float koef = Math.min(Math.abs(400f/addVelocityX),Math.abs(400f/addVelocityY));
+        if(Math.abs(addVelocityX)>400f || Math.abs(addVelocityY)>400f){
+            addVelocityX=addVelocityX*koef;
+            addVelocityY=addVelocityY*koef;
+        }
+        velocityX=addVelocityX;
+        velocityY=addVelocityY;
         abilities[0].setCooldownNow();
     }
     public void enemyPort(float newX,float newY){

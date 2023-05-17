@@ -1,5 +1,7 @@
 package com.example.colordemon.GameStruct.Units;
 
+import android.util.Log;
+
 import com.example.colordemon.GameStruct.colliders.Collider;
 import com.example.colordemon.GameStruct.base.GameObject;
 
@@ -27,7 +29,8 @@ public class Enemy extends Unit{
         y-=radius*(y-targetObject.y-targetObject.scaleY/2)/(float)Math.sqrt((x-targetObject.x-targetObject.scaleX/2)*(x-targetObject.x-targetObject.scaleX/2)+(y-targetObject.y-targetObject.scaleY/2)*(y-targetObject.y-targetObject.scaleY/2));
     }
     public void takeDamage(float damage){
-        if(hp>=damage && nowDamageCooldown==0){ hp-=damage; nowDamageCooldown=damageCooldown;}
-        else hp = 0;
+        if(hp>=damage && nowDamageCooldown==0){ hp-=damage*(damage-1)/(damage+armor); nowDamageCooldown=damageCooldown;
+            Log.i("AAA",damageCooldown+"");}
+        else if(hp<=damage && nowDamageCooldown==0) hp = 0;
     }
 }
