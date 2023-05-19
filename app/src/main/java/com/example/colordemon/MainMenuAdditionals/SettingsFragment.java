@@ -49,6 +49,38 @@ public class SettingsFragment extends Fragment {
                 setNowLanguage();
             }
         });
+        binding.flagGer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                info.language="gem";
+                hideAll();
+                setNowLanguage();
+            }
+        });
+        binding.flagItaly.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                info.language="it";
+                hideAll();
+                setNowLanguage();
+            }
+        });
+        binding.flagSpain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                info.language="pt";
+                hideAll();
+                setNowLanguage();
+            }
+        });
+        binding.flagChina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                info.language="ch";
+                hideAll();
+                setNowLanguage();
+            }
+        });
         binding.apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +105,23 @@ public class SettingsFragment extends Fragment {
                 break;
             case "ru":
                 binding.flagRus.setAlpha(255);
-                binding.languageChoose.setText("Russian");
+                binding.languageChoose.setText("Русский");
+                break;
+            case "gem":
+                binding.flagGer.setAlpha(255);
+                binding.languageChoose.setText("German");
+                break;
+            case "it":
+                binding.flagItaly.setAlpha(255);
+                binding.languageChoose.setText("Italian");
+                break;
+            case "pt":
+                binding.flagSpain.setAlpha(255);
+                binding.languageChoose.setText("Spanish");
+                break;
+            case "ch":
+                binding.flagChina.setAlpha(255);
+                binding.languageChoose.setText("China");
                 break;
         }
     }

@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">ColorDemon</string>
+
+    <string name="start_button">Start</string>
+    <string name="shop_button">Shop</string>
+    <string name="settings_button">Settings</string>
+    <string name="exit_button">Exit</string>
+    <string name="level_textView">Level</string>
+    <string name="leaders_textView">Leaders</string>
+
+
+    <string name="author_shop_character_1">Killer</string>
+    <string name="author_shop_character_2">Robber</string>
+    <string name="author_shop_character_3">Soldier</string>
+    <string name="author_shop_character_4">Wizard</string>
+    <string name="author_shop_character_5">Death</string>
+    <string name="author_shop_character_6">Priest</string>
+    <string name="author_shop_weapon_1">Katana</string>
+    <string name="author_shop_weapon_2">Axe</string>
+    <string name="author_shop_weapon_3">Sickle</string>
+    <string name="author_shop_weapon_4">Hammer</string>
+    <string name="author_shop_weapon_5">Sword</string>
+    <string name="author_shop_weapon_6">Nunchaku</string>
+    <string name="character_story_1">A lightning killer. Possesses extreme dexterity.</string>
+    <string name="character_story_2">Stealthy mercenary. Fast and discreet.</string>
+    <string name="character_story_3">Cherpak. Has good physical fitness.</string>
+    <string name="character_story_4">Master of cult. Possesses boundless knowledge.</string>
+    <string name="character_story_5">Corruption doom. Surrounded by death.</string>
+    <string name="character_story_6">Priest. Has a blessing.</string>
+
+    <string name="author_shop_equipment_1">Potion</string>
+    <string name="author_shop_equipment_2">Tree</string>
+    <string name="author_shop_equipment_3">Dumbbells</string>
+    <string name="author_shop_equipment_4">Katana</string>
+    <string name="author_shop_equipment_5">Меч</string>
+    <string name="author_shop_equipment_6">Нунчаки</string>
+    <string name="equipment_story_1">A healing potion. Restores 15% of health.</string>
+    <string name="equipment_story_2">The Tree of life. Increases maximum health by 5%.</string>
+    <string name="equipment_story_3">Dumbbells. Increases strength by 5%.</string>
+    <string name="equipment_story_4">Katana. Increases the damage of the next hit by 100%.</string>
+    <string name="shop_button_characters">Character</string>
+    <string name="shop_button_weapons">Weapons</string>
+    <string name="applybutton">Apply</string>
+    <string name="random">Random</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="settings_title">Settings</string>
+    <string name="language_title_change">Language</string>
+    <string name="music_title_change">Music</string>
+</resources>
