@@ -15,12 +15,15 @@ public class Unit extends GameObject {
     public int nowDamageCooldown;
     public Unit(float x, float y, float velocityX, float velocityY, Collider collider) {
         super(x, y,velocityX,velocityY,collider);
+        collider.gameObject=this;
     }
     public Unit(float x, float y, float velocityX, float velocityY, Collider collider,float scaleX,float scaleY) {
         super(x, y,velocityX,velocityY,collider,scaleX,scaleY);
+        collider.gameObject=this;
     }
     public Unit(float x, float y, float velocityX, float velocityY, Collider collider,float scaleX,float scaleY,int maxHp,int maxMana,int armor,int damage,int damageCooldown) {
         super(x, y,velocityX,velocityY,collider,scaleX,scaleY);
+        collider.gameObject=this;
         this.maxHp=maxHp;
         this.maxMana=maxMana;
         mana=maxMana;

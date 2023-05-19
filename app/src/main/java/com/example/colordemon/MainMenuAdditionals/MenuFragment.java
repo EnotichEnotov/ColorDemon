@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.colordemon.GameStruct.Game;
+import com.example.colordemon.GameStruct.gameViews.Game;
 import com.example.colordemon.R;
 import com.example.colordemon.database.entity.Settings;
 import com.example.colordemon.databinding.MenuFragmentBinding;

@@ -1,4 +1,4 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.gameViews;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
+
+import com.example.colordemon.GameStruct.gameViews.first.GameView;
 
 public class Game extends Activity {
     @Override

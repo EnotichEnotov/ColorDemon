@@ -1,4 +1,4 @@
-package com.example.colordemon.GameStruct.Units.mainHero;
+package com.example.colordemon.GameStruct.Units.mainHero.abilities;
 
 
 import com.example.colordemon.GameStruct.base.GameObject;

@@ -1,12 +1,12 @@
-package com.example.colordemon.GameStruct.Units.mainHero;
+package com.example.colordemon.GameStruct.Units.mainHero.first;
 
 import android.util.Log;
 
 import com.example.colordemon.GameStruct.Units.Enemy;
+import com.example.colordemon.GameStruct.Units.mainHero.MainCharacter;
 import com.example.colordemon.GameStruct.colliders.Collider;
 
-public class Hero extends MainCharacter{
-    public static final int Name = 1;
+public class Hero extends MainCharacter {
     private final float stopTime = 10f;
     private float radius;
     private float angle;
@@ -21,6 +21,7 @@ public class Hero extends MainCharacter{
     // damage type: 0 - dash, 1 - enemyPort, 2 - circleDash, 3 - ult
     public Hero(float x, float y, float velocityX, float velocityY, Collider collider,float scaleX,float scaleY,int maxHp,int maxMana,int armor,int damage,int damageCooldown) {
         super(x, y, velocityX,velocityY,collider,scaleX,scaleY,maxHp,maxMana,armor,damage,damageCooldown);
+        Name=1;
     }
 
     @Override

@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.colordemon.database.entity.bd.App;
-import com.example.colordemon.GameStruct.Game;
+import com.example.colordemon.GameStruct.gameViews.Game;
 import com.example.colordemon.database.entity.MapOrCharacterEntity;
 import com.example.colordemon.R;
 import com.example.colordemon.databinding.MenuFragment2Binding;

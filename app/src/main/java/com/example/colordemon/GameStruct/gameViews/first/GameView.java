@@ -1,4 +1,4 @@
-package com.example.colordemon.GameStruct;
+package com.example.colordemon.GameStruct.gameViews.first;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,9 +13,9 @@ import android.view.SurfaceView;
 import androidx.annotation.NonNull;
 
 import com.example.colordemon.GameStruct.Units.Enemy;
-import com.example.colordemon.GameStruct.Units.mainHero.Ability;
-import com.example.colordemon.GameStruct.Units.mainHero.Hero;
-import com.example.colordemon.GameStruct.Units.mainHero.Point;
+import com.example.colordemon.GameStruct.Units.mainHero.abilities.Ability;
+import com.example.colordemon.GameStruct.Units.mainHero.first.Hero;
+import com.example.colordemon.GameStruct.Units.mainHero.abilities.Point;
 import com.example.colordemon.GameStruct.base.GameObjectFactory;
 import com.example.colordemon.GameStruct.colliders.BoxCollider;
 import com.example.colordemon.GameStruct.colliders.CircleCollider;

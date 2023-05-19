@@ -6,21 +6,21 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import com.example.colordemon.GameStruct.Units.mainHero.Ability;
+import com.example.colordemon.GameStruct.Units.mainHero.abilities.Ability;
+import com.example.colordemon.GameStruct.Units.mainHero.MainCharacter;
 import com.example.colordemon.GameStruct.base.GameObject;
 import com.example.colordemon.GameStruct.base.GameObjectFactory;
 import com.example.colordemon.GameStruct.Units.Enemy;
-import com.example.colordemon.GameStruct.Units.mainHero.Hero;
 
 import java.util.ArrayList;
 
 public class DrawController {
-    Hero hero;
+    MainCharacter hero;
     GameObjectFactory unitsFactory;
     ArrayList<GameObject> gameObjects;
     ArrayList<Enemy> enemies;
     CentralObject centralObject;
-    public DrawController(CentralObject centralObject, Hero hero, ArrayList<Enemy> enemies, ArrayList<GameObject> gameObjects, GameObjectFactory unitsFactory){
+    public DrawController(CentralObject centralObject, MainCharacter hero, ArrayList<Enemy> enemies, ArrayList<GameObject> gameObjects, GameObjectFactory unitsFactory){
         this.hero = hero;
         this.gameObjects = gameObjects;
         this.enemies =enemies;
