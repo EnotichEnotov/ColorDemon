@@ -21,23 +21,13 @@
     <string name="author_shop_weapon_5">Меч</string>
     <string name="author_shop_weapon_6">Нунчаки</string>
 
-    <string name="character_story_1">Молниеностный убийца. Обладает чрезвычайной ловкостью.</string>
-    <string name="character_story_2">Скрытный наёмник. Быстрый и незаметный.</string>
-    <string name="character_story_3">Черпак. Обладает хорошей физической подготовкой.</string>
-    <string name="character_story_4">Магистр культа. Влдаеет безграничными знаниями.</string>
-    <string name="character_story_5">Порча погибель. Окружён смертью.</string>
-    <string name="character_story_6">Посланник богов. Обладает благославением.</string>
-
     <string name="author_shop_equipment_1">Зелье</string>
     <string name="author_shop_equipment_2">Древо</string>
     <string name="author_shop_equipment_3">Гантели</string>
     <string name="author_shop_equipment_4">Катана</string>
     <string name="author_shop_equipment_5">Меч</string>
     <string name="author_shop_equipment_6">Нунчаки</string>
-    <string name="equipment_story_1">Зелье исцеления. Восстанавливает 15% здоровья.</string>
-    <string name="equipment_story_2">Древо жизни. Увеличивает максимальное здоровье на 5%</string>
-    <string name="equipment_story_3">Гантели. Увеличивает силу на 5%.</string>
-    <string name="equipment_story_4">Катана. Увеличивает урон следующего удара на 100%.</string>
+
 
     <string name="shop_button_characters">Персонаж</string>
     <string name="shop_button_weapons">Оружие</string>

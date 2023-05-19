@@ -24,14 +24,12 @@ public class Entry {
     private int comments;
     private int views;
 
-    private String char_story;
-    public Entry(String author,  int memeid, String char_story){
+    public Entry(String author,  int memeid){
         likes=0;
         comments=0;
         views=0;
         this.author=author;
         this.memeid=memeid;
-        this.char_story = char_story;
     }
 
     public int getMemeid() {
@@ -58,5 +56,4 @@ public class Entry {
         return likes;
     }
 
-    public String getChar_story(){return char_story;}
 }

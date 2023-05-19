@@ -21,12 +21,6 @@
     <string name="author_shop_weapon_4">Hammer</string>
     <string name="author_shop_weapon_5">Sword</string>
     <string name="author_shop_weapon_6">Nunchaku</string>
-    <string name="character_story_1">A lightning killer. Possesses extreme dexterity.</string>
-    <string name="character_story_2">Stealthy mercenary. Fast and discreet.</string>
-    <string name="character_story_3">Cherpak. Has good physical fitness.</string>
-    <string name="character_story_4">Master of cult. Possesses boundless knowledge.</string>
-    <string name="character_story_5">Corruption doom. Surrounded by death.</string>
-    <string name="character_story_6">Priest. Has a blessing.</string>
 
     <string name="author_shop_equipment_1">Potion</string>
     <string name="author_shop_equipment_2">Tree</string>
@@ -34,10 +28,6 @@
     <string name="author_shop_equipment_4">Katana</string>
     <string name="author_shop_equipment_5">Меч</string>
     <string name="author_shop_equipment_6">Нунчаки</string>
-    <string name="equipment_story_1">A healing potion. Restores 15% of health.</string>
-    <string name="equipment_story_2">The Tree of life. Increases maximum health by 5%.</string>
-    <string name="equipment_story_3">Dumbbells. Increases strength by 5%.</string>
-    <string name="equipment_story_4">Katana. Increases the damage of the next hit by 100%.</string>
     <string name="shop_button_characters">Character</string>
     <string name="shop_button_weapons">Weapons</string>
     <string name="applybutton">Apply</string>

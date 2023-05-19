@@ -61,7 +61,6 @@ public class MenuFragment1 extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull MyMapOrCharAdapter.MyViewHolder holder, int position) {
             holder.sprite.setImageResource(mapsOrChars.get(position).sprite);
-            holder.description.setText(getContext().getResources().getString(mapsOrChars.get(position).description));
             holder.item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

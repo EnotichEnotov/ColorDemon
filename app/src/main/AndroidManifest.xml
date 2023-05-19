@@ -27,7 +27,6 @@
                 android:value="" />
         </activity>
         <activity android:name=".database.entity.Settings" android:exported="false"/>
-        <activity android:name=".activities.Shop" android:exported="false"/>
         <activity android:name=".GameStruct.Game" android:exported="false"/>
         <activity android:name=".MainMenuAdditionals.DownloadActivity" android:exported="false"/>
     </application>

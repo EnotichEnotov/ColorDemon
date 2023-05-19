@@ -35,22 +35,28 @@ public class App extends Application {
         maps = Room.databaseBuilder(this,DatabaseMaps.class,"maps").allowMainThreadQueries().build();
         if (maps.mcDao().getAll().isEmpty()){
             List<MapOrCharacterEntity> entities = new ArrayList<>();
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3,R.string.character_story_1));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3,R.string.character_story_1));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3,R.string.character_story_1));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3,R.string.character_story_1));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3,R.string.character_story_1));
+            /*
+            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
+            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
+            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
+            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
+            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
             maps.mcDao().insertAll(entities);
+
+             */
         }
         characters = Room.databaseBuilder(this,DatabaseMaps.class,"characters").allowMainThreadQueries().build();
         if (characters.mcDao().getAll().isEmpty()){
             List<MapOrCharacterEntity> entities = new ArrayList<>();
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person4,R.string.character_story_1));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person2,R.string.character_story_2));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3,R.string.character_story_3));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person5,R.string.character_story_4));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person1,R.string.character_story_5));
+            /*
+            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person4));
+            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person2));
+            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
+            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person5));
+            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person1));
             characters.mcDao().insertAll(entities);
+
+             */
         }
         database = new SettingsDatabase(this);
         super.onCreate();

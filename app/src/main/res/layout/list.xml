@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/toptext"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:orientation="horizontal">
 
@@ -49,19 +49,7 @@
            />
 
     </LinearLayout>
-    <TextView
-        android:id="@+id/char_story"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/line"
-        android:layout_marginLeft="190dp"
-        android:layout_marginRight="10dp"
-        android:textSize="24dp"
-        android:textAlignment="center"
-        android:layout_marginTop="50dp"
-        android:textColor="@color/black"
-        android:text="@string/character_story_1"
-        />
+
     <View
         android:id="@+id/line2"
         android:layout_width="200dp"
@@ -73,7 +61,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp" />
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_below="@id/line2"
         android:orientation="horizontal">
