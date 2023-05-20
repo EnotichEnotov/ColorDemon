@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.colordemon.database.entity.Entry;
@@ -25,8 +27,8 @@ public class ShopFragment extends Fragment {
     private ListView listView2;
     private MyEntryAdapter1 adapter;
     ShopBinding binding;
-    private Entry[] entries= new Entry[3];
-    private Entry[] entries2= new Entry[3];
+    private Entry[] entries= new Entry[6];
+    private Entry[] entries2= new Entry[6];
     public ShopFragment() {
     }
 
@@ -37,10 +39,17 @@ public class ShopFragment extends Fragment {
         entries[0] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person1);
         entries[1] = new Entry(getResources().getString(R.string.author_shop_character_2),R.drawable.shop_skin_person2);
         entries[2] = new Entry(getResources().getString(R.string.author_shop_character_3),R.drawable.shop_skin_person3);
+        entries[3] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person4);
+        entries[4] = new Entry(getResources().getString(R.string.author_shop_character_2),R.drawable.shop_skin_person5);
+        entries[5] = new Entry(getResources().getString(R.string.author_shop_character_3),R.drawable.shop_skin_person6);
 
-        entries2[0] = new Entry(getResources().getString(R.string.author_shop_character_4),R.drawable.shop_skin_person4);
-        entries2[1] = new Entry(getResources().getString(R.string.author_shop_character_5),R.drawable.shop_skin_person5);
-        entries2[2] = new Entry(getResources().getString(R.string.author_shop_character_6),R.drawable.shop_skin_person6);
+        entries2[0] = new Entry(getResources().getString(R.string.author_shop_equipment_4),R.drawable.shop_equipment1);
+        entries2[1] = new Entry(getResources().getString(R.string.author_shop_weapon_5),R.drawable.shop_skin_weapon2);
+        entries2[2] = new Entry(getResources().getString(R.string.author_shop_weapon_6),R.drawable.shop_skin_weapon3);
+        entries2[3] = new Entry(getResources().getString(R.string.author_shop_equipment_4),R.drawable.shop_equipment4);
+        entries2[4] = new Entry(getResources().getString(R.string.author_shop_weapon_5),R.drawable.shop_skin_weapon5);
+        entries2[5] = new Entry(getResources().getString(R.string.author_shop_weapon_6),R.drawable.shop_skin_weapon6);
+
         adapter = new MyEntryAdapter1(getActivity(),entries);
         Context context = getActivity();
         binding.listview.setAdapter(adapter);
@@ -49,44 +58,7 @@ public class ShopFragment extends Fragment {
         binding.listview2.setAdapter(adapter);
         binding.listview.setOnItemClickListener(new ItemClickListener());
         binding.listview2.setOnItemClickListener(new ItemClickListener());
-        binding.buttonWeapon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Toast.makeText(Shop.this, "sfdsd", Toast.LENGTH_SHORT).show();
 
-
-                entries[0] = new Entry(getResources().getString(R.string.author_shop_equipment_1),R.drawable.shop_equipment1);
-                entries[1] = new Entry(getResources().getString(R.string.author_shop_equipment_2),R.drawable.shop_equipment2);
-                entries[2] = new Entry(getResources().getString(R.string.author_shop_equipment_3),R.drawable.shop_equipment3);
-
-                entries2[0] = new Entry(getResources().getString(R.string.author_shop_equipment_4),R.drawable.shop_equipment4);
-                entries2[1] = new Entry(getResources().getString(R.string.author_shop_weapon_5),R.drawable.shop_skin_weapon5);
-                entries2[2] = new Entry(getResources().getString(R.string.author_shop_weapon_6),R.drawable.shop_skin_weapon6);
-
-                adapter = new MyEntryAdapter1(context,entries);
-                binding.listview.setAdapter(adapter);
-                adapter = new MyEntryAdapter1(context,entries2);
-                binding.listview2.setAdapter(adapter);
-            }
-        });
-        binding.buttonCharacter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                entries[0] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person1);
-                entries[1] = new Entry(getResources().getString(R.string.author_shop_character_2),R.drawable.shop_skin_person2);
-                entries[2] = new Entry(getResources().getString(R.string.author_shop_character_3),R.drawable.shop_skin_person3);
-
-                entries2[0] = new Entry(getResources().getString(R.string.author_shop_character_4),R.drawable.shop_skin_person4);
-                entries2[1] = new Entry(getResources().getString(R.string.author_shop_character_5),R.drawable.shop_skin_person5);
-                entries2[2] = new Entry(getResources().getString(R.string.author_shop_character_6),R.drawable.shop_skin_person6);
-
-                adapter = new MyEntryAdapter1(context,entries);
-                binding.listview.setAdapter(adapter);
-
-                adapter = new MyEntryAdapter1(context,entries2);
-                binding.listview2.setAdapter(adapter);
-            }
-        });
 
         return binding.getRoot();
     }
@@ -138,6 +110,11 @@ public class ShopFragment extends Fragment {
             convertView.findViewById(R.id.send).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Button choosen = view.findViewById(R.id.send);
+                    if(!entry.getLiked()){
+                        choosen.setBackground(getResources().getDrawable(R.drawable.shop_activatedbut));
+                        entry.setLiked();
+                    }
                     //Toast.makeText(, "Оно работает", Toast.LENGTH_SHORT).show();
                 }
             });

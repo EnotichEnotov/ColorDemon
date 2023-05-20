@@ -1,39 +1,39 @@
 <resources>
     <string name="app_name">ColorDemon</string>
 
-    <string name="start_button">Start</string>
-    <string name="shop_button">Shop</string>
-    <string name="settings_button">Settings</string>
-    <string name="exit_button">Exit</string>
-    <string name="level_textView">Level</string>
-    <string name="leaders_textView">Leaders</string>
+    <string name="start_button">Comenzar</string>
+    <string name="shop_button">Comercio</string>
+    <string name="settings_button">Ajustes</string>
+    <string name="exit_button">Salida</string>
+    <string name="level_textView">Nivel</string>
+    <string name="leaders_textView">Líderes</string>
 
-
-    <string name="author_shop_character_1">Killer</string>
-    <string name="author_shop_character_2">Robber</string>
-    <string name="author_shop_character_3">Soldier</string>
-    <string name="author_shop_character_4">Wizard</string>
-    <string name="author_shop_character_5">Death</string>
-    <string name="author_shop_character_6">Priest</string>
+    <string name="shop_choose_button">Elegir</string>
+    <string name="author_shop_character_1">Asesino</string>
+    <string name="author_shop_character_2">Ladrón</string>
+    <string name="author_shop_character_3">Soldado</string>
+    <string name="author_shop_character_4">Mago</string>
+    <string name="author_shop_character_5">Muerte</string>
+    <string name="author_shop_character_6">Sacerdote</string>
     <string name="author_shop_weapon_1">Katana</string>
-    <string name="author_shop_weapon_2">Axe</string>
-    <string name="author_shop_weapon_3">Sickle</string>
-    <string name="author_shop_weapon_4">Hammer</string>
-    <string name="author_shop_weapon_5">Sword</string>
+    <string name="author_shop_weapon_2">Hacha</string>
+    <string name="author_shop_weapon_3">Hoz</string>
+    <string name="author_shop_weapon_4">Martillo</string>
+    <string name="author_shop_weapon_5">Espada</string>
     <string name="author_shop_weapon_6">Nunchaku</string>
 
-    <string name="author_shop_equipment_1">Potion</string>
-    <string name="author_shop_equipment_2">Tree</string>
-    <string name="author_shop_equipment_3">Dumbbells</string>
+    <string name="author_shop_equipment_1">Poción</string>
+    <string name="author_shop_equipment_2">Árbol</string>
+    <string name="author_shop_equipment_3">Mancuernas</string>
     <string name="author_shop_equipment_4">Katana</string>
-    <string name="author_shop_equipment_5">Меч</string>
-    <string name="author_shop_equipment_6">Нунчаки</string>
-    <string name="shop_button_characters">Character</string>
-    <string name="shop_button_weapons">Weapons</string>
-    <string name="applybutton">Apply</string>
-    <string name="random">Random</string>
+    <string name="author_shop_equipment_5">Espada</string>
+    <string name="author_shop_equipment_6">Nunchaku</string>
+    <string name="shop_button_characters">Personaje</string>
+    <string name="shop_button_weapons">Armas</string>
+    <string name="applybutton">Aplicar</string>
+    <string name="random">Aleatorio</string>
     <string name="tutorial">Tutorial</string>
-    <string name="settings_title">Settings</string>
-    <string name="language_title_change">Language</string>
-    <string name="music_title_change">Music</string>
+    <string name="settings_title">Ajustes</string>
+    <string name="language_title_change">Idioma</string>
+    <string name="music_title_change">Música</string>
 </resources>

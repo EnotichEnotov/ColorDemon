@@ -8,6 +8,7 @@
     <string name="level_textView">Уровень</string>
     <string name="leaders_textView">Лидеры</string>
 
+    <string name="shop_choose_button">Выбрать</string>
     <string name="author_shop_character_1">Киллер</string>
     <string name="author_shop_character_2">Грабитель</string>
     <string name="author_shop_character_3">Солдат</string>

@@ -8,7 +8,7 @@
     <string name="level_textView">Level</string>
     <string name="leaders_textView">Leaders</string>
 
-
+    <string name="shop_choose_button">Choose</string>
     <string name="author_shop_character_1">Killer</string>
     <string name="author_shop_character_2">Robber</string>
     <string name="author_shop_character_3">Soldier</string>
