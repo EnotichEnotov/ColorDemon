@@ -1,39 +1,39 @@
 <resources>
     <string name="app_name">ColorDemon</string>
 
-    <string name="start_button">Start</string>
-    <string name="shop_button">Shop</string>
-    <string name="settings_button">Settings</string>
-    <string name="exit_button">Exit</string>
-    <string name="level_textView">Level</string>
-    <string name="leaders_textView">Leaders</string>
+    <string name="start_button">開始</string>
+    <string name="shop_button">店鋪</string>
+    <string name="settings_button">設置</string>
+    <string name="exit_button">出口</string>
+    <string name="level_textView">等級</string>
+    <string name="leaders_textView">領導者</string>
 
+    <string name="shop_choose_button">選擇</string>
+    <string name="author_shop_character_1">殺手</string>
+    <string name="author_shop_character_2">強盜</string>
+    <string name="author_shop_character_3">士兵</string>
+    <string name="author_shop_character_4">嚮導</string>
+    <string name="author_shop_character_5">死亡</string>
+    <string name="author_shop_character_6">牧師</string>
+    <string name="author_shop_weapon_1">武士刀</string>
+    <string name="author_shop_weapon_2">斧頭</string>
+    <string name="author_shop_weapon_3">鐮刀</string>
+    <string name="author_shop_weapon_4">錘子</string>
+    <string name="author_shop_weapon_5">劍</string>
+    <string name="author_shop_weapon_6">雙截棍</string>
 
-    <string name="author_shop_character_1">Killer</string>
-    <string name="author_shop_character_2">Robber</string>
-    <string name="author_shop_character_3">Soldier</string>
-    <string name="author_shop_character_4">Wizard</string>
-    <string name="author_shop_character_5">Death</string>
-    <string name="author_shop_character_6">Priest</string>
-    <string name="author_shop_weapon_1">Katana</string>
-    <string name="author_shop_weapon_2">Axe</string>
-    <string name="author_shop_weapon_3">Sickle</string>
-    <string name="author_shop_weapon_4">Hammer</string>
-    <string name="author_shop_weapon_5">Sword</string>
-    <string name="author_shop_weapon_6">Nunchaku</string>
-
-    <string name="author_shop_equipment_1">Potion</string>
-    <string name="author_shop_equipment_2">Tree</string>
-    <string name="author_shop_equipment_3">Dumbbells</string>
-    <string name="author_shop_equipment_4">Katana</string>
-    <string name="author_shop_equipment_5">Меч</string>
-    <string name="author_shop_equipment_6">Нунчаки</string>
-    <string name="shop_button_characters">Character</string>
-    <string name="shop_button_weapons">Weapons</string>
-    <string name="applybutton">Apply</string>
-    <string name="random">Random</string>
-    <string name="tutorial">Tutorial</string>
-    <string name="settings_title">Settings</string>
-    <string name="language_title_change">Language</string>
-    <string name="music_title_change">Music</string>
+    <string name="author_shop_equipment_1">藥水</string>
+    <string name="author_shop_equipment_2">樹</string>
+    <string name="author_shop_equipment_3">啞鈴</string>
+    <string name="author_shop_equipment_4">武士刀</string>
+    <string name="author_shop_equipment_5">劍</string>
+    <string name="author_shop_equipment_6">雙節棍</string>
+    <string name="shop_button_characters">特點</string>
+    <string name="shop_button_weapons">武器</string>
+    <string name="applybutton">申請</string>
+    <string name="random">隨機的</string>
+    <string name="tutorial">教程</string>
+    <string name="settings_title">設置</string>
+    <string name="language_title_change">語言</string>
+    <string name="music_title_change">音樂</string>
 </resources>

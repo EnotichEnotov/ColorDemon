@@ -76,7 +76,7 @@ public class SettingsFragment extends Fragment {
         binding.flagChina.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                info.language="ch";
+                info.language="man";
                 hideAll();
                 setNowLanguage();
             }
@@ -119,7 +119,7 @@ public class SettingsFragment extends Fragment {
                 binding.flagSpain.setAlpha(255);
                 binding.languageChoose.setText("Spanish");
                 break;
-            case "ch":
+            case "man":
                 binding.flagChina.setAlpha(255);
                 binding.languageChoose.setText("China");
                 break;

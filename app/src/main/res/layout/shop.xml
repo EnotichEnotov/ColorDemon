@@ -9,30 +9,11 @@
     tools:context=".activities.ShopFragment"
     android:background="#FFFFFF"
    >
-    <Button
-        android:gravity="center"
-        android:id="@+id/button_character"
-        android:layout_width="200dp"
-        android:layout_alignParentLeft="true"
-        android:layout_height="60dp"
-        android:text="@string/shop_button_characters"
-        android:textSize="28sp"
-        android:textColor="@color/black"/>
-    <Button
-        android:gravity="center"
-        android:id="@+id/button_weapon"
-        android:layout_width="200dp"
-        android:layout_alignParentRight="true"
-        android:layout_height="60dp"
-        android:text="@string/shop_button_weapons"
-        android:textSize="28sp"
-        android:textColor="@color/black"/>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_character"
+
         android:orientation="horizontal"
         >
     <ListView
