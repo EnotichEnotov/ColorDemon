@@ -16,6 +16,7 @@ import com.example.colordemon.GameStruct.Units.Enemy;
 import com.example.colordemon.GameStruct.Units.mainHero.abilities.Ability;
 import com.example.colordemon.GameStruct.Units.mainHero.first.Hero;
 import com.example.colordemon.GameStruct.Units.mainHero.abilities.Point;
+import com.example.colordemon.GameStruct.Units.mainHero.mage.Fireball;
 import com.example.colordemon.GameStruct.Units.mainHero.mage.Mage;
 import com.example.colordemon.GameStruct.base.GameObjectFactory;
 import com.example.colordemon.GameStruct.colliders.BoxCollider;
@@ -93,7 +94,13 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
     public void tickLogic(){
         hero.update();
         for(Enemy i : enemies) {
-            i.update();
+            i.update(hero.cold);
+            for(Fireball j : hero.fireballs){
+                if(i.collider.isCollision(j.x,j.y)){
+                    i.takeDamage(j.damage);
+                    hero.fireballs.remove(j);
+                }
+            }
             if(i.collider.isCollision(hero.x,hero.y)) {Log.i("III",i.damage+" "+hero.velocityY+" "+hero.velocityX+" "+hero.nowDamageCooldown); hero.damageDeal(i);}
             if(i.collider.isCollision(hero.x,hero.y)) i.takeDamage(hero.damage);
             if(i.hp<=0) enemies.remove(i);
@@ -115,12 +122,13 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
                 float addX=-centralObject.getCentralX()+getWidth()/2;
                 float addY=-centralObject.getCentralY()+getHeight()/2;
                 if(xUnPress==0 && yUnPress==0) break;
-                hero.port(xUnPress-addX-hero.x,yUnPress-addY-hero.y);
+                hero.port(xUnPress-addX,yUnPress-addY);
                 xUnPress=0; yUnPress=0;
                 break;
             case 2:
                 if(xUnPress==0 && yUnPress==0) break;
                 hero.cold();
+                xUnPress=0;yUnPress=0;
                 break;
         }
         if(timer>10) {

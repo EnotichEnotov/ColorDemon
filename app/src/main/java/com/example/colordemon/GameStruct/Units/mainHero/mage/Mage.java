@@ -3,6 +3,7 @@ package com.example.colordemon.GameStruct.Units.mainHero.mage;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 
 import com.example.colordemon.GameStruct.Units.Enemy;
 import com.example.colordemon.GameStruct.Units.Unit;
@@ -14,10 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mage extends MainCharacter {
-    ArrayList<Fireball> fireballs;
+    public ArrayList<Fireball> fireballs;
     ArrayList<Enemy> enemies;
     int coldTicker=0;
-    boolean cold=false;
+    int fireballSpeed=10;
+    public boolean cold=false;
     public Mage(float x, float y, float velocityX, float velocityY, Collider collider, float scaleX, float scaleY, int maxHp, int maxMana, int armor, int damage, int damageCooldown,ArrayList<Enemy> enemies) {
         super(x, y, velocityX, velocityY, collider, scaleX, scaleY, maxHp, maxMana, armor, damage, damageCooldown);
         Name=2;
@@ -30,24 +32,18 @@ public class Mage extends MainCharacter {
     public void update() {
         if(nowDamageCooldown>0) nowDamageCooldown--;
         for(Fireball i : fireballs){
+            if(i.tick==i.lifeZikl){
+                fireballs.remove(i);
+            }
             i.update();
-        }
-        switch (damageType){
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
+            if(i.velocityX==0 && i.velocityY==0){
+                fireballs.remove(i);
+            }
         }
         if(cold) coldTicker++;
         if(coldTicker>50){
             cold=false;
             coldTicker=0;
-            for(Enemy i : enemies){
-                i.velocityX*=2;
-                i.velocityY*=2;
-            }
         }
     }
     public void fireAttack(float x,float y){ // -dash
@@ -57,7 +53,7 @@ public class Mage extends MainCharacter {
             x=x*koef;
             y=y*koef;
         }
-        Fireball fireball = new Fireball(this.x,this.y,x,y,new CircleCollider(null,1));
+        Fireball fireball = new Fireball(this.x,this.y,x,y,new CircleCollider(null,50),50);
         fireball.collider.gameObject=fireball;
         fireballs.add(fireball);
         abilities[0].setCooldownNow();
@@ -66,15 +62,35 @@ public class Mage extends MainCharacter {
         if(abilities[1].cooldownNow!=0) return;
         this.x=x;
         this.y=y;
+        Fireball fireball = new Fireball(this.x,this.y,fireballSpeed,0,new CircleCollider(null,50),50);
+        fireball.collider.gameObject=fireball;
+        fireballs.add(fireball);
+        fireball = new Fireball(this.x,this.y,fireballSpeed,fireballSpeed,new CircleCollider(null,50),50);
+        fireball.collider.gameObject=fireball;
+        fireballs.add(fireball);
+        fireball = new Fireball(this.x,this.y,0,fireballSpeed,new CircleCollider(null,50),50);
+        fireball.collider.gameObject=fireball;
+        fireballs.add(fireball);
+        fireball = new Fireball(this.x,this.y,-fireballSpeed,fireballSpeed,new CircleCollider(null,50),50);
+        fireball.collider.gameObject=fireball;
+        fireballs.add(fireball);
+        fireball = new Fireball(this.x,this.y,-fireballSpeed,0,new CircleCollider(null,50),50);
+        fireball.collider.gameObject=fireball;
+        fireballs.add(fireball);
+        fireball = new Fireball(this.x,this.y,-fireballSpeed,-fireballSpeed,new CircleCollider(null,50),50);
+        fireball.collider.gameObject=fireball;
+        fireballs.add(fireball);
+        fireball = new Fireball(this.x,this.y,0,-fireballSpeed,new CircleCollider(null,50),50);
+        fireball.collider.gameObject=fireball;
+        fireballs.add(fireball);
+        fireball = new Fireball(this.x,this.y,fireballSpeed,-fireballSpeed,new CircleCollider(null,50),50);
+        fireball.collider.gameObject=fireball;
+        fireballs.add(fireball);
         abilities[1].setCooldownNow();
     }
     public void cold(){ //circleDash - stops small units and slow big units
-        if(abilities[2].cooldownNow!=0) return;
-        for(Enemy i : enemies){
-            i.velocityX/=2;
-            i.velocityY/=2;
-            cold = true;
-        }
+        if(abilities[2].cooldownNow!=0 || cold==true) return;
+        cold=true;
         abilities[2].setCooldownNow();
     }
     @Override
