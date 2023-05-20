@@ -16,6 +16,7 @@ import com.example.colordemon.GameStruct.Units.Enemy;
 import com.example.colordemon.GameStruct.Units.mainHero.abilities.Ability;
 import com.example.colordemon.GameStruct.Units.mainHero.first.Hero;
 import com.example.colordemon.GameStruct.Units.mainHero.abilities.Point;
+import com.example.colordemon.GameStruct.Units.mainHero.mage.Mage;
 import com.example.colordemon.GameStruct.base.GameObjectFactory;
 import com.example.colordemon.GameStruct.colliders.BoxCollider;
 import com.example.colordemon.GameStruct.colliders.CircleCollider;
@@ -27,7 +28,7 @@ import com.example.colordemon.R;
 import java.util.ArrayList;
 
 public class GameMageView extends SurfaceView implements SurfaceHolder.Callback {
-    private DrawThread myThread;
+    private DrawThreadMage myThreadMage;
     private DrawController drawController;
     private EnemySpauner enemySpauner;
     private ArrayList<Enemy> enemies;
@@ -41,12 +42,12 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
     private float xUnPress;
     private float yUnPress;
     private int timer;
-    private Hero hero;
+    private Mage hero;
     public GameMageView(Context context) {
         super(context);
         background = BitmapFactory.decodeResource(context.getResources(), R.drawable.flag_german); // добавить бэкграунд
         unitsFactory = new GameObjectFactory(context);
-        myThread = new DrawThread();
+        myThreadMage = new DrawThreadMage();
         getHolder().addCallback(this);
     }
 
@@ -54,12 +55,12 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
     public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) {
         this.surfaceHolder = surfaceHolder;
         init();
-        myThread.start();
+        myThreadMage.start();
     }
     public void init(){
-        hero = new Hero(getWidth()/4,getHeight()/4,0f,0f,new BoxCollider(hero,100,100),
-                100,100,100,100,5,100,20);
-        hero.abilities[0] = new Ability(2,getWidth()*3/4,getHeight()*5/6,new CircleCollider(new Point(getWidth()*3/4+50,getHeight()*5/6+50),75),4,0);
+        hero = new Mage(getWidth()/4,getHeight()/4,0f,0f,new BoxCollider(hero,100,100),
+                100,100,100,100,5,100,20,enemies);
+        hero.abilities[0] = new Ability(1,getWidth()*3/4,getHeight()*5/6,new CircleCollider(new Point(getWidth()*3/4+50,getHeight()*5/6+50),75),4,0);
         hero.abilities[1] = new Ability(5,getWidth()*3/4+100,getHeight()*5/6+100,new CircleCollider(new Point(getWidth()*3/4+150,getHeight()*5/6+150),75),5,1);
         hero.abilities[2] = new Ability(8,getWidth()*3/4-100,getHeight()*5/6+100,new CircleCollider(new Point(getWidth()*3/4-50,getHeight()*5/6+150),75),6,2);
         hero.abilities[3] = new Ability(10,getWidth()*3/4-100,getHeight()*5/6-100,new CircleCollider(new Point(getWidth()*3/4-50,getHeight()*5/6-50),75),7,3);
@@ -101,37 +102,25 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
             i.updateCooldown();
             if(i.collider.isCollision(xUnPress,yUnPress)) {
                 hero.damageType=i.number; xUnPress=0; yUnPress=0;
-                return;
+                break;
             }
         }
         switch (hero.damageType){
             case 0:
                 if(xPress!=0 && yPress!=0 && yUnPress!=0 && xUnPress!=0){
-                    hero.dash(xUnPress-xPress,yUnPress-yPress);
+                    hero.fireAttack(xUnPress-xPress,yUnPress-yPress);
                     xPress=0; yPress=0; xUnPress=0; yUnPress=0;
                 }
             case 1:
-                float minX=100000;
-                float minY=100000;
                 float addX=-centralObject.getCentralX()+getWidth()/2;
                 float addY=-centralObject.getCentralY()+getHeight()/2;
                 if(xUnPress==0 && yUnPress==0) break;
-                for(Enemy i : enemies){
-                    if(Math.pow(i.x+addX-xUnPress,2)+Math.pow(i.y+addY-yUnPress,2)<minX*minX+minY*minY){
-                        minX=i.x+addX-xUnPress;
-                        minY=i.y+addY-yUnPress;
-                    }
-                }
-                //if(Math.pow(minX,2)+Math.pow(minY,2)>2500) break;
-                hero.enemyPort(minX-addX+xUnPress,minY-addY+yUnPress);
-                Log.i("III"," "+(minX+addX-xUnPress)+" "+(minY+addY-yUnPress));
+                hero.port(xUnPress-addX-hero.x,yUnPress-addY-hero.y);
                 xUnPress=0; yUnPress=0;
                 break;
             case 2:
-                if(xUnPress!=0 && yUnPress!=0){
-                    hero.circleDash(xUnPress,yUnPress,getWidth(),getHeight());
-                    xUnPress=0; yUnPress=0;
-                }
+                if(xUnPress==0 && yUnPress==0) break;
+                hero.cold();
                 break;
         }
         if(timer>10) {
@@ -145,7 +134,7 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
         }
         else timer++;
     }
-    private class DrawThread extends Thread {
+    private class DrawThreadMage extends Thread {
         private volatile boolean running = true;
 
         @Override
@@ -173,6 +162,6 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
 
     @Override
     public void surfaceDestroyed(@NonNull SurfaceHolder surfaceHolder) {
-        myThread.running=false;
+        myThreadMage.running=false;
     }
 }

@@ -101,7 +101,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             i.updateCooldown();
             if(i.collider.isCollision(xUnPress,yUnPress)) {
                 hero.damageType=i.number; xUnPress=0; yUnPress=0;
-                return;
+                break;
             }
         }
         switch (hero.damageType){

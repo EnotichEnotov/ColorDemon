@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 
 import com.example.colordemon.GameStruct.gameViews.first.GameView;
+import com.example.colordemon.GameStruct.gameViews.mage.GameMageView;
 
 public class Game extends Activity {
     @Override
@@ -15,6 +16,6 @@ public class Game extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(new GameView(this));
+        setContentView(new GameMageView(this));
     }
 }
