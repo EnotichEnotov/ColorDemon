@@ -60,7 +60,7 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
     }
     public void init(){
         hero = new Mage(getWidth()/4,getHeight()/4,0f,0f,new BoxCollider(hero,100,100),
-                100,100,100,100,5,100,20,enemies);
+                150,150,100,100,5,100,20,enemies);
         hero.abilities[0] = new Ability(1,getWidth()*3/4,getHeight()*5/6,new CircleCollider(new Point(getWidth()*3/4+50,getHeight()*5/6+50),75),4,0);
         hero.abilities[1] = new Ability(5,getWidth()*3/4+100,getHeight()*5/6+100,new CircleCollider(new Point(getWidth()*3/4+150,getHeight()*5/6+150),75),5,1);
         hero.abilities[2] = new Ability(8,getWidth()*3/4-100,getHeight()*5/6+100,new CircleCollider(new Point(getWidth()*3/4-50,getHeight()*5/6+150),75),6,2);
@@ -132,10 +132,10 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
                 break;
         }
         if(timer>10) {
-            if(enemies.size()<50){
+            if(enemies.size()<15){
                 enemies.add(enemySpauner.defaultSpaun());
             }
-            else{
+            else if(enemies.size()<20){
                 enemies.add(enemySpauner.bossSpaun());
             }
             timer = 0;

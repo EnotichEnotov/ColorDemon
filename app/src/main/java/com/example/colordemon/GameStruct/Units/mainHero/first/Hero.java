@@ -21,7 +21,7 @@ public class Hero extends MainCharacter {
     // damage type: 0 - dash, 1 - enemyPort, 2 - circleDash, 3 - ult
     public Hero(float x, float y, float velocityX, float velocityY, Collider collider,float scaleX,float scaleY,int maxHp,int maxMana,int armor,int damage,int damageCooldown) {
         super(x, y, velocityX,velocityY,collider,scaleX,scaleY,maxHp,maxMana,armor,damage,damageCooldown);
-        Name=1;
+        nowState=3;
     }
 
     @Override

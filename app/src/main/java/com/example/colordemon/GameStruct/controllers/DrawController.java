@@ -34,7 +34,7 @@ public class DrawController {
         paint1.setColor(Color.MAGENTA);
         Paint paint = new Paint();
         paint.setColor(Color.RED);
-        canvas.drawBitmap(createBitmap(hero.Name,hero.nowSprite(),hero.scaleX,hero.scaleY),hero.x+addX,hero.y+addY,null);
+        canvas.drawBitmap(createBitmap(hero.nowState,hero.nowSprite(),hero.scaleX,hero.scaleY),hero.x+addX,hero.y+addY,null);
         for(Enemy i : enemies){
             Rect rect1 = new Rect((int) (i.x+addX+i.scaleX/2-100),(int)(i.y+addY+i.scaleY/2-150),(int)(i.x+addX+i.scaleX/2+100),(int)(i.y+addY+i.scaleY/2-125));
             Rect rect = new Rect((int) (i.x+addX+i.scaleX/2-100),(int)(i.y+addY+i.scaleY/2-150),(int)(i.x+addX+i.scaleX/2+100*i.hp/i.maxHp),(int)(i.y+addY+i.scaleY/2-125));
@@ -42,11 +42,11 @@ public class DrawController {
             if(i.hp>0)canvas.drawRect(rect,paint);
             if (Math.random() > 0.5) {
                 canvas.drawBitmap(Bitmap.createScaledBitmap
-                        (unitsFactory.getUnitType(2).sprite.get(hero.nowSprite())
+                        (unitsFactory.getUnitType(1).sprite.get(0)
                                 , (int) i.scaleX, (int) i.scaleY, false), i.x + addX, i.y + addY, null);
             } else {
                 canvas.drawBitmap(Bitmap.createScaledBitmap
-                        (unitsFactory.getUnitType(1).sprite.get(hero.nowSprite())
+                        (unitsFactory.getUnitType(1).sprite.get(0)
                                 , (int) i.scaleX, (int) i.scaleY, false), i.x + addX, i.y + addY, null);
             }
         }
@@ -57,8 +57,8 @@ public class DrawController {
             canvas.drawText("ПОРАЖЕНИЕ",width/6,height/2,paint2);
         }
         paint.setTextSize(50);
-        Rect rect1 = new Rect((int) (hero.x+addX+hero.scaleX/2-100),(int)(hero.y+addY+hero.scaleY/2-200),(int)(hero.x+addX+hero.scaleX/2+100),(int)(hero.y+addY+hero.scaleY/2-150));
-        Rect rect = new Rect((int) (hero.x+addX+hero.scaleX/2-100),(int)(hero.y+addY+hero.scaleY/2-200),(int)(hero.x+addX+hero.scaleX/2+100*hero.hp/hero.maxHp),(int)(hero.y+addY+hero.scaleY/2-150));
+        Rect rect1 = new Rect((int) (hero.x+addX-50),(int)(hero.y+addY-50),(int)(hero.x+addX+hero.scaleX+50),(int)(hero.y+addY));
+        Rect rect = new Rect((int) (hero.x+addX-50),(int)(hero.y+addY-50),(int)(hero.x+addX+hero.scaleX*hero.hp/hero.maxHp+50),(int)(hero.y+addY));
         canvas.drawRect(rect1,paint1);
         if(hero.hp>0)canvas.drawRect(rect,paint);
         for(Ability i : hero.abilities){

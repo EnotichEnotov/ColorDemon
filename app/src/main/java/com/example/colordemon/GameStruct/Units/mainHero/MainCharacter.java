@@ -8,7 +8,7 @@ import com.example.colordemon.GameStruct.Units.mainHero.abilities.Ability;
 import com.example.colordemon.GameStruct.colliders.Collider;
 
 public abstract class MainCharacter extends Unit {
-    public int Name=-1;
+    public int nowState=3;
     public int sprite=0;
     public Ability[] abilities = new Ability[4];
     public int damageType = 0;

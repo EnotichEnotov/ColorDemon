@@ -13,6 +13,6 @@ public class BoxCollider extends Collider {
 
     @Override
     public boolean isCollision(float x,float y) {
-        return Math.abs(x-gameObject.x+gameObject.scaleX/2)<=paddingX && Math.abs(y-gameObject.y+ gameObject.scaleY)<=paddingY;
+        return Math.abs(x-gameObject.x-gameObject.scaleX)<=paddingX && Math.abs(y-gameObject.y-gameObject.scaleY)<=paddingY;
     }
 }
