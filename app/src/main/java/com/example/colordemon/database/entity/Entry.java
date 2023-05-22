@@ -44,6 +44,9 @@ public class Entry {
     public void setLiked() {
         liked = !liked;
     }
+    public void setConditionZero(){
+        liked = false;
+    }
     public boolean getLiked(){
         return liked;
     }

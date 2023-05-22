@@ -76,6 +76,9 @@ public class ShopFragment extends Fragment {
             super(context,R.layout.list,entries);
             this.entries=entries;
         }
+
+
+
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -83,57 +86,22 @@ public class ShopFragment extends Fragment {
             if(convertView==null){
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.list,null);
             }
-            /*
-            convertView.findViewById(R.id.like).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Button likes = view.findViewById(R.id.like);
-                    Drawable like = view.getResources().getDrawable(R.drawable.shop_skin_person1);
-                    Drawable like2 = view.getResources().getDrawable(R.drawable.shop_skin_person1);
-                    if(entry.getLiked()){
-                        likes.setCompoundDrawablesWithIntrinsicBounds(like,null,null,null);
-                        entry.setLikes(entry.getLikes()-1);
-                        likes.setText(""+entry.getLikes());
-                        entry.setLiked();
-                    }
 
-
-                    else{
-                        likes.setCompoundDrawablesWithIntrinsicBounds(like2,null,null,null);
-                        entry.setLikes(entry.getLikes()+1);
-                        likes.setText(""+entry.getLikes());
-                        entry.setLiked();
-                    }
-                }
-            });
-            */
             convertView.findViewById(R.id.send).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Button choosen = view.findViewById(R.id.send);
                     if(!entry.getLiked()){
+                        for (Entry x: entries){
+                            x.setConditionZero();
+                        }
                         choosen.setBackground(getResources().getDrawable(R.drawable.shop_activatedbut));
                         entry.setLiked();
+                        MyEntryAdapter1.super.notifyDataSetChanged();
                     }
-                    //Toast.makeText(, "Оно работает", Toast.LENGTH_SHORT).show();
+
                 }
             });
-                /*
-                convertView.findViewById(R.id.comments).setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(MainActivity.this,ElprimoActivity.class);
-                        intent.putExtra("Text",entry.getAuthor());
-                        startActivity(intent);
-                        finish();
-                    }
-
-                });
-                */
-
-            //ImageView authorArt = convertView.findViewById(R.id.author_art);
-            //authorArt.setImageResource(entry.getAuthorArtid());
             ImageView memes = convertView.findViewById(R.id.memes);
             memes.setImageResource(entry.getMemeid());
             TextView author = convertView.findViewById(R.id.author);
