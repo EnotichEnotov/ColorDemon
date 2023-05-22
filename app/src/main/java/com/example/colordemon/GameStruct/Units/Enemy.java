@@ -7,6 +7,7 @@ import com.example.colordemon.GameStruct.base.GameObject;
 
 public class Enemy extends Unit{
     private GameObject targetObject;
+    public int animTick=0;
     private float radius;
     public Enemy(float x, float y, float velocityX, float velocityY, Collider collider,float scaleX,float scaleY,GameObject targetObject) {
         super(x, y, velocityX,velocityY,collider,scaleX,scaleY);
@@ -23,12 +24,20 @@ public class Enemy extends Unit{
     @Override
     public void update() {
         super.update();
+        if(animTick>=5){
+            animTick=0;
+        }
+        animTick++;
         if(nowDamageCooldown>0) nowDamageCooldown--;
         if(Math.sqrt((x-targetObject.x-targetObject.scaleX/2)*(x-targetObject.x-targetObject.scaleX/2)+(y-targetObject.y-targetObject.scaleY/2)*(y-targetObject.y-targetObject.scaleY/2))<10) return;
         x-=radius*(x-targetObject.x-targetObject.scaleX/2)/(float)Math.sqrt((x-targetObject.x-targetObject.scaleX/2)*(x-targetObject.x-targetObject.scaleX/2)+(y-targetObject.y-targetObject.scaleY/2)*(y-targetObject.y-targetObject.scaleY/2));
         y-=radius*(y-targetObject.y-targetObject.scaleY/2)/(float)Math.sqrt((x-targetObject.x-targetObject.scaleX/2)*(x-targetObject.x-targetObject.scaleX/2)+(y-targetObject.y-targetObject.scaleY/2)*(y-targetObject.y-targetObject.scaleY/2));
     }
     public void update(boolean cold) {
+        if(animTick>=5){
+            animTick=0;
+        }
+        animTick++;
         if(nowDamageCooldown>0) nowDamageCooldown--;
         if(Math.sqrt((x-targetObject.x-targetObject.scaleX/2)*(x-targetObject.x-targetObject.scaleX/2)+(y-targetObject.y-targetObject.scaleY/2)*(y-targetObject.y-targetObject.scaleY/2))<10) return;
         if(!cold){

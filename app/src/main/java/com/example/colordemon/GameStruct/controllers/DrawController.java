@@ -36,19 +36,13 @@ public class DrawController {
         paint.setColor(Color.RED);
         canvas.drawBitmap(createBitmap(hero.nowState,hero.nowSprite(),hero.scaleX,hero.scaleY),hero.x+addX,hero.y+addY,null);
         for(Enemy i : enemies){
-            Rect rect1 = new Rect((int) (i.x+addX+i.scaleX/2-100),(int)(i.y+addY+i.scaleY/2-150),(int)(i.x+addX+i.scaleX/2+100),(int)(i.y+addY+i.scaleY/2-125));
-            Rect rect = new Rect((int) (i.x+addX+i.scaleX/2-100),(int)(i.y+addY+i.scaleY/2-150),(int)(i.x+addX+i.scaleX/2+100*i.hp/i.maxHp),(int)(i.y+addY+i.scaleY/2-125));
+            Rect rect1 = new Rect((int) (i.x+addX-50),(int)(i.y+addY-50),(int)(i.x+addX+i.scaleX/3),(int)(i.y+addY));
+            Rect rect = new Rect((int) (i.x+addX-50),(int)(i.y+addY-50),(int)(i.x+addX+i.scaleX+i.scaleX*i.hp/i.maxHp/3),(int)(i.y+addY));
             canvas.drawRect(rect1,paint1);
             if(i.hp>0)canvas.drawRect(rect,paint);
-            if (Math.random() > 0.5) {
-                canvas.drawBitmap(Bitmap.createScaledBitmap
-                        (unitsFactory.getUnitType(1).sprite.get(0)
+            canvas.drawBitmap(Bitmap.createScaledBitmap
+                        (unitsFactory.getUnitType(1).sprite.get(i.animTick)
                                 , (int) i.scaleX, (int) i.scaleY, false), i.x + addX, i.y + addY, null);
-            } else {
-                canvas.drawBitmap(Bitmap.createScaledBitmap
-                        (unitsFactory.getUnitType(1).sprite.get(0)
-                                , (int) i.scaleX, (int) i.scaleY, false), i.x + addX, i.y + addY, null);
-            }
         }
         if(hero.hp<=0){
             Paint paint2 = new Paint();

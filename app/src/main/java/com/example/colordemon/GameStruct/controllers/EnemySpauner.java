@@ -8,6 +8,7 @@ public class EnemySpauner {
     GameObject defaultTarget;
     float width;
     Enemy enemy;
+    public int maxHp=75, maxMana=100, scaleX=150,scaleY=150,armor=2,damage=50,velocityX=6,velocityY=6;
     float height;
     public EnemySpauner(GameObject defaultTarget,float width,float height){
         this.defaultTarget=defaultTarget;
@@ -17,9 +18,9 @@ public class EnemySpauner {
     public Enemy defaultSpaun(){
         int znakX=Math.random() > 0.5 ? -1 : 1;
         int znakY=Math.random() > 0.5 ? -1 : 1;
-        enemy = new Enemy(defaultTarget.x+(float)(width+Math.random()*300)*znakX,defaultTarget.y+(float)(width+Math.random()*300)*znakY,5,5,
+        enemy = new Enemy(defaultTarget.x+(float)(width+Math.random()*300)*znakX,defaultTarget.y+(float)(width+Math.random()*300)*znakY,velocityX,velocityY,
                 new BoxCollider(enemy,100,100),
-                100,100,75,100,2,50,
+                scaleX,scaleY,maxHp,maxMana,armor,damage,
                 10,defaultTarget);
         enemy.collider.gameObject=enemy;
         return enemy;

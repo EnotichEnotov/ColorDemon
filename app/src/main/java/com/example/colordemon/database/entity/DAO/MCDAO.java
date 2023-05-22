@@ -30,4 +30,6 @@ public interface MCDAO {
 
     @Update
     void update(MapOrCharacterEntity mc);
+    @Query("DELETE FROM MapOrCharacterEntity")
+    void deleteAll();
 }
