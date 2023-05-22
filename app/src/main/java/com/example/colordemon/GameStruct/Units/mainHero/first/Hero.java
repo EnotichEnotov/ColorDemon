@@ -45,8 +45,10 @@ public class Hero extends MainCharacter {
         }
         if(hp<=0){ Log.i("III","GAME OVER");}
     }
-    public void damageDeal(Enemy enemy){
-        if(nowDamageCooldown<=0 && velocityX==0 && velocityY==0){ hp-=enemy.damage*(enemy.damage-1)/(enemy.damage+armor); nowDamageCooldown=damageCooldown;}
+
+    @Override
+    public void damageDeal(Enemy enemy) {
+        super.damageDeal(enemy);
     }
 
     private void dashUpdate(){
