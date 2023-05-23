@@ -16,6 +16,11 @@ public class Hero extends MainCharacter {
     private float angleSpeed = 2*(float)Math.PI/20f;
     private float addX;
     private float addY;
+    int idleTicker=0;
+    int attack1Ticker=0;
+    int attack2Ticker=0;
+    int attack3Ticker=0;
+    int hurtTicker=0;
     private float tickTime = 1f;
     // abilities: max 0 - 2, max 1 - 5, max 2 - 8, max 3 - 15
     // damage type: 0 - dash, 1 - enemyPort, 2 - circleDash, 3 - ult
@@ -23,7 +28,41 @@ public class Hero extends MainCharacter {
         super(x, y, velocityX,velocityY,collider,scaleX,scaleY,maxHp,maxMana,armor,damage,damageCooldown);
         nowState=3;
     }
-
+    @Override
+    public int nowSprite(){
+        if(idleTicker>=15){
+            idleTicker=0;
+        }
+        if(attack1Ticker>=15){
+            attack1Ticker=0;
+            nowState=3;
+        }
+        if(attack2Ticker>=3){
+            attack2Ticker=0;
+            nowState=3;
+        }
+        if(attack3Ticker>=15){
+            attack3Ticker=0;
+            nowState=3;
+        }
+        if(hurtTicker>=3){
+            hurtTicker=0;
+            nowState=3;
+        }
+        switch (nowState){
+            case 3:
+                return (idleTicker++)/3;
+            case 2:
+                return (attack1Ticker++)/3;
+            case 5:
+                return  (attack2Ticker++);
+            case 6:
+                return (attack3Ticker++)/3;
+            case 7:
+                return (hurtTicker++);
+        }
+        return 0;
+    }
     @Override
     public void update() {
         if(nowDamageCooldown>0) nowDamageCooldown--;
@@ -48,7 +87,11 @@ public class Hero extends MainCharacter {
 
     @Override
     public void damageDeal(Enemy enemy) {
-        super.damageDeal(enemy);
+        if(nowDamageCooldown<=0){
+            super.damageDeal(enemy);
+            nowState=7;
+            nowDamageCooldown=damageCooldown;
+        }
     }
 
     private void dashUpdate(){
@@ -75,6 +118,7 @@ public class Hero extends MainCharacter {
         }
         else{nowDamageCooldown=damageCooldown;}
         Log.i("III",x+" "+y);
+        nowState=6;
     }
     private void enemyPortUpdate(){
         if(addX==0 || addY==0) return;
@@ -83,20 +127,19 @@ public class Hero extends MainCharacter {
         addY=0;
         addX=0;
         nowDamageCooldown=damageCooldown;
-    }
-    public int nowSprite(){
-        return 0;
+        nowState=5;
     }
     public void dash(float addVelocityX,float addVelocityY){
         if(abilities[0].cooldownNow!=0) return;
         float koef = Math.min(Math.abs(400f/addVelocityX),Math.abs(400f/addVelocityY));
         if(Math.abs(addVelocityX)>400f || Math.abs(addVelocityY)>400f){
-            addVelocityX=addVelocityX*koef;
-            addVelocityY=addVelocityY*koef;
+            addVelocityX=addVelocityX*koef/3;
+            addVelocityY=addVelocityY*koef/3;
         }
         velocityX=addVelocityX;
         velocityY=addVelocityY;
         abilities[0].setCooldownNow();
+        nowState=2;
     }
     public void enemyPort(float newX,float newY){
         if(abilities[1].cooldownNow!=0) return;

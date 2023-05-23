@@ -50,8 +50,8 @@ public class Enemy extends Unit{
         }
     }
     public void takeDamage(float damage){
-        if(hp>=damage && nowDamageCooldown==0){ hp-=damage*(damage-1)/(damage+armor); nowDamageCooldown=damageCooldown;
+        if(hp>damage && nowDamageCooldown==0){ hp-=damage*(damage-1)/(damage+armor); nowDamageCooldown=damageCooldown;
             Log.i("AAA",damageCooldown+"");}
-        else if(hp<=damage && nowDamageCooldown==0) hp = 0;
+        else if(hp<=damage && nowDamageCooldown==0) {hp = 0;         Log.i("III",nowDamageCooldown+" "+damage+" "+hp);}
     }
 }

@@ -94,7 +94,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         for(Enemy i : enemies) {
             i.update();
             if(i.collider.isCollision(hero.x,hero.y)) {Log.i("III",i.damage+" "+hero.velocityY+" "+hero.velocityX+" "+hero.nowDamageCooldown); hero.damageDeal(i);}
-            if(i.collider.isCollision(hero.x,hero.y)) i.takeDamage(hero.damage);
+            if(i.collider.isCollision(hero.x,hero.y)) {i.takeDamage(hero.damage);}
             if(i.hp<=0) enemies.remove(i);
         }
         for(Ability i : hero.abilities){
@@ -135,10 +135,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 break;
         }
         if(timer>10) {
-            if(enemies.size()<50){
+            if(enemies.size()<15){
                 enemies.add(enemySpauner.defaultSpaun());
             }
-            else{
+            else if(enemies.size()<20){
                 enemies.add(enemySpauner.bossSpaun());
             }
             timer = 0;

@@ -67,9 +67,11 @@ public class DrawController {
                 canvas.drawCircle(i.collider.gameObject.x, i.collider.gameObject.y, 10, paint);
             //canvas.drawCircle(i.collider.centerX,i.collider.centerY,i.collider.radius,paint);
         }
-        for(Fireball i : fireballs){
-            canvas.drawBitmap(Bitmap.createScaledBitmap(unitsFactory.getUnitType(8).sprite.get(0)
-                    ,(int)i.scaleX,(int) i.scaleY,false),i.x+addX,i.y+addY,null);
+        if(fireballs!=null){
+            for(Fireball i : fireballs){
+                canvas.drawBitmap(Bitmap.createScaledBitmap(unitsFactory.getUnitType(8).sprite.get(0)
+                        ,(int)i.scaleX,(int) i.scaleY,false),i.x+addX,i.y+addY,null);
+            }
         }
     }
     private Bitmap createBitmap(int name,int number,float scaleX,float scaleY){
