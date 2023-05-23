@@ -9,6 +9,8 @@ public class Fireball extends GameObject {
     protected int tick=0;
     public Fireball(float x, float y, float velocityX, float velocityY, Collider collider,int damage) {
         super(x, y, velocityX, velocityY, collider);
+        scaleX=100;
+        scaleY=100;
         this.damage=damage;
     }
 

@@ -2,6 +2,7 @@ package com.example.colordemon.MainMenuAdditionals;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,6 @@ public class MenuFragment1 extends Fragment {
                 getActivity().finish();
             }
         });
-
         MyMapOrCharAdapter adapter= new MyMapOrCharAdapter(App.getMaps().mcDao().getAll());
         binding.recyclerMaps.setAdapter(adapter);
         binding.recyclerMaps.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
@@ -50,21 +50,28 @@ public class MenuFragment1 extends Fragment {
         public MyMapOrCharAdapter(List<MapOrCharacterEntity> mapsOrChars) {
             this.mapsOrChars = mapsOrChars;
         }
-
         @NonNull
         @Override
         public MyMapOrCharAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_of_maps, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list, parent, false);
             return new MyMapOrCharAdapter.MyViewHolder(view);
         }
-
         @Override
         public void onBindViewHolder(@NonNull MyMapOrCharAdapter.MyViewHolder holder, int position) {
             holder.sprite.setImageResource(mapsOrChars.get(position).sprite);
             holder.item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getContext(),"Bebra",Toast.LENGTH_LONG);
+                   if(mapsOrChars.get(holder.getAdapterPosition()).chosen==false){
+                       mapsOrChars.get(holder.getAdapterPosition()).chosen=true;
+                       App.getDatabase().save(holder.getAdapterPosition());
+                       Log.i("III",holder.getAdapterPosition()+" "+App.getDatabase().getChosen());
+                       holder.item.setBackground(getResources().getDrawable(R.drawable.shop_activatedbut));
+                   }
+                   else{
+                       mapsOrChars.get(holder.getAdapterPosition()).chosen=false;
+                       holder.item.setBackground(getResources().getDrawable(R.drawable.startbut));
+                   }
                 }
             });
         }
@@ -81,9 +88,9 @@ public class MenuFragment1 extends Fragment {
 
             public MyViewHolder(View v) {
                 super(v);
-                sprite = v.findViewById(R.id.map);
-                description = v.findViewById(R.id.map_descrip);
-                item = v.findViewById(R.id.choose);
+                sprite = v.findViewById(R.id.memes);
+                description = v.findViewById(R.id.author);
+                item = v.findViewById(R.id.send);
             }
         }
     }

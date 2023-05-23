@@ -14,7 +14,7 @@ public class MapOrCharacterEntity {
 
     public MapOrCharacterEntity(int sprite, int description) {
         this.sprite = sprite;
-        purchased = false;
+        purchased = true;
         this.description = description;
         chosen = false;
     }

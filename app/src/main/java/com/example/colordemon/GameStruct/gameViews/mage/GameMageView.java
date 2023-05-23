@@ -46,7 +46,7 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
     private Mage hero;
     public GameMageView(Context context) {
         super(context);
-        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.flag_german); // добавить бэкграунд
+        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.white); // добавить бэкграунд
         unitsFactory = new GameObjectFactory(context);
         myThreadMage = new DrawThreadMage();
         getHolder().addCallback(this);
@@ -68,7 +68,7 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
         centralObject = new CentralObject(hero);
         enemySpauner = new EnemySpauner(hero,getWidth(),getHeight());
         enemies = new ArrayList<>();
-        drawController = new DrawController(centralObject,hero,enemies,null,unitsFactory);
+        drawController = new DrawController(centralObject,hero,enemies,null,unitsFactory,hero.fireballs);
     }
     public void drawFrames(Canvas canvas){
         Rect backgroundRect = new Rect(0, 0, getWidth(), getHeight());

@@ -110,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements DataPushing{
         // + настройка звука, можно будет тягать доп штуки с настроек
         Intent intent = new Intent(MainActivity.this, DownloadActivity.class);
         startActivity(intent);
+        mPlayer.stop();
+        super.finish();
     }
     class MyPagerAdapter extends FragmentPagerAdapter {
 

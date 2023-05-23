@@ -33,30 +33,19 @@ public class App extends Application {
     public void onCreate() {
         instance = this;
         maps = Room.databaseBuilder(this,DatabaseMaps.class,"maps").allowMainThreadQueries().build();
+        maps.mcDao().deleteAll();
         if (maps.mcDao().getAll().isEmpty()){
             List<MapOrCharacterEntity> entities = new ArrayList<>();
-            /*
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
+            entities.add(new MapOrCharacterEntity((int) R.drawable.idle_first1,1));
+            entities.add(new MapOrCharacterEntity((int) R.drawable.idle_1,1));
             maps.mcDao().insertAll(entities);
-
-             */
         }
         characters = Room.databaseBuilder(this,DatabaseMaps.class,"characters").allowMainThreadQueries().build();
         if (characters.mcDao().getAll().isEmpty()){
             List<MapOrCharacterEntity> entities = new ArrayList<>();
-            /*
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person4));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person2));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person3));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person5));
-            entities.add(new MapOrCharacterEntity(R.drawable.shop_skin_person1));
+            entities.add(new MapOrCharacterEntity((int) R.drawable.idle_first1,1));
+            entities.add(new MapOrCharacterEntity((int) R.drawable.idle_1,1));
             characters.mcDao().insertAll(entities);
-
-             */
         }
         database = new SettingsDatabase(this);
         super.onCreate();

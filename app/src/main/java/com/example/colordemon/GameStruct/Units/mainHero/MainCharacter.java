@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import com.example.colordemon.GameStruct.Units.Enemy;
 import com.example.colordemon.GameStruct.Units.Unit;
 import com.example.colordemon.GameStruct.Units.mainHero.abilities.Ability;
+import com.example.colordemon.GameStruct.base.GameObjectFactory;
 import com.example.colordemon.GameStruct.colliders.Collider;
 
 public abstract class MainCharacter extends Unit {
@@ -22,7 +23,7 @@ public abstract class MainCharacter extends Unit {
         super(x, y, velocityX,velocityY,collider,scaleX,scaleY,maxHp,maxMana,armor,damage,damageCooldown);
     }
 
-    public void draw(Canvas canvas,float addX,float addY) {
+    public void draw(Canvas canvas, float addX, float addY, GameObjectFactory unitsFactory) {
     }
     public void damageDeal(Enemy enemy){
         if(nowDamageCooldown<=0 && velocityX==0 && velocityY==0){ hp-=enemy.damage*(enemy.damage-1)/(enemy.damage+armor); nowDamageCooldown=damageCooldown;}
