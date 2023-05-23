@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 public class SettingsDatabase {
     public static final String LANGUAGE="language";
     public static final String VOLUME="volume";
+    public static final String CHOSEN="Chosen";
     private final SharedPreferences storage;
 
     public SettingsDatabase(Context context) {
@@ -18,16 +19,25 @@ public class SettingsDatabase {
     }
     public void save(float volume){
         SharedPreferences.Editor editor = storage.edit();
-        editor.putFloat(SettingsDatabase.LANGUAGE,volume);
+        editor.putFloat(SettingsDatabase.VOLUME,volume);
+        //editor.apply();
     }
     public void save(String language,float volume){
         save(language);
         save(volume);
+    }
+    public void save(int chosen){
+        SharedPreferences.Editor editor = storage.edit();
+        editor.putInt(SettingsDatabase.CHOSEN,chosen);
+        editor.apply();
     }
     public String getLanguage(){
         return storage.getString(LANGUAGE,"");
     }
     public Integer getVolume(){
         return storage.getInt(VOLUME,50);
+    }
+    public Integer getChosen(){
+        return storage.getInt(CHOSEN,6);
     }
 }

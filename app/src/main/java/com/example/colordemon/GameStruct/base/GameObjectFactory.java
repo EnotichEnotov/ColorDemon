@@ -62,6 +62,9 @@ public class GameObjectFactory {
         pullPersons.add(BitmapFactory.decodeResource(context.getResources(), R.drawable.hurt_1));
         pullPersons.add(BitmapFactory.decodeResource(context.getResources(), R.drawable.hurt_2));
         unitTypes.add(new GameObjectType(pullPersons,7));
+        pullPersons = new ArrayList<>();
+        pullPersons.add(BitmapFactory.decodeResource(context.getResources(), R.drawable.fireball));
+        unitTypes.add(new GameObjectType(pullPersons,8));
     }
 
     public GameObjectType getUnitType(Integer name){

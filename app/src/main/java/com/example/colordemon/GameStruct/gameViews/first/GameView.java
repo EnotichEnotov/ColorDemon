@@ -66,7 +66,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         centralObject = new CentralObject(hero);
         enemySpauner = new EnemySpauner(hero,getWidth(),getHeight());
         enemies = new ArrayList<>();
-        drawController = new DrawController(centralObject,hero,enemies,null,unitsFactory);
+        drawController = new DrawController(centralObject,hero,enemies,null,unitsFactory,null);
     }
     public void drawFrames(Canvas canvas){
         Rect backgroundRect = new Rect(0, 0, getWidth(), getHeight());

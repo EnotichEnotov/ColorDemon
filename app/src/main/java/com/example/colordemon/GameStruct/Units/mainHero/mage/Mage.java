@@ -1,18 +1,17 @@
 package com.example.colordemon.GameStruct.Units.mainHero.mage;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.util.Log;
 
 import com.example.colordemon.GameStruct.Units.Enemy;
-import com.example.colordemon.GameStruct.Units.Unit;
 import com.example.colordemon.GameStruct.Units.mainHero.MainCharacter;
+import com.example.colordemon.GameStruct.base.GameObjectFactory;
 import com.example.colordemon.GameStruct.colliders.CircleCollider;
 import com.example.colordemon.GameStruct.colliders.Collider;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Mage extends MainCharacter {
     public ArrayList<Fireball> fireballs;
@@ -99,8 +98,8 @@ public class Mage extends MainCharacter {
     public void postFireAttack(){
         float koef = Math.min(Math.abs(100f/x),Math.abs(100f/y));
         if(Math.abs(fireX)>100f || Math.abs(fireY)>100f){
-            fireX=fireX*koef*1.5f;
-            fireY=fireY*koef*1.5f;
+            fireX=fireX*koef;
+            fireY=fireY*koef;
         }
         Fireball fireball = new Fireball(this.x+scaleX,this.y+scaleY/2,fireX,fireY,new CircleCollider(null,50),50);
         fireball.collider.gameObject=fireball;
@@ -143,17 +142,6 @@ public class Mage extends MainCharacter {
         abilities[2].setCooldownNow();
         nowState=6;
     }
-    @Override
-    public void draw(Canvas canvas, float addX, float addY) {
-        super.draw(canvas, addX, addY);
-        for(Fireball i : fireballs){
-            Paint paint = new Paint();
-            paint.setColor(Color.BLUE);
-            canvas.drawCircle(i.x+addX,i.y+addY,50,paint);
-        }
-    }
-
-
     @Override
     public void damageDeal(Enemy enemy) {
         if(nowDamageCooldown<=0){
