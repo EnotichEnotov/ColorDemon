@@ -35,5 +35,12 @@
     <string name="tutorial">Lernprogramm</string>
     <string name="settings_title">Einstellungen</string>
     <string name="language_title_change">Sprache</string>
-    <string name="music_title_change">Musik</string>
+    <string name="music_title_change">Volumen</string>
+
+    <string name="settings_check_box_1">Geräusche</string>
+    <string name="settings_check_box_2">Leistung</string>
+    <string name="settings_check_box_3">Bietet </string>
+    <string name="settings_check_box_4">Auswirkungen</string>
+    <string name="settings_check_box_5">Blitzt</string>
+    <string name="settings_check_box_6">Dunkelheit</string>
 </resources>

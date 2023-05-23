@@ -37,5 +37,12 @@
     <string name="tutorial">Туториалl</string>
     <string name="settings_title">Настройки</string>
     <string name="language_title_change">Язык</string>
-    <string name="music_title_change">Музыка</string>
+    <string name="music_title_change">Громкость</string>
+
+    <string name="settings_check_box_1">Звуки</string>
+    <string name="settings_check_box_2">Продуктивность</string>
+    <string name="settings_check_box_3">Уведомления</string>
+    <string name="settings_check_box_4">Эффекты</string>
+    <string name="settings_check_box_5">Вспышки</string>
+    <string name="settings_check_box_6">Темнота</string>
 </resources>

@@ -36,8 +36,8 @@ public class ShopFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = ShopBinding.inflate(inflater);
-        entries[0] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person1);
-        entries[1] = new Entry(getResources().getString(R.string.author_shop_character_2),R.drawable.shop_skin_person2);
+        entries[0] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person_1);
+        entries[1] = new Entry(getResources().getString(R.string.author_shop_character_2),R.drawable.shop_skin_person_2);
         entries[2] = new Entry(getResources().getString(R.string.author_shop_character_3),R.drawable.shop_skin_person3);
         entries[3] = new Entry(getResources().getString(R.string.author_shop_character_1),R.drawable.shop_skin_person4);
         entries[4] = new Entry(getResources().getString(R.string.author_shop_character_2),R.drawable.shop_skin_person5);

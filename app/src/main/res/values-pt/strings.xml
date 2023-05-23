@@ -35,5 +35,12 @@
     <string name="tutorial">Tutorial</string>
     <string name="settings_title">Ajustes</string>
     <string name="language_title_change">Idioma</string>
-    <string name="music_title_change">Música</string>
+    <string name="music_title_change">Volumen</string>
+
+    <string name="settings_check_box_1">Sonidos</string>
+    <string name="settings_check_box_2">Actuación</string>
+    <string name="settings_check_box_3">Ofertas</string>
+    <string name="settings_check_box_4">Efectos</string>
+    <string name="settings_check_box_5">Parpadea</string>
+    <string name="settings_check_box_6">Oscuridad</string>
 </resources>

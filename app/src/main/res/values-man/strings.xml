@@ -35,5 +35,12 @@
     <string name="tutorial">教程</string>
     <string name="settings_title">設置</string>
     <string name="language_title_change">語言</string>
-    <string name="music_title_change">音樂</string>
+    <string name="music_title_change">體積</string>
+
+    <string name="settings_check_box_1">聲音</string>
+    <string name="settings_check_box_2">表現</string>
+    <string name="settings_check_box_3">優惠</string>
+    <string name="settings_check_box_4">效果</string>
+    <string name="settings_check_box_5">閃爍</string>
+    <string name="settings_check_box_6">黑暗</string>
 </resources>

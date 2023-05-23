@@ -35,5 +35,12 @@
     <string name="tutorial">Tutorial</string>
     <string name="settings_title">Settings</string>
     <string name="language_title_change">Language</string>
-    <string name="music_title_change">Music</string>
+    <string name="music_title_change">Volume</string>
+
+    <string name="settings_check_box_1">Sounds</string>
+    <string name="settings_check_box_2">Productivity</string>
+    <string name="settings_check_box_3">Offers</string>
+    <string name="settings_check_box_4">Effects</string>
+    <string name="settings_check_box_5">Flashes</string>
+    <string name="settings_check_box_6">Darkness</string>
 </resources>
