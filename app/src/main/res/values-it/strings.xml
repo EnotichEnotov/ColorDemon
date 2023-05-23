@@ -8,7 +8,7 @@
     <string name="level_textView">Livello</string>
     <string name="leaders_textView">Capi</string>
 
-    <string name="shop_choose_button">Scegliere</string>
+    <string name="shop_choose_button">Acquistare</string>
     <string name="author_shop_character_1">Uccisore</string>
     <string name="author_shop_character_2">Ladro</string>
     <string name="author_shop_character_3">Soldato</string>
