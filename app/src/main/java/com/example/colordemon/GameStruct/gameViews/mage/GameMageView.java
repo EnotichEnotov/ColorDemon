@@ -106,7 +106,7 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
             }
             if(i.collider.isCollision(hero.x,hero.y)) {Log.i("III",i.damage+" "+hero.velocityY+" "+hero.velocityX+" "+hero.nowDamageCooldown); hero.damageDeal(i);}
             if(i.collider.isCollision(hero.x,hero.y)) i.takeDamage(hero.damage);
-            if(i.hp<=0) {enemies.remove(i); }
+            if(i.hp<=0) {enemies.remove(i); score+=50;}
         }
         for(Ability i : hero.abilities){
             i.updateCooldown();
