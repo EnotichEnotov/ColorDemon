@@ -1,0 +1,421 @@
+@startuml
+class com.example.colordemon.GameStruct.Units.Unit {
++ int maxHp
++ int hp
++ int damage
++ int armor
++ int maxMana
++ int mana
++ int damageCooldown
++ int nowDamageCooldown
++ void update()
+}
+class com.example.colordemon.activities.MainActivity {
+~ ActivityMainBinding binding
+~ MediaPlayer mPlayer
+~ SeekBar volumeControl
+~ AudioManager audioManager
+# void change_navigation_icons(int,int,int,boolean,boolean,boolean)
+# void onCreate(Bundle)
+- void changeLocale(Locale)
++ void DataPush(SettingsInfo)
+}
+class com.example.colordemon.activities.MainActivity.MyPagerAdapter {
++ int getCount()
++ Fragment getItem(int)
+}
+class com.example.colordemon.GameStruct.gameViews.Game {
+# void onCreate(Bundle)
+}
+class com.example.colordemon.database.entity.Settings {
+~ SettingsBinding binding
+# void onCreate(Bundle)
+}
+class com.example.colordemon.MainMenuAdditionals.MenuFragment1 {
+~ MenuFragment2Binding binding
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.colordemon.MainMenuAdditionals.MenuFragment1.MyMapOrCharAdapter {
+~ List<MapOrCharacterEntity> mapsOrChars
++ MyMapOrCharAdapter.MyViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(MyMapOrCharAdapter.MyViewHolder,int)
++ int getItemCount()
+}
+class com.example.colordemon.MainMenuAdditionals.MenuFragment1.MyMapOrCharAdapter.MyViewHolder {
+~ ImageView sprite
+~ TextView description
+~ Button item
+}
+class com.example.colordemon.GameStruct.controllers.EnemySpauner {
+~ GameObject defaultTarget
+~ float width
+~ Enemy enemy
++ int maxHp
+~ float height
++ Enemy defaultSpaun()
++ Enemy customSpaun(GameObject,int,int,int,int,int,int,int,int)
++ Enemy bossSpaun()
+}
+class com.example.colordemon.GameStruct.Units.mainHero.first.Hero {
+- float stopTime
+- float radius
+- float angle
+- float startAngle
+- float radiusX
+- float radiusY
+- float angleSpeed
+- float addX
+- float addY
+~ int idleTicker
+~ int attack1Ticker
+~ int attack2Ticker
+~ int attack3Ticker
+~ int hurtTicker
+- float tickTime
++ int nowSprite()
++ void update()
++ void damageDeal(Enemy)
+- void dashUpdate()
+- void ultUpdate()
+- void circleUpdate()
+- void enemyPortUpdate()
++ void dash(float,float)
++ void enemyPort(float,float)
++ void circleDash(float,float,float,float)
++ void ult(Float[][])
+}
+class com.example.colordemon.database.entity.MapOrCharacterEntity {
++ int id
++ int sprite
++ boolean purchased
++ int description
++ boolean chosen
+}
+class com.example.colordemon.database.entity.bd.SettingsDatabase {
++ {static} String LANGUAGE
++ {static} String VOLUME
++ {static} String CHOSEN
+- SharedPreferences storage
++ void save(String)
++ void save(float)
++ void save(String,float)
++ void save(int)
++ String getLanguage()
++ Integer getVolume()
++ Integer getChosen()
+}
+class com.example.colordemon.GameStruct.Stuffs.Potion {
++ void use()
+}
+interface com.example.colordemon.GameStruct.Stuffs.Consumable {
+~ void use()
+}
+class com.example.colordemon.GameStruct.controllers.CentralObject {
+~ GameObject gameObject
++ float getCentralX()
++ float getCentralY()
+}
+class com.example.colordemon.GameStruct.base.GameObjectType {
++ ArrayList<Bitmap> sprite
+~ Integer name
+}
+class com.example.colordemon.GameStruct.colliders.BoxCollider {
+- float paddingX
+- float paddingY
++ boolean isCollision(float,float)
+}
+class com.example.colordemon.GameStruct.Units.mainHero.mage.Fireball {
++ int damage
+# int lifeZikl
+# int tick
++ void update()
+}
+class com.example.colordemon.GameStruct.Stuffs.Stuff {
++ void update()
+}
+class com.example.colordemon.GameStruct.Units.Npc {
+}
+class com.example.colordemon.GameStruct.Units.mainHero.abilities.Ability {
++ int name
+- float frame
++ float cooldown
++ int number
++ float cooldownNow
++ float x
++ float y
++ CircleCollider collider
++ void updateCooldown()
++ void setCooldownNow()
+}
+abstract class com.example.colordemon.GameStruct.colliders.Collider {
++ GameObject gameObject
++ {abstract}boolean isCollision(float,float)
+}
+interface com.example.colordemon.database.entity.DAO.MCDAO {
+~ List<MapOrCharacterEntity> getAll()
+~ void save(MapOrCharacterEntity)
+~ void insertAll(List<MapOrCharacterEntity>)
+~ MapOrCharacterEntity getId(int)
+~ void delete(MapOrCharacterEntity)
+~ void update(MapOrCharacterEntity)
+~ void deleteAll()
+}
+interface com.example.colordemon.GameStruct.Stuffs.Openable {
+~ void open()
+}
+class com.example.colordemon.GameStruct.Stuffs.Door {
++ void open()
+}
+interface com.example.colordemon.MainMenuAdditionals.MusicInterface {
+}
+class com.example.colordemon.GameStruct.controllers.DrawController {
+~ MainCharacter hero
+~ ArrayList<Fireball> fireballs
+~ GameObjectFactory unitsFactory
+~ ArrayList<GameObject> gameObjects
+~ ArrayList<Enemy> enemies
+~ CentralObject centralObject
++ void draw(Canvas,float,float)
+- Bitmap createBitmap(int,int,float,float)
+}
+class com.example.colordemon.MainMenuAdditionals.MenuFragment {
+~ MenuFragmentBinding binding
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.colordemon.GameStruct.base.GameObjectFactory {
+~ ArrayList<GameObjectType> unitTypes
++ GameObjectType getUnitType(Integer)
+}
+class com.example.colordemon.GameStruct.Units.mainHero.mage.Mage {
++ ArrayList<Fireball> fireballs
+~ ArrayList<Enemy> enemies
+~ float fireX
+~ int coldTicker
+~ int idleTicker
+~ int attack1Ticker
+~ int attack2Ticker
+~ int attack3Ticker
+~ int hurtTicker
+~ int fireballSpeed
++ boolean cold
++ int nowSprite()
++ void update()
++ void fireAttack(float,float)
++ void postFireAttack()
++ void port(float,float)
++ void cold()
++ void damageDeal(Enemy)
+}
+class com.example.colordemon.GameStruct.gameViews.mage.GameMageView {
+- DrawThreadMage myThreadMage
+- DrawController drawController
+- EnemySpauner enemySpauner
+- ArrayList<Enemy> enemies
+- GameObjectFactory unitsFactory
+- Enemy enemy
+- SurfaceHolder surfaceHolder
+- CentralObject centralObject
+- Bitmap background
+- float xPress
+- float yPress
+- float xUnPress
+- float yUnPress
+- int timer
+- Mage hero
++ void surfaceCreated(SurfaceHolder)
++ void init()
++ void drawFrames(Canvas)
++ boolean onTouchEvent(MotionEvent)
++ void tickLogic()
++ void surfaceChanged(SurfaceHolder,int,int,int)
++ void surfaceDestroyed(SurfaceHolder)
+}
+class com.example.colordemon.GameStruct.gameViews.mage.GameMageView.DrawThreadMage {
+- boolean running
++ void run()
+}
+class com.example.colordemon.GameStruct.Units.Enemy {
+- GameObject targetObject
++ int animTick
+- float radius
++ void update()
++ void update(boolean)
++ void takeDamage(float)
+}
+class com.example.colordemon.MainMenuAdditionals.DownloadActivity {
+# void onCreate(Bundle)
+}
+abstract class com.example.colordemon.GameStruct.base.GameObject {
++ float x
++ GameObjectType type
++ Collider collider
++ {abstract}void update()
+}
+class com.example.colordemon.GameStruct.gameViews.first.GameView {
+- DrawThread myThread
+- DrawController drawController
+- EnemySpauner enemySpauner
+- ArrayList<Enemy> enemies
+- GameObjectFactory unitsFactory
+- Enemy enemy
+- SurfaceHolder surfaceHolder
+- CentralObject centralObject
+- Bitmap background
+- float xPress
+- float yPress
+- float xUnPress
+- float yUnPress
+- int timer
+- Hero hero
++ void surfaceCreated(SurfaceHolder)
++ void init()
++ void drawFrames(Canvas)
++ boolean onTouchEvent(MotionEvent)
++ void tickLogic()
++ void surfaceChanged(SurfaceHolder,int,int,int)
++ void surfaceDestroyed(SurfaceHolder)
+}
+class com.example.colordemon.GameStruct.gameViews.first.GameView.DrawThread {
+- boolean running
++ void run()
+}
+interface com.example.colordemon.activities.DataPushing {
++ void DataPush(SettingsInfo)
+}
+class com.example.colordemon.GameStruct.colliders.CircleCollider {
+~ float radius
++ boolean isCollision(float,float)
+}
+class com.example.colordemon.MainMenuAdditionals.MainThemeMusic {
+~ ActivityMainBinding binding
++ boolean InProcess
+~ MediaPlayer mPlayer
+~ SeekBar volumeControl
+~ AudioManager audioManager
+}
+class com.example.colordemon.GameStruct.Stuffs.Chest {
++ void open()
+}
+abstract class com.example.colordemon.GameStruct.Units.mainHero.MainCharacter {
++ int nowState
++ int sprite
++ Ability[] abilities
++ int damageType
++ int nowSprite()
++ void draw(Canvas,float,float,GameObjectFactory)
++ void damageDeal(Enemy)
+}
+class com.example.colordemon.MainMenuAdditionals.SettingsInfo {
+# float volume
+# String language
++ float getVolume()
++ String getLanguage()
+}
+class com.example.colordemon.MainMenuAdditionals.SettingsFragment {
+- SettingsInfo info
+~ SettingsBinding binding
+- DataPushing pushingManager
++ void onAttach(Context)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void hideAll()
+- void setNowLanguage()
+}
+class com.example.colordemon.GameStruct.Units.mainHero.abilities.Point {
++ void update()
+}
+class com.example.colordemon.database.entity.Entry {
+- boolean liked
+- String author
+- int memeid
+- int likes
+- int comments
+- int views
++ int getMemeid()
++ String getAuthor()
++ void setLiked()
++ void setConditionZero()
++ boolean getLiked()
++ void setLikes(int)
++ int getLikes()
+}
+class com.example.colordemon.MainMenuAdditionals.ShopFragment {
+- ListView listView
+- ListView listView2
+- MyEntryAdapter1 adapter
+~ ShopBinding binding
+- Entry[] entries
+- Entry[] entries2
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.colordemon.MainMenuAdditionals.ShopFragment.ItemClickListener {
++ void onItemClick(AdapterView<?>,View,int,long)
+}
+class com.example.colordemon.MainMenuAdditionals.ShopFragment.MyEntryAdapter1 {
+~ Entry[] entries
++ View getView(int,View,ViewGroup)
+}
+class com.example.colordemon.database.entity.bd.App {
+- {static} App instance
+- {static} SettingsDatabase database
+- {static} DatabaseMaps maps
+- {static} DatabaseMaps characters
++ {static} DatabaseMaps getCharacters()
++ {static} App getInstance()
++ {static} SettingsDatabase getDatabase()
++ {static} DatabaseMaps getMaps()
++ void onCreate()
+}
+abstract class com.example.colordemon.database.entity.bd.DatabaseMaps {
++ {abstract}MCDAO mcDao()
+}
+
+
+com.example.colordemon.GameStruct.base.GameObject <|-- com.example.colordemon.GameStruct.Units.Unit
+com.example.colordemon.activities.DataPushing <|.. com.example.colordemon.activities.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.colordemon.activities.MainActivity
+com.example.colordemon.activities.MainActivity +.. com.example.colordemon.activities.MainActivity.MyPagerAdapter
+com.example.colordemon.activities.FragmentPagerAdapter <|-- com.example.colordemon.activities.MainActivity.MyPagerAdapter
+android.app.Activity <|-- com.example.colordemon.GameStruct.gameViews.Game
+androidx.appcompat.app.AppCompatActivity <|-- com.example.colordemon.database.entity.Settings
+androidx.fragment.app.Fragment <|-- com.example.colordemon.MainMenuAdditionals.MenuFragment1
+com.example.colordemon.MainMenuAdditionals.MenuFragment1 +.. com.example.colordemon.MainMenuAdditionals.MenuFragment1.MyMapOrCharAdapter
+com.example.colordemon.MainMenuAdditionals.Adapter <|-- com.example.colordemon.MainMenuAdditionals.MenuFragment1.MyMapOrCharAdapter
+com.example.colordemon.MainMenuAdditionals.MenuFragment1.MyMapOrCharAdapter +.. com.example.colordemon.MainMenuAdditionals.MenuFragment1.MyMapOrCharAdapter.MyViewHolder
+com.example.colordemon.MainMenuAdditionals.ViewHolder <|-- com.example.colordemon.MainMenuAdditionals.MenuFragment1.MyMapOrCharAdapter.MyViewHolder
+com.example.colordemon.GameStruct.Units.mainHero.MainCharacter <|-- com.example.colordemon.GameStruct.Units.mainHero.first.Hero
+com.example.colordemon.GameStruct.Stuffs.Consumable <|.. com.example.colordemon.GameStruct.Stuffs.Potion
+com.example.colordemon.GameStruct.Stuffs.Stuff <|-- com.example.colordemon.GameStruct.Stuffs.Potion
+com.example.colordemon.GameStruct.colliders.Collider <|-- com.example.colordemon.GameStruct.colliders.BoxCollider
+com.example.colordemon.GameStruct.base.GameObject <|-- com.example.colordemon.GameStruct.Units.mainHero.mage.Fireball
+com.example.colordemon.GameStruct.base.GameObject <|-- com.example.colordemon.GameStruct.Stuffs.Stuff
+com.example.colordemon.GameStruct.Units.Unit <|-- com.example.colordemon.GameStruct.Units.Npc
+com.example.colordemon.GameStruct.Stuffs.Openable <|.. com.example.colordemon.GameStruct.Stuffs.Door
+com.example.colordemon.GameStruct.Stuffs.Stuff <|-- com.example.colordemon.GameStruct.Stuffs.Door
+androidx.fragment.app.Fragment <|-- com.example.colordemon.MainMenuAdditionals.MenuFragment
+com.example.colordemon.GameStruct.Units.mainHero.MainCharacter <|-- com.example.colordemon.GameStruct.Units.mainHero.mage.Mage
+com.example.colordemon.GameStruct.gameViews.mage.Callback <|.. com.example.colordemon.GameStruct.gameViews.mage.GameMageView
+android.view.SurfaceView <|-- com.example.colordemon.GameStruct.gameViews.mage.GameMageView
+com.example.colordemon.GameStruct.gameViews.mage.GameMageView +.. com.example.colordemon.GameStruct.gameViews.mage.GameMageView.DrawThreadMage
+com.example.colordemon.GameStruct.gameViews.mage.Thread <|-- com.example.colordemon.GameStruct.gameViews.mage.GameMageView.DrawThreadMage
+com.example.colordemon.GameStruct.Units.Unit <|-- com.example.colordemon.GameStruct.Units.Enemy
+androidx.appcompat.app.AppCompatActivity <|-- com.example.colordemon.MainMenuAdditionals.DownloadActivity
+com.example.colordemon.GameStruct.gameViews.first.Callback <|.. com.example.colordemon.GameStruct.gameViews.first.GameView
+android.view.SurfaceView <|-- com.example.colordemon.GameStruct.gameViews.first.GameView
+com.example.colordemon.GameStruct.gameViews.first.GameView +.. com.example.colordemon.GameStruct.gameViews.first.GameView.DrawThread
+com.example.colordemon.GameStruct.gameViews.first.Thread <|-- com.example.colordemon.GameStruct.gameViews.first.GameView.DrawThread
+com.example.colordemon.GameStruct.colliders.Collider <|-- com.example.colordemon.GameStruct.colliders.CircleCollider
+com.example.colordemon.MainMenuAdditionals.MusicInterface <|.. com.example.colordemon.MainMenuAdditionals.MainThemeMusic
+androidx.appcompat.app.AppCompatActivity <|-- com.example.colordemon.MainMenuAdditionals.MainThemeMusic
+com.example.colordemon.GameStruct.Stuffs.Openable <|.. com.example.colordemon.GameStruct.Stuffs.Chest
+com.example.colordemon.GameStruct.Stuffs.Stuff <|-- com.example.colordemon.GameStruct.Stuffs.Chest
+com.example.colordemon.GameStruct.Units.Unit <|-- com.example.colordemon.GameStruct.Units.mainHero.MainCharacter
+androidx.fragment.app.Fragment <|-- com.example.colordemon.MainMenuAdditionals.SettingsFragment
+com.example.colordemon.GameStruct.base.GameObject <|-- com.example.colordemon.GameStruct.Units.mainHero.abilities.Point
+androidx.fragment.app.Fragment <|-- com.example.colordemon.MainMenuAdditionals.ShopFragment
+com.example.colordemon.MainMenuAdditionals.ShopFragment +.. com.example.colordemon.MainMenuAdditionals.ShopFragment.ItemClickListener
+com.example.colordemon.MainMenuAdditionals.OnItemClickListener <|.. com.example.colordemon.MainMenuAdditionals.ShopFragment.ItemClickListener
+com.example.colordemon.MainMenuAdditionals.ShopFragment +.. com.example.colordemon.MainMenuAdditionals.ShopFragment.MyEntryAdapter1
+com.example.colordemon.MainMenuAdditionals.ArrayAdapter <|-- com.example.colordemon.MainMenuAdditionals.ShopFragment.MyEntryAdapter1
+android.app.Application <|-- com.example.colordemon.database.entity.bd.App
+androidx.room.RoomDatabase <|-- com.example.colordemon.database.entity.bd.DatabaseMaps
+@enduml

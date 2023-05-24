@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private DrawThread myThread;
+    int score=0;
     private DrawController drawController;
     private EnemySpauner enemySpauner;
     private ArrayList<Enemy> enemies;
@@ -44,7 +46,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Hero hero;
     public GameView(Context context) {
         super(context);
-        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.flag_german); // добавить бэкграунд
+        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.white); // добавить бэкграунд
         unitsFactory = new GameObjectFactory(context);
         myThread = new DrawThread();
         getHolder().addCallback(this);
@@ -58,7 +60,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
     public void init(){
         hero = new Hero(getWidth()/4,getHeight()/4,0f,0f,new BoxCollider(hero,100,100),
-                100,100,100,100,5,100,20);
+                100,100,100,100,5,70,20);
         hero.abilities[0] = new Ability(2,getWidth()*3/4,getHeight()*5/6,new CircleCollider(new Point(getWidth()*3/4+50,getHeight()*5/6+50),75),4,0);
         hero.abilities[1] = new Ability(5,getWidth()*3/4+100,getHeight()*5/6+100,new CircleCollider(new Point(getWidth()*3/4+150,getHeight()*5/6+150),75),5,1);
         hero.abilities[2] = new Ability(8,getWidth()*3/4-100,getHeight()*5/6+100,new CircleCollider(new Point(getWidth()*3/4-50,getHeight()*5/6+150),75),6,2);
@@ -72,6 +74,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         Rect backgroundRect = new Rect(0, 0, getWidth(), getHeight());
         canvas.drawBitmap(background, null, backgroundRect, null);
         drawController.draw(canvas,getWidth(),getHeight());
+        drawController.drawScore(score,canvas);
     }
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -95,8 +98,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             i.update();
             if(i.collider.isCollision(hero.x,hero.y)) {Log.i("III",i.damage+" "+hero.velocityY+" "+hero.velocityX+" "+hero.nowDamageCooldown); hero.damageDeal(i);}
             if(i.collider.isCollision(hero.x,hero.y)) {i.takeDamage(hero.damage);}
-            if(i.hp<=0) enemies.remove(i);
-        }
+            if(i.hp<=0) {enemies.remove(i); score+=50;}
+         }
         for(Ability i : hero.abilities){
             i.updateCooldown();
             if(i.collider.isCollision(xUnPress,yUnPress)) {

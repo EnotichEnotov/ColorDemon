@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.widget.Button;
 
 import com.example.colordemon.GameStruct.Units.mainHero.abilities.Ability;
 import com.example.colordemon.GameStruct.Units.mainHero.MainCharacter;
@@ -73,6 +74,12 @@ public class DrawController {
                         ,(int)i.scaleX,(int) i.scaleY,false),i.x+addX,i.y+addY,null);
             }
         }
+    }
+    public void drawScore(int score,Canvas canvas){
+        Paint paint = new Paint();
+        paint.setTextSize(50);
+        paint.setColor(Color.RED);
+        canvas.drawText(score+"",50,100,paint);
     }
     private Bitmap createBitmap(int name,int number,float scaleX,float scaleY){
         return Bitmap.createScaledBitmap(unitsFactory.getUnitType(name).sprite.get(number),(int)scaleX,(int)scaleY,false);

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
@@ -33,6 +34,7 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
     private DrawController drawController;
     private EnemySpauner enemySpauner;
     private ArrayList<Enemy> enemies;
+    int score=0;
     private GameObjectFactory unitsFactory;
     private Enemy enemy;
     private SurfaceHolder surfaceHolder;
@@ -74,6 +76,7 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
         Rect backgroundRect = new Rect(0, 0, getWidth(), getHeight());
         canvas.drawBitmap(background, null, backgroundRect, null);
         drawController.draw(canvas,getWidth(),getHeight());
+        drawController.drawScore(score,canvas);
     }
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -103,7 +106,7 @@ public class GameMageView extends SurfaceView implements SurfaceHolder.Callback 
             }
             if(i.collider.isCollision(hero.x,hero.y)) {Log.i("III",i.damage+" "+hero.velocityY+" "+hero.velocityX+" "+hero.nowDamageCooldown); hero.damageDeal(i);}
             if(i.collider.isCollision(hero.x,hero.y)) i.takeDamage(hero.damage);
-            if(i.hp<=0) enemies.remove(i);
+            if(i.hp<=0) {enemies.remove(i); }
         }
         for(Ability i : hero.abilities){
             i.updateCooldown();

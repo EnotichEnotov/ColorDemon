@@ -133,8 +133,8 @@ public class Hero extends MainCharacter {
         if(abilities[0].cooldownNow!=0) return;
         float koef = Math.min(Math.abs(400f/addVelocityX),Math.abs(400f/addVelocityY));
         if(Math.abs(addVelocityX)>400f || Math.abs(addVelocityY)>400f){
-            addVelocityX=addVelocityX*koef/3;
-            addVelocityY=addVelocityY*koef/3;
+            addVelocityX=addVelocityX*koef/2;
+            addVelocityY=addVelocityY*koef/2;
         }
         velocityX=addVelocityX;
         velocityY=addVelocityY;
